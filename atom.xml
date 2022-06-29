@@ -3,11 +3,11 @@
   <title>Hexo</title>
   
   <subtitle>Hexo</subtitle>
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://jjzjj.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://jjzjj.github.io/"/>
   <updated>2022-06-29T14:22:26.532Z</updated>
-  <id>http://example.com/</id>
+  <id>https://jjzjj.github.io/</id>
   
   <author>
     <name>It&#39;s Me!</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>hello man</title>
-    <link href="http://example.com/2022/06/29/hello-man/"/>
-    <id>http://example.com/2022/06/29/hello-man/</id>
+    <link href="https://jjzjj.github.io/2022/06/29/hello-man/"/>
+    <id>https://jjzjj.github.io/2022/06/29/hello-man/</id>
     <published>2022-06-29T05:08:02.000Z</published>
     <updated>2022-06-29T14:22:26.532Z</updated>
     
@@ -55,25 +55,25 @@
     
     
     
-    <category term="Diary" scheme="http://example.com/categories/Diary/"/>
+    <category term="Diary" scheme="https://jjzjj.github.io/categories/Diary/"/>
     
-    <category term="PlayStation" scheme="http://example.com/categories/Diary/PlayStation/"/>
+    <category term="PlayStation" scheme="https://jjzjj.github.io/categories/Diary/PlayStation/"/>
     
-    <category term="NS" scheme="http://example.com/categories/Diary/PlayStation/NS/"/>
+    <category term="NS" scheme="https://jjzjj.github.io/categories/Diary/PlayStation/NS/"/>
     
-    <category term="XSX" scheme="http://example.com/categories/Diary/XSX/"/>
+    <category term="XSX" scheme="https://jjzjj.github.io/categories/Diary/XSX/"/>
     
     
-    <category term="Testing" scheme="http://example.com/tags/Testing/"/>
+    <category term="Testing" scheme="https://jjzjj.github.io/tags/Testing/"/>
     
-    <category term="Another Tag" scheme="http://example.com/tags/Another-Tag/"/>
+    <category term="Another Tag" scheme="https://jjzjj.github.io/tags/Another-Tag/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2022/06/22/hello-world/"/>
-    <id>http://example.com/2022/06/22/hello-world/</id>
+    <link href="https://jjzjj.github.io/2022/06/22/hello-world/"/>
+    <id>https://jjzjj.github.io/2022/06/22/hello-world/</id>
     <published>2022-06-22T05:08:02.000Z</published>
     <updated>2022-06-29T14:15:59.695Z</updated>
     
@@ -89,9 +89,9 @@
     
     
     
-    <category term="Diary" scheme="http://example.com/categories/Diary/"/>
+    <category term="Diary" scheme="https://jjzjj.github.io/categories/Diary/"/>
     
-    <category term="PlayStation" scheme="http://example.com/categories/Diary/PlayStation/"/>
+    <category term="PlayStation" scheme="https://jjzjj.github.io/categories/Diary/PlayStation/"/>
     
     
   </entry>
