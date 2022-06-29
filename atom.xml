@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>My first Blog</title>
+  <title>Hexo</title>
   
   <subtitle>Hexo</subtitle>
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2022-06-29T14:48:14.387Z</updated>
+  <updated>2022-06-29T14:22:26.532Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -15,26 +15,6 @@
   </author>
   
   <generator uri="https://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>menu</title>
-    <link href="http://example.com/2022/06/29/menu/"/>
-    <id>http://example.com/2022/06/29/menu/</id>
-    <published>2022-06-29T14:44:01.000Z</published>
-    <updated>2022-06-29T14:48:14.387Z</updated>
-    
-    <content type="html"><![CDATA[<p>&lt;% for (var link in site.data.menu) { %&gt;<br>  <a href="<%= site.data.menu[link] %>"> &lt;%&#x3D; link %&gt; </a><br>&lt;% } %&gt;</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;p&gt;&amp;lt;% for (var link in site.data.menu) { %&amp;gt;&lt;br&gt;  &lt;a href=&quot;&lt;%= site.data.menu[link] %&gt;&quot;&gt; &amp;lt;%&amp;#x3D; link %&amp;gt; &lt;/a&gt;&lt;br&gt;&amp;lt;% } %&amp;gt;&lt;/</summary>
-      
-    
-    
-    
-    
-  </entry>
   
   <entry>
     <title>hello man</title>
