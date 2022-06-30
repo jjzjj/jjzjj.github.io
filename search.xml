@@ -105,9 +105,13 @@
 
 <h4 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端地址换成中转机的IP及中转机监听的端口6688</p>
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口6688</p>
 <h4 id="使用screen命令开启后台运行"><a href="#使用screen命令开启后台运行" class="headerlink" title="使用screen命令开启后台运行"></a>使用screen命令开启后台运行</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S name <span class="comment">#新建一个name的session</span></span><br><span class="line">screen -<span class="built_in">ls</span> <span class="comment">#列出当前所有session</span></span><br><span class="line">screen -r name <span class="comment">#回到name的session</span></span><br><span class="line">screen -d name <span class="comment">#后台运行name的session ctrl + A + D</span></span><br><span class="line">screen -d -r name <span class="comment">#结束当前session并进入name的session</span></span><br></pre></td></tr></table></figure>
 <p>后台运行在命令前面加<code>screen -dm -S gost</code><br>下次访问输入命令<code>screen -r gost</code></p>
+<h3 id="用Gost对V2ray的流量不加密转发"><a href="#用Gost对V2ray的流量不加密转发" class="headerlink" title="用Gost对V2ray的流量不加密转发"></a>用Gost对V2ray的流量不加密转发</h3><h4 id="落地机"><a href="#落地机" class="headerlink" title="落地机"></a>落地机</h4><p>不用配置</p>
+<h4 id="中转机-1"><a href="#中转机-1" class="headerlink" title="中转机"></a>中转机</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=tcp://:443/V2ray服务器IP:V2ray端口 -L=udp://:443/V2ray服务器IP:V2ray端口</span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口443</p>
 ]]></content>
       <categories>
         <category>加密隧道</category>
