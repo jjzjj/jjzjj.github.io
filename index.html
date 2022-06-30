@@ -203,7 +203,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/06/30/openvpn-config-custom-in-openwrt/" class="post-title-link" itemprop="url">openvpn config custom in openwrt</a>
+            <a href="/2022/06/30/openvpn-config-custom-in-openwrt/" class="post-title-link" itemprop="url">在openwrt软路由自定义openvpn配置文件</a>
         </h2>
 
         <div class="post-meta">
@@ -212,8 +212,22 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-30 15:23:02" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
+              <time title="创建时间：2022-06-30 15:23:02 / 修改时间：16:16:29" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenVPN/" itemprop="url" rel="index"><span itemprop="name">OpenVPN</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenVPN/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
+                </span>
             </span>
 
           
@@ -227,7 +241,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
+</blockquote>
+
+<h1 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h1><h2 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a target="_blank" rel="noopener" href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<h2 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a target="_blank" rel="noopener" href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
+<h1 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h1><h2 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h2><p>写入ovpn配置文件信息</p>
+<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 新建VPN节点  </span><br><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
+<h2 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
+<h2 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
+
+
+
       
     </div>
 
@@ -313,349 +342,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/06/29/hello-man/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="It's Me!">
-      <meta itemprop="description" content="Welcome To My Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/29/hello-man/" class="post-title-link" itemprop="url">hello man</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-29 13:08:02" itemprop="dateCreated datePublished" datetime="2022-06-29T13:08:02+08:00">2022-06-29</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 01:29:55" itemprop="dateModified" datetime="2022-06-30T01:29:55+08:00">2022-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/PlayStation/" itemprop="url" rel="index"><span itemprop="name">PlayStation</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/PlayStation/NS/" itemprop="url" rel="index"><span itemprop="name">NS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/XSX/" itemprop="url" rel="index"><span itemprop="name">XSX</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<figure class="highlight plaintext"><figcaption><span>[title] [lang:language] [url] [link text] [additional options]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure>
-
-<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<figure class="highlight plaintext"><figcaption><span>[title] [lang:language] [url] [link text] [additional options]</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure>
-
-<blockquote><p>content</p>
-<footer><strong>[author[, source]] [链接地址：]</strong><cite><a target="_blank" rel="noopener" href="https://hexo.io/">[urlname]</a></cite></footer></blockquote>
-
-<blockquote><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque hendrerit lacus ut purus iaculis feugiat. Sed nec tempor elit, quis aliquam neque. Curabitur sed diam eget dolor fermentum semper at eu lorem.</p>
-</blockquote>
-
-<blockquote><p>content</p>
-<footer><strong>[author[</strong><cite>source]] [link] [source_link_title]</cite></footer></blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">code snippet</span><br></pre></td></tr></table></figure>
-
-<h3 id="推特"><a href="#推特" class="headerlink" title="推特"></a>推特</h3><blockquote><p>NEW: DevDocs now comes with syntax highlighting. <a target="_blank" rel="noopener" href="http://devdocs.io/">http://devdocs.io</a></p>
-<footer><strong>@DevDocs</strong><cite><a target="_blank" rel="noopener" href="https://twitter.com/devdocs/status/356095192085962752">twitter.com/devdocs/status/356095192085962752</a></cite></footer></blockquote>
-
-<h3 id="引用网络文章-三级标题"><a href="#引用网络文章-三级标题" class="headerlink" title="引用网络文章 三级标题"></a>引用网络文章 三级标题</h3><blockquote><p>Every interaction is both precious and an opportunity to delight.</p>
-<footer><strong>Seth Godin</strong><cite><a target="_blank" rel="noopener" href="http://sethgodin.typepad.com/seths_blog/2009/07/welcome-to-island-marketing.html">Welcome to Island Marketing</a></cite></footer></blockquote>
-
-<h3 id="引用书上的内容"><a href="#引用书上的内容" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h2 id="普通的代码块-二级标题"><a href="#普通的代码块-二级标题" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h1 id="指定语言-一级标题"><a href="#指定语言-一级标题" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-
-<p>附加说明 正文</p>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-
-<p>附加说明和网址</p>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-
-<p>反引号代码块 在正文中显示添加代码<br><code>[language] [title] [url] [link text] code snippet</code></p>
-<p>在文章中插入 Pull quote。</p>
-<blockquote class="pullquote [class]"><p>content</p>
-</blockquote>
-
-<p>在文章中嵌入 jsFiddle</p>
-<iframe scrolling="no" width="100" height="100" src="https://jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" loading="lazy" allowfullscreen></iframe>
-
-<p>在文章中嵌入 Gist。</p>
-<script src="//gist.github.com/gist_id.js?file=[filename]"></script>
-
-<p>在文章中插入 iframe。</p>
-<iframe src="url" width="100" height="100" frameborder="0" loading="lazy" allowfullscreen></iframe>
-
-<p>在文章中插入指定大小的图片。</p>
-<img src="/images/d.jpeg" class="">
-
-<p>在文章中插入链接，并自动给外部链接添加 target&#x3D;”_blank” 属性。</p>
-<a href="" title="" target="">text url external title</a>
-
-<p>链接使用文章的标题</p>
-<a href="/2022/06/22/hello-world/" title="Hello World">Hello World</a>
-
-<p>链接使用自定义文字<br>群晖</p>
-<a href="/2022/06/22/hello-world/" title="通往文章的链接">通往文章的链接</a>
-
-<p>Default (no option)</p>
-<img src="/2022/06/29/hello-man/dd.jpeg" class="">
-<img src="/2022/06/29/hello-man/dd.jpeg" class="" title="This is an example image">
-
-<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
-<!-- 其中 class="full-image" 是必须的 -->
-<img src="dd.jpeg" class="full-image" />
-
-
-<h3 id="引用书上的内容-1"><a href="#引用书上的内容-1" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h2 id="普通的代码块-二级标题-1"><a href="#普通的代码块-二级标题-1" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h1 id="指定语言-一级标题-1"><a href="#指定语言-一级标题-1" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-
-<p>附加说明 正文</p>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-
-<p>附加说明和网址</p>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/06/29/hello-man/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/06/22/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="It's Me!">
-      <meta itemprop="description" content="Welcome To My Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hexo">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/22/hello-world/" class="post-title-link" itemprop="url">Hello World</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-22 13:08:02" itemprop="dateCreated datePublished" datetime="2022-06-22T13:08:02+08:00">2022-06-22</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-30 01:29:50" itemprop="dateModified" datetime="2022-06-30T01:29:50+08:00">2022-06-30</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/" itemprop="url" rel="index"><span itemprop="name">Diary</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Diary/PlayStation/" itemprop="url" rel="index"><span itemprop="name">PlayStation</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
-<!-- 其中 class="blockquote-center" 是必须的 -->
-<blockquote class="blockquote-center">blah blah blah</blockquote>
-
-<!-- 标签 方式，要求版本在0.4.5或以上 -->
-<blockquote class="blockquote-center">
-            <p>blah blah blah</p>
-
-          </blockquote>
-
-<!-- 标签别名 -->
-<blockquote class="blockquote-center">
-            <p>blah blah blah </p>
-
-          </blockquote>
-
-<p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h1 id="First"><a href="#First" class="headerlink" title="First"></a>First</h1><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<h3 id="引用书上的内容"><a href="#引用书上的内容" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h2 id="普通的代码块-二级标题"><a href="#普通的代码块-二级标题" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h1 id="指定语言-一级标题"><a href="#指定语言-一级标题" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-
-<p>附加说明 正文</p>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-
-<p>附加说明和网址</p>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-
-<p>反引号代码块 在正文中显示添加代码<br><code>[language] [title] [url] [link text] code snippet</code></p>
-<p>在文章中插入 Pull quote。</p>
-<blockquote class="pullquote [class]"><p>content</p>
-</blockquote>
-
-<p>在文章中嵌入 jsFiddle</p>
-<iframe scrolling="no" width="100" height="100" src="https://jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" loading="lazy" allowfullscreen></iframe>
-
-<p>在文章中嵌入 Gist。</p>
-<script src="//gist.github.com/gist_id.js?file=[filename]"></script>
-
-<p>在文章中插入 iframe。</p>
-<iframe src="url" width="100" height="100" frameborder="0" loading="lazy" allowfullscreen></iframe>
-
-<p>在文章中插入指定大小的图片。</p>
-<img src="/images/d.jpeg" class="">
-
-<p>在文章中插入链接，并自动给外部链接添加 target&#x3D;”_blank” 属性。</p>
-<a href="" title="" target="">text url external title</a>
-<h3 id="引用书上的内容-1"><a href="#引用书上的内容-1" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
-<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
-
-<h2 id="普通的代码块-二级标题-1"><a href="#普通的代码块-二级标题-1" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
-
-<h1 id="指定语言-一级标题-1"><a href="#指定语言-一级标题-1" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
-
-<p>附加说明 正文</p>
-<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
-
-<p>附加说明和网址</p>
-<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
-
-<p>反引号代码块 在正文中显示添加代码<br><code>[language] [title] [url] [link text] code snippet</code></p>
-<p>在文章中插入 Pull quote。</p>
-<blockquote class="pullquote [class]"><p>content</p>
-</blockquote>
-
-<p>在文章中嵌入 jsFiddle</p>
-<iframe scrolling="no" width="100" height="100" src="https://jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" loading="lazy" allowfullscreen></iframe>
-
-<p>在文章中嵌入 Gist。</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/06/22/hello-world/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
 
@@ -722,14 +408,14 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
