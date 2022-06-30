@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jjzjj.github.io/2022/06/30/use-gost-build-encrypted-tunnel/</loc>
+    
+    <lastmod>2022-06-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/</loc>
     
     <lastmod>2022-06-30</lastmod>
@@ -97,6 +106,34 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://jjzjj.github.io/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/Gost/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/TCP/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/UDP/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
@@ -107,7 +144,21 @@
   </url>
   
   <url>
+    <loc>https://jjzjj.github.io/categories/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://jjzjj.github.io/categories/OpenVPN/OpenWrt/</loc>
+    <lastmod>2022-06-30</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/categories/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/Gost/</loc>
     <lastmod>2022-06-30</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
