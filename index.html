@@ -214,7 +214,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-30 15:23:02 / 修改时间：16:16:29" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
+              <time title="创建时间：2022-06-30 15:23:02 / 修改时间：16:20:34" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -250,7 +250,7 @@
 <h1 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h1><h2 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h2><p>写入ovpn配置文件信息</p>
 <figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
 <h2 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
-<figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">## 新建VPN节点  </span><br><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
+<h2 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h2><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
 <h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
 <h2 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
 <h2 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
@@ -300,7 +300,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-30 09:18:44 / 修改时间：15:24:19" itemprop="dateCreated datePublished" datetime="2022-06-30T09:18:44+08:00">2022-06-30</time>
+              <time title="创建时间：2022-06-30 09:18:44 / 修改时间：16:19:12" itemprop="dateCreated datePublished" datetime="2022-06-30T09:18:44+08:00">2022-06-30</time>
             </span>
 
           
