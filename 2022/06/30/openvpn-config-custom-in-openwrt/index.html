@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。   一键脚本搭建OpenVPN服务端方法一：Nyr&#x2F;openvpn-install1wget https:&#x2F;&#x2F;git.">
@@ -29,7 +29,7 @@
 <meta property="og:description" content="官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。   一键脚本搭建OpenVPN服务端方法一：Nyr&#x2F;openvpn-install1wget https:&#x2F;&#x2F;git.">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2022-06-30T07:23:02.000Z">
-<meta property="article:modified_time" content="2022-06-30T08:20:34.376Z">
+<meta property="article:modified_time" content="2022-06-30T09:15:18.879Z">
 <meta property="article:author" content="It&#39;s Me!">
 <meta property="article:tag" content="OpenVPN">
 <meta property="article:tag" content="OpenWrt">
@@ -218,7 +218,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-06-30 15:23:02 / 修改时间：16:20:34" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
+              <time title="创建时间：2022-06-30 15:23:02 / 修改时间：17:15:18" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -235,6 +235,34 @@
             </span>
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="fa fa-comment-o"></i>
+      </span>
+      <span class="post-meta-item-text">Disqus：</span>
+    
+    <a title="disqus" href="/2022/06/30/openvpn-config-custom-in-openwrt/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/06/30/openvpn-config-custom-in-openwrt/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  
 
         </div>
       </header>
@@ -248,19 +276,18 @@
         <blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
 </blockquote>
 
-<h1 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h1><h2 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a target="_blank" rel="noopener" href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<h2 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a target="_blank" rel="noopener" href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a target="_blank" rel="noopener" href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a target="_blank" rel="noopener" href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<span id="more"></span> 
+
 <p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
-<h1 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h1><h2 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h2><p>写入ovpn配置文件信息</p>
-<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
-<h2 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
-<h2 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h2><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
-<h2 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
-<h2 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
-<h2 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
-
-
-
+<h2 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h2><h3 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h3><p>写入ovpn配置文件信息</p>
+<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
+<h3 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
+<h3 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h3><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
+<h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
+<h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
     </div>
 
     
@@ -295,6 +322,32 @@
 
           </div>
           
+      <div class="tabs tabs-comment">
+        <ul class="nav-tabs">
+            <li class="tab"><a href="#comment-disqus">Load Disqus</a></li>
+            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane disqus" id="comment-disqus">
+              
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+            </div>
+            <div class="tab-pane disqusjs" id="comment-disqusjs">
+              
+  <div class="comments">
+    <div id="disqus_thread">
+      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+    </div>
+  </div>
+  
+            </div>
+        </div>
+      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -341,7 +394,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E6%90%AD%E5%BB%BAOpenVPN%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">一键脚本搭建OpenVPN服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9ANyr-x2F-openvpn-install"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：Nyr&#x2F;openvpn-install</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9Aangristan-x2F-openvpn-install"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：angristan&#x2F;openvpn-install</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenWrt%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">OpenWrt配置</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0ovpn%E6%96%87%E4%BB%B6%E5%88%B0%E8%BD%AF%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.</span> <span class="nav-text">上传ovpn文件到软路由</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9OpenVPN%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">修改OpenVPN客户端插件配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAVPN%E8%8A%82%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">新建VPN节点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.4.</span> <span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">查看服务状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E8%BF%99%E5%BA%94%E8%AF%A5%E6%98%AF%E4%B8%80%E6%AC%A1%E6%80%A7%E7%9A%84"><span class="nav-number">2.6.</span> <span class="nav-text">也可以手动加载配置文件，这应该是一次性的</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E6%90%AD%E5%BB%BAOpenVPN%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">一键脚本搭建OpenVPN服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9ANyr-x2F-openvpn-install"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：Nyr&#x2F;openvpn-install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9Aangristan-x2F-openvpn-install"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：angristan&#x2F;openvpn-install</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWrt%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">OpenWrt配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0ovpn%E6%96%87%E4%BB%B6%E5%88%B0%E8%BD%AF%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.</span> <span class="nav-text">上传ovpn文件到软路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9OpenVPN%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">修改OpenVPN客户端插件配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAVPN%E8%8A%82%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">新建VPN节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.4.</span> <span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">查看服务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E8%BF%99%E5%BA%94%E8%AF%A5%E6%98%AF%E4%B8%80%E6%AC%A1%E6%80%A7%E7%9A%84"><span class="nav-number">2.6.</span> <span class="nav-text">也可以手动加载配置文件，这应该是一次性的</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -421,10 +474,101 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey   : 'AIzaSyBnHak7Bp_GU_mLl36Ymg8nufix3dgKR9A',
+      projectId: 'myfirstweb-1cfa4'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = CONFIG.hostname === location.hostname;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 
@@ -474,6 +618,54 @@
   
 
   
+
+<script>
+  function loadCount() {
+    var d = document, s = d.createElement('script');
+    s.src = 'https://jjmjj.disqus.com/count.js';
+    s.id = 'dsq-count-scr';
+    (d.head || d.body).appendChild(s);
+  }
+  // defer loading until the whole page loading is completed
+  window.addEventListener('load', loadCount, false);
+</script>
+<script>
+  var disqus_config = function() {
+    this.page.url = "https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/";
+    this.page.identifier = "2022/06/30/openvpn-config-custom-in-openwrt/";
+    this.page.title = "在openwrt软路由自定义openvpn配置文件";
+    };
+  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+    if (window.DISQUS) {
+      DISQUS.reset({
+        reload: true,
+        config: disqus_config
+      });
+    } else {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://jjmjj.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', '' + +new Date());
+      (d.head || d.body).appendChild(s);
+    }
+  });
+</script>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.com/api/oauth/2.0/authorize/' || 'https://disqus.com/api/',
+      apikey    : 'zpjbmWvJdrhSqhub9FMi7vFxQoSP2W5jQkbi92XlXFsy1TtoAGemaxHnDLSV7ldB',
+      shortname : 'jjmjj',
+      url       : "https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/",
+      identifier: "2022/06/30/openvpn-config-custom-in-openwrt/",
+      title     : "在openwrt软路由自定义openvpn配置文件",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
 </body>
 </html>
