@@ -17,7 +17,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Welcome To My Blog">
@@ -146,6 +146,7 @@
     <i class="fa fa-arrow-up"></i>
     <span>0%</span>
   </div>
+  <div class="reading-progress-bar"></div>
 
 
     <main class="main">
@@ -155,6 +156,83 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/06/30/post-my-first-hexo-page/" class="post-title-link" itemprop="url">使用Hexo+Github+Next主题搭建个人博客</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-06-30 09:18:44 / 修改时间：11:21:51" itemprop="dateCreated datePublished" datetime="2022-06-30T09:18:44+08:00">2022-06-30</time>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <blockquote><p>折腾了小半天，总算把简洁的个人博客搭建成功了，一直都想弄一个博客啥的来记录下平时积累的东西，写在txt文本、word离线的容易丢，后面用OneNote记录也蛮方便，移动端有时候要查也行，还支持OCR图片查询，但是折腾排版格式个人觉得很麻烦，搭了很多次wp，搭完进去一看到写东西的界面排版花里胡哨，又不写了，最后还是写在了csdn，结果上次简单写了几句openvpn的命令，审核不过被删了。大多时候还是简单新建一个文本文档记录下，过后就转移到OneNote。在网上查资料的时候，发现Hexo框架+Next主题搭的个人博客网站非常符合自己的需求，界面简洁，使用md语法写在文本上，最后git一提交，而且数据存在本地，又可以在github弄一个项目，又免去了另外购置vps主机和域名。如果不想用xxxx.github.io的域名，也可以替换一个自己购买申请的域名。第一篇就记录下如何以Hexo+Github+Next来搭建的。</p>
+</blockquote>
+
+<h1 id="搭建Hexo-Next网站"><a href="#搭建Hexo-Next网站" class="headerlink" title="搭建Hexo+Next网站"></a>搭建Hexo+Next网站</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo 中文官方文档</a><br><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">Next 中文官方文档</a></p>
+<blockquote><p>如果要搭建的话，还是花几小时从头到尾把官方文档看一遍比较好，首先这些文档比较少，内容也很简单，边实践边摸索，比一上来就搜各种教程要更加有效率。</p>
+</blockquote>
+
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装前提：<br><a target="_blank" rel="noopener" href="http://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br><a target="_blank" rel="noopener" href="http://git-scm.com/">Git</a><br>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
+<p>等安装完成，输入<code>hexo -v</code>能查看版本说明安装成功<br>新建网站目录文件夹并安装模块</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> hexo.github.io</span><br><span class="line"><span class="built_in">cd</span> hexo.github.io</span><br><span class="line">hexo init myweb</span><br><span class="line"><span class="built_in">cd</span> myweb</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<p>对网站的基本配置，可以查阅<a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/configuration">Hexo 中文官方配置文档</a></p>
+<figure class="highlight plaintext"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">title: Hexo</span><br><span class="line">subtitle: &#x27;Hexo&#x27;</span><br><span class="line">description: &#x27;Welcome To My Blog&#x27;</span><br><span class="line">keywords:</span><br><span class="line">author: It&#x27;s Me!</span><br><span class="line">language: zh-CN</span><br><span class="line">timezone: &#x27;Asia/Shanghai&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="安装Next"><a href="#安装Next" class="headerlink" title="安装Next"></a>安装Next</h2><p>不要用官方文档里面用那个v5.1.4版的，会出现兼容问题打不开网站，去 <a target="_blank" rel="noopener" href="https://github.com/theme-next/hexo-theme-next/releases">https://github.com/theme-next/hexo-theme-next/releases</a> 下载v7.8.0版本，解压所下载的压缩包至站点的 themes 目录下，并将解压后的文件夹名称更改为 next。<br>找到 theme 字段，并将其值更改为 next。</p>
+<figure class="highlight plaintext"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">theme: next</span><br></pre></td></tr></table></figure>
+<p>找到 theme&#x2F;next&#x2F;source&#x2F;_config.yml 修改 language</p>
+<figure class="highlight plaintext"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">language: zh-CN</span><br></pre></td></tr></table></figure>
+<p>找到 theme&#x2F;next&#x2F;source&#x2F;_config.yml 修改 menu</p>
+<figure class="highlight plaintext"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">menu:</span><br><span class="line">  home: /</span><br><span class="line">  archives: /archives</span><br><span class="line">  #about: /about</span><br><span class="line">  categories: /categories</span><br><span class="line">  tags: /tags</span><br><span class="line">  #commonweal: /404.html</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -182,10 +260,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-06-29 13:08:02 / 修改时间：22:22:26" itemprop="dateCreated datePublished" datetime="2022-06-29T13:08:02+08:00">2022-06-29</time>
+              <time title="创建时间：2022-06-29 13:08:02" itemprop="dateCreated datePublished" datetime="2022-06-29T13:08:02+08:00">2022-06-29</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-06-30 01:29:55" itemprop="dateModified" datetime="2022-06-30T01:29:55+08:00">2022-06-30</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -245,6 +329,64 @@
 
 <h3 id="引用书上的内容"><a href="#引用书上的内容" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
 <footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h2 id="普通的代码块-二级标题"><a href="#普通的代码块-二级标题" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="指定语言-一级标题"><a href="#指定语言-一级标题" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+
+<p>附加说明 正文</p>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+
+<p>附加说明和网址</p>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<p>反引号代码块 在正文中显示添加代码<br><code>[language] [title] [url] [link text] code snippet</code></p>
+<p>在文章中插入 Pull quote。</p>
+<blockquote class="pullquote [class]"><p>content</p>
+</blockquote>
+
+<p>在文章中嵌入 jsFiddle</p>
+<iframe scrolling="no" width="100" height="100" src="https://jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<p>在文章中嵌入 Gist。</p>
+<script src="//gist.github.com/gist_id.js?file=[filename]"></script>
+
+<p>在文章中插入 iframe。</p>
+<iframe src="url" width="100" height="100" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<p>在文章中插入指定大小的图片。</p>
+<img src="/images/d.jpeg" class="">
+
+<p>在文章中插入链接，并自动给外部链接添加 target&#x3D;”_blank” 属性。</p>
+<a href="" title="" target="">text url external title</a>
+
+<p>链接使用文章的标题</p>
+<a href="/2022/06/22/hello-world/" title="Hello World">Hello World</a>
+
+<p>链接使用自定义文字<br>群晖</p>
+<a href="/2022/06/22/hello-world/" title="通往文章的链接">通往文章的链接</a>
+
+<p>Default (no option)</p>
+<img src="/2022/06/29/hello-man/dd.jpeg" class="">
+<img src="/2022/06/29/hello-man/dd.jpeg" class="" title="This is an example image">
+
+<!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 -->
+<!-- 其中 class="full-image" 是必须的 -->
+<img src="dd.jpeg" class="full-image" />
+
+
+<h3 id="引用书上的内容-1"><a href="#引用书上的内容-1" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h2 id="普通的代码块-二级标题-1"><a href="#普通的代码块-二级标题-1" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="指定语言-一级标题-1"><a href="#指定语言-一级标题-1" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+
+<p>附加说明 正文</p>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+
+<p>附加说明和网址</p>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/06/29/hello-man/#more" rel="contents">
@@ -302,7 +444,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-06-29 22:15:59" itemprop="dateModified" datetime="2022-06-29T22:15:59+08:00">2022-06-29</time>
+                <time title="修改时间：2022-06-30 01:29:50" itemprop="dateModified" datetime="2022-06-30T01:29:50+08:00">2022-06-30</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -358,7 +500,68 @@
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
 <p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="引用书上的内容"><a href="#引用书上的内容" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
 
+<h2 id="普通的代码块-二级标题"><a href="#普通的代码块-二级标题" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="指定语言-一级标题"><a href="#指定语言-一级标题" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+
+<p>附加说明 正文</p>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+
+<p>附加说明和网址</p>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<p>反引号代码块 在正文中显示添加代码<br><code>[language] [title] [url] [link text] code snippet</code></p>
+<p>在文章中插入 Pull quote。</p>
+<blockquote class="pullquote [class]"><p>content</p>
+</blockquote>
+
+<p>在文章中嵌入 jsFiddle</p>
+<iframe scrolling="no" width="100" height="100" src="https://jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<p>在文章中嵌入 Gist。</p>
+<script src="//gist.github.com/gist_id.js?file=[filename]"></script>
+
+<p>在文章中插入 iframe。</p>
+<iframe src="url" width="100" height="100" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<p>在文章中插入指定大小的图片。</p>
+<img src="/images/d.jpeg" class="">
+
+<p>在文章中插入链接，并自动给外部链接添加 target&#x3D;”_blank” 属性。</p>
+<a href="" title="" target="">text url external title</a>
+<h3 id="引用书上的内容-1"><a href="#引用书上的内容-1" class="headerlink" title="引用书上的内容"></a>引用书上的内容</h3><blockquote><p>Do not just seek happiness for yourself. Seek happiness for all. Through kindness. Through mercy.</p>
+<footer><strong>David Levithan</strong><cite>Wide Awake</cite></footer></blockquote>
+
+<h2 id="普通的代码块-二级标题-1"><a href="#普通的代码块-二级标题-1" class="headerlink" title="普通的代码块 二级标题"></a>普通的代码块 二级标题</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alert(&#x27;Hello World!&#x27;);</span><br></pre></td></tr></table></figure>
+
+<h1 id="指定语言-一级标题-1"><a href="#指定语言-一级标题-1" class="headerlink" title="指定语言 一级标题"></a>指定语言 一级标题</h1><figure class="highlight objc"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[rectangle setX: <span class="number">10</span> y: <span class="number">10</span> width: <span class="number">20</span> height: <span class="number">20</span>];</span><br></pre></td></tr></table></figure>
+
+<p>附加说明 正文</p>
+<figure class="highlight plaintext"><figcaption><span>Array.map</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array.map(callback[, thisArg])</span><br></pre></td></tr></table></figure>
+
+<p>附加说明和网址</p>
+<figure class="highlight plaintext"><figcaption><span>_.compact</span><a target="_blank" rel="noopener" href="http://underscorejs.org/#compact">Underscore.js</a></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_.compact([0, 1, false, 2, &#x27;&#x27;, 3]);</span><br><span class="line">=&gt; [1, 2, 3]</span><br></pre></td></tr></table></figure>
+
+<p>反引号代码块 在正文中显示添加代码<br><code>[language] [title] [url] [link text] code snippet</code></p>
+<p>在文章中插入 Pull quote。</p>
+<blockquote class="pullquote [class]"><p>content</p>
+</blockquote>
+
+<p>在文章中嵌入 jsFiddle</p>
+<iframe scrolling="no" width="100" height="100" src="https://jsfiddle.net/shorttag/embedded/[tabs]/[skin]" frameborder="0" loading="lazy" allowfullscreen></iframe>
+
+<p>在文章中嵌入 Gist。</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/06/22/hello-world/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -439,7 +642,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -452,20 +655,14 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
 </div>
   <div class="links-of-author motion-element">
       <span class="links-of-author-item">
-        <a href="https://github.com/yourname" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="mailto:yourname@gmail.com" title="E-Mail → mailto:yourname@gmail.com" rel="noopener" target="_blank"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
-      </span>
-      <span class="links-of-author-item">
-        <a href="https://weibo.com/yourname" title="Weibo → https:&#x2F;&#x2F;weibo.com&#x2F;yourname" rel="noopener" target="_blank"><i class="fa fa-fw fa-weibo"></i>Weibo</a>
+        <a href="https://github.com/jjzjj" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;jjzjj" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
       </span>
   </div>
 
