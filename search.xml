@@ -253,6 +253,11 @@
       </categories>
   </entry>
   <entry>
+    <title>openvpn config custom in openwrt</title>
+    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
     <title>使用Hexo+Github+Next主题搭建个人博客</title>
     <url>/2022/06/30/post-my-first-hexo-page/</url>
     <content><![CDATA[<blockquote><p>折腾了小半天，总算把简洁的个人博客搭建成功了，一直都想弄一个博客啥的来记录下平时积累的东西，写在txt文本、word离线的容易丢，后面用OneNote记录也蛮方便，移动端有时候要查也行，还支持OCR图片查询，但是折腾排版格式个人觉得很麻烦，搭了很多次wp，搭完进去一看到写东西的界面排版花里胡哨，又不写了，最后还是写在了csdn，结果上次简单写了几句openvpn的命令，审核不过被删了。大多时候还是简单新建一个文本文档记录下，过后就转移到OneNote。在网上查资料的时候，发现Hexo框架+Next主题搭的个人博客网站非常符合自己的需求，界面简洁，使用md语法写在文本上，最后git一提交，而且数据存在本地，又可以在github弄一个项目，又免去了另外购置vps主机和域名。如果不想用xxxx.github.io的域名，也可以替换一个自己购买申请的域名。第一篇就记录下如何以Hexo+Github+Next来搭建的。</p>
@@ -307,10 +312,5 @@
         <tag>Next</tag>
         <tag>Github</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>openvpn config custom in openwrt</title>
-    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>
