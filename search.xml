@@ -261,7 +261,7 @@
 <h1 id="搭建Hexo-Next网站"><a href="#搭建Hexo-Next网站" class="headerlink" title="搭建Hexo+Next网站"></a>搭建Hexo+Next网站</h1><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br><a href="https://hexo.io/zh-cn/docs/index.html">Hexo 中文官方文档</a><br><a href="https://theme-next.iissnan.com/getting-started.html">Next 中文官方文档</a></p>
 <blockquote><p>如果要搭建的话，还是花几小时从头到尾把官方文档看一遍比较好，首先这些文档比较少，内容也很简单，边实践边摸索，比一上来就搜各种教程要更加有效率。</p>
 </blockquote>
-
+<span id="more"></span> 
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>安装前提：<br><a href="http://nodejs.org/">Node.js</a> (Node.js 版本需不低于 10.13，建议使用 Node.js 12.0 及以上版本)<br><a href="http://git-scm.com/">Git</a><br>所有必备的应用程序安装完成后，即可使用 npm 安装 Hexo。</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure>
 <p>等安装完成，输入<code>hexo -v</code>能查看版本说明安装成功<br>新建网站目录文件夹并安装模块</p>
@@ -307,5 +307,10 @@
         <tag>Next</tag>
         <tag>Github</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>openvpn config custom in openwrt</title>
+    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
+    <content><![CDATA[]]></content>
   </entry>
 </search>
