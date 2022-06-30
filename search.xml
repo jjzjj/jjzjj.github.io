@@ -103,9 +103,19 @@
 <p>Ubuntu Store</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo snap install core</span><br><span class="line">sudo snap install gost</span><br></pre></td></tr></table></figure>
 
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="用Gost对V2ray的流量进行转发"><a href="#用Gost对V2ray的流量进行转发" class="headerlink" title="用Gost对V2ray的流量进行转发"></a>用Gost对V2ray的流量进行转发</h3><h4 id="落地机（V2ray服务端）"><a href="#落地机（V2ray服务端）" class="headerlink" title="落地机（V2ray服务端）"></a>落地机（V2ray服务端）</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="用Gost对V2ray的流量进行转发"><a href="#用Gost对V2ray的流量进行转发" class="headerlink" title="用Gost对V2ray的流量进行转发"></a>用Gost对V2ray的流量进行转发</h3><h4 id="落地机（V2ray服务端）"><a href="#落地机（V2ray服务端）" class="headerlink" title="落地机（V2ray服务端）"></a>落地机（V2ray服务端）</h4><p>带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用证书</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口?cert=./cert.pem&amp;key=./key.pem&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
+<h4 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h4><p>带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用证书</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&amp;cert=./cert.pem&quot;</span></span><br></pre></td></tr></table></figure>
 
 <h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口6688</p>
 <h4 id="使用screen命令开启后台运行"><a href="#使用screen命令开启后台运行" class="headerlink" title="使用screen命令开启后台运行"></a>使用screen命令开启后台运行</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S name <span class="comment">#新建一个name的session</span></span><br><span class="line">screen -<span class="built_in">ls</span> <span class="comment">#列出当前所有session</span></span><br><span class="line">screen -r name <span class="comment">#回到name的session</span></span><br><span class="line">screen -d name <span class="comment">#后台运行name的session ctrl + A + D</span></span><br><span class="line">screen -d -r name <span class="comment">#结束当前session并进入name的session</span></span><br></pre></td></tr></table></figure>
