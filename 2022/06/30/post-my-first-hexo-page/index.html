@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":null,"text":"加载 Disqus 评论","order":-1},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="折腾了小半天，总算把简洁的个人博客搭建成功了，一直都想弄一个博客啥的来记录下平时积累的东西，写在txt文本、word离线的容易丢，后面用OneNote记录也蛮方便，移动端有时候要查也行，还支持OCR图片查询，但是折腾排版格式个人觉得很麻烦，搭了很多次wp，搭完进去一看到写东西的界面排版花里胡哨，又不写了，最后还是写在了csdn，结果上次简单写了几句openvpn的命令，审核不过被删了。大多时候还是">
@@ -249,6 +249,13 @@
               </span>
 
           
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
   
   <span class="post-meta-item">
     
@@ -380,7 +387,7 @@
       <div class="popular-posts-title"><a href="/2022/06/30/openvpn-config-custom-in-openwrt/" rel="bookmark">在OpenWrt软路由自定义OpenVPN配置文件</a></div>
     </li>
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2022/07/01/ubuntu-install-docker/" rel="bookmark">ubuntu install docker</a></div>
+      <div class="popular-posts-title"><a href="/2022/06/30/use-gost-build-encrypted-tunnel/" rel="bookmark">使用Gost搭建加密隧道转发V2ray流量</a></div>
     </li>
   </ul>
 <div>
@@ -572,6 +579,77 @@
 
 
 
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
+  <script>
+    firebase.initializeApp({
+      apiKey   : 'AIzaSyBxjvI1Hqh1Ml5De2V87vw6zUoNNEjyKEc',
+      projectId: 'hexo-4bb81'
+    });
+
+    function getCount(doc, increaseCount) {
+      // IncreaseCount will be false when not in article page
+      return doc.get().then(d => {
+        var count = 0;
+        if (!d.exists) { // Has no data, initialize count
+          if (increaseCount) {
+            doc.set({
+              count: 1
+            });
+            count = 1;
+          }
+        } else { // Has data
+          count = d.data().count;
+          if (increaseCount) {
+            // If first view this article
+            doc.set({ // Increase count
+              count: count + 1
+            });
+            count++;
+          }
+        }
+
+        return count;
+      });
+    }
+
+    function appendCountTo(el) {
+      return count => {
+        el.innerText = count;
+      }
+    }
+  </script>
+  <script>
+    (function() {
+      var db = firebase.firestore();
+      var articles = db.collection('articles');
+
+      if (CONFIG.page.isPost) { // Is article page
+        var title = document.querySelector('.post-title').innerText.trim();
+        var doc = articles.doc(title);
+        var increaseCount = CONFIG.hostname === location.hostname;
+        if (localStorage.getItem(title)) {
+          increaseCount = false;
+        } else {
+          // Mark as visited
+          localStorage.setItem(title, true);
+        }
+        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
+      } else if (CONFIG.page.isHome) { // Is index page
+        var promises = [...document.querySelectorAll('.post-title')].map(element => {
+          var title = element.innerText.trim();
+          var doc = articles.doc(title);
+          return getCount(doc);
+        });
+        Promise.all(promises).then(counts => {
+          var metas = document.querySelectorAll('.firestore-visitors-count');
+          counts.forEach((val, idx) => {
+            appendCountTo(metas[idx])(val);
+          });
+        });
+      }
+    })();
+  </script>
 
 
 
@@ -619,6 +697,8 @@
 
 
 
+
+  
 
   
 
