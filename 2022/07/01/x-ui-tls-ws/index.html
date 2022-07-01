@@ -18,7 +18,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="用这个方法也可以解决IP地址被封的问题，前提是能连接VPS的SSH，用梯子或者用主机厂商的Web SSH就行，虽然有时候不能复制粘贴得一个个手敲。   安装X-ui面板GitHub官方项目 一键安装脚本1bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;vaxilu&#x2F;x-ui&#x2F;master&#x2F;install.sh)  手动安装 首先从 http">
@@ -31,11 +31,12 @@
 <meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/1.png">
 <meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/2.png">
 <meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/4.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/7.png">
 <meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/3.png">
 <meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/5.png">
 <meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/6.png">
 <meta property="article:published_time" content="2022-07-01T02:13:02.000Z">
-<meta property="article:modified_time" content="2022-07-01T07:13:57.426Z">
+<meta property="article:modified_time" content="2022-07-01T07:55:24.807Z">
 <meta property="article:author" content="It&#39;s Me!">
 <meta property="article:tag" content="V2ray">
 <meta property="article:tag" content="Xray">
@@ -241,7 +242,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-01 10:13:02 / 修改时间：15:13:57" itemprop="dateCreated datePublished" datetime="2022-07-01T10:13:02+08:00">2022-07-01</time>
+              <time title="创建时间：2022-07-01 10:13:02 / 修改时间：15:55:24" itemprop="dateCreated datePublished" datetime="2022-07-01T10:13:02+08:00">2022-07-01</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -258,27 +259,6 @@
             </span>
 
           
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/07/01/x-ui-tls-ws/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/01/x-ui-tls-ws/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -321,6 +301,9 @@
 
 <h3 id="创建客户端证书"><a href="#创建客户端证书" class="headerlink" title="创建客户端证书"></a>创建客户端证书</h3><blockquote><p>如果DNS记录里面设置的为<em>已代理</em>，那么用到的证书就是CloudFlare这里生成的。</p>
 </blockquote>
+<p>在SSL&#x2F;TLS里面设置加密模式为<em>完全</em></p>
+<img src="/2022/07/01/x-ui-tls-ws/7.png" class="" title="设置加密模式">
+
 <p>点击CloudFlare中添加的域名网站 - SSL&#x2F;TLS - 客户端证书 - 创建</p>
 <img src="/2022/07/01/x-ui-tls-ws/3.png" class="" title="创建客户端证书">
 
@@ -329,11 +312,21 @@
 
 <h2 id="配置V2ray服务"><a href="#配置V2ray服务" class="headerlink" title="配置V2ray服务"></a>配置V2ray服务</h2><p>进入X-ui面板后台，入站列表 - “ + ”新增节点，填入各项信息，粘贴在CloudFlare生成的证书和私钥。添加完成后，点击“查看” - “复制链接”导入到V2ray客户端即可使用</p>
 <img src='6.png' width='50%' title='新增节点'>
+
+<p>除了VMESS，还可以添加其它协议的节点。</p>
+
     </div>
 
     
     
     
+      
+<div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束-------------</div>
+    
+</div>
+
 
       <footer class="post-footer">
           <div class="post-tags">
@@ -353,7 +346,10 @@
     <a href="/2022/07/01/ipsec-vpn/" rel="prev" title="ipsec vpn">
       <i class="fa fa-chevron-left"></i> ipsec vpn
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/01/ubuntu-install-docker/" rel="next" title="ubuntu install docker">
+      ubuntu install docker <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -366,32 +362,6 @@
 
           </div>
           
-      <div class="tabs tabs-comment">
-        <ul class="nav-tabs">
-            <li class="tab"><a href="#comment-disqus">Load Disqus</a></li>
-            <li class="tab"><a href="#comment-disqusjs">disqusjs</a></li>
-        </ul>
-        <div class="tab-content">
-            <div class="tab-pane disqus" id="comment-disqus">
-              
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
-            </div>
-            <div class="tab-pane disqusjs" id="comment-disqusjs">
-              
-  <div class="comments">
-    <div id="disqus_thread">
-      <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
-    </div>
-  </div>
-  
-            </div>
-        </div>
-      </div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -452,7 +422,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">5</span>
+          <span class="site-state-item-count">6</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -520,77 +490,6 @@
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey   : 'AIzaSyBnHak7Bp_GU_mLl36Ymg8nufix3dgKR9A',
-      projectId: 'myfirstweb-1cfa4'
-    });
-
-    function getCount(doc, increaseCount) {
-      // IncreaseCount will be false when not in article page
-      return doc.get().then(d => {
-        var count = 0;
-        if (!d.exists) { // Has no data, initialize count
-          if (increaseCount) {
-            doc.set({
-              count: 1
-            });
-            count = 1;
-          }
-        } else { // Has data
-          count = d.data().count;
-          if (increaseCount) {
-            // If first view this article
-            doc.set({ // Increase count
-              count: count + 1
-            });
-            count++;
-          }
-        }
-
-        return count;
-      });
-    }
-
-    function appendCountTo(el) {
-      return count => {
-        el.innerText = count;
-      }
-    }
-  </script>
-  <script>
-    (function() {
-      var db = firebase.firestore();
-      var articles = db.collection('articles');
-
-      if (CONFIG.page.isPost) { // Is article page
-        var title = document.querySelector('.post-title').innerText.trim();
-        var doc = articles.doc(title);
-        var increaseCount = CONFIG.hostname === location.hostname;
-        if (localStorage.getItem(title)) {
-          increaseCount = false;
-        } else {
-          // Mark as visited
-          localStorage.setItem(title, true);
-        }
-        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
-      } else if (CONFIG.page.isHome) { // Is index page
-        var promises = [...document.querySelectorAll('.post-title')].map(element => {
-          var title = element.innerText.trim();
-          var doc = articles.doc(title);
-          return getCount(doc);
-        });
-        Promise.all(promises).then(counts => {
-          var metas = document.querySelectorAll('.firestore-visitors-count');
-          counts.forEach((val, idx) => {
-            appendCountTo(metas[idx])(val);
-          });
-        });
-      }
-    })();
-  </script>
 
 
 
@@ -650,54 +549,6 @@
       });
       });
   </script>
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://jjmjj.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
-<script>
-  var disqus_config = function() {
-    this.page.url = "https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/";
-    this.page.identifier = "2022/07/01/x-ui-tls-ws/";
-    this.page.title = "Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道";
-    };
-  NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-    if (window.DISQUS) {
-      DISQUS.reset({
-        reload: true,
-        config: disqus_config
-      });
-    } else {
-      var d = document, s = d.createElement('script');
-      s.src = 'https://jjmjj.disqus.com/embed.js';
-      s.setAttribute('data-timestamp', '' + +new Date());
-      (d.head || d.body).appendChild(s);
-    }
-  });
-</script>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqusjs.css">
-
-<script>
-NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
-  NexT.utils.getScript('//cdn.jsdelivr.net/npm/disqusjs@1/dist/disqus.js', () => {
-    window.dsqjs = new DisqusJS({
-      api       : 'https://disqus.com/api/oauth/2.0/authorize/' || 'https://disqus.com/api/',
-      apikey    : 'zpjbmWvJdrhSqhub9FMi7vFxQoSP2W5jQkbi92XlXFsy1TtoAGemaxHnDLSV7ldB',
-      shortname : 'jjmjj',
-      url       : "https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/",
-      identifier: "2022/07/01/x-ui-tls-ws/",
-      title     : "Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道",
-    });
-  }, window.DisqusJS);
-});
-</script>
 
 </body>
 </html>
