@@ -21,21 +21,31 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":{"disqus":{"text":"Load Disqus","order":-1}}},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。   一键脚本搭建OpenVPN服务端方法一：Nyr&#x2F;openvpn-install1wget https:&#x2F;&#x2F;git.">
+  <meta name="description" content="用这个方法也可以解决IP地址被封的问题，前提是能连接VPS的SSH，用梯子或者用主机厂商的Web SSH就行，虽然有时候不能复制粘贴得一个个手敲。   安装X-ui面板GitHub官方项目 一键安装脚本1bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;vaxilu&#x2F;x-ui&#x2F;master&#x2F;install.sh)  手动安装 首先从 http">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在OpenWrt软路由自定义OpenVPN配置文件">
-<meta property="og:url" content="https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/index.html">
+<meta property="og:title" content="Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道">
+<meta property="og:url" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。   一键脚本搭建OpenVPN服务端方法一：Nyr&#x2F;openvpn-install1wget https:&#x2F;&#x2F;git.">
+<meta property="og:description" content="用这个方法也可以解决IP地址被封的问题，前提是能连接VPS的SSH，用梯子或者用主机厂商的Web SSH就行，虽然有时候不能复制粘贴得一个个手敲。   安装X-ui面板GitHub官方项目 一键安装脚本1bash &lt;(curl -Ls https:&#x2F;&#x2F;raw.githubusercontent.com&#x2F;vaxilu&#x2F;x-ui&#x2F;master&#x2F;install.sh)  手动安装 首先从 http">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-30T07:23:02.000Z">
-<meta property="article:modified_time" content="2022-07-01T06:49:02.738Z">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/1.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/2.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/4.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/3.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/5.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/6.png">
+<meta property="article:published_time" content="2022-07-01T02:13:02.000Z">
+<meta property="article:modified_time" content="2022-07-01T07:13:57.426Z">
 <meta property="article:author" content="It&#39;s Me!">
-<meta property="article:tag" content="OpenVPN">
-<meta property="article:tag" content="OpenWrt">
+<meta property="article:tag" content="V2ray">
+<meta property="article:tag" content="Xray">
+<meta property="article:tag" content="CloudFlare">
+<meta property="article:tag" content="TLS">
+<meta property="article:tag" content="隐匿隧道">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/1.png">
 
-<link rel="canonical" href="https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/">
+<link rel="canonical" href="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/">
 
 
 <script id="page-configurations">
@@ -48,7 +58,7 @@
   };
 </script>
 
-  <title>在OpenWrt软路由自定义OpenVPN配置文件 | Hedwig</title>
+  <title>Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道 | Hedwig</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6W2739PX"></script>
     <script>
@@ -207,7 +217,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -220,7 +230,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          在OpenWrt软路由自定义OpenVPN配置文件
+          Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道
         </h1>
 
         <div class="post-meta">
@@ -229,16 +239,10 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
+              
 
-              <time title="创建时间：2022-06-30 15:23:02" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
+              <time title="创建时间：2022-07-01 10:13:02 / 修改时间：15:13:57" itemprop="dateCreated datePublished" datetime="2022-07-01T10:13:02+08:00">2022-07-01</time>
             </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-01 14:49:02" itemprop="dateModified" datetime="2022-07-01T14:49:02+08:00">2022-07-01</time>
-              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -249,7 +253,7 @@
                 </span>
                   ，
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/" itemprop="url" rel="index"><span itemprop="name">OpenVPN</span></a>
+                  <a href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/" itemprop="url" rel="index"><span itemprop="name">V2ray</span></a>
                 </span>
             </span>
 
@@ -269,8 +273,8 @@
       </span>
       <span class="post-meta-item-text">Disqus：</span>
     
-    <a title="disqus" href="/2022/06/30/openvpn-config-custom-in-openwrt/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/06/30/openvpn-config-custom-in-openwrt/" itemprop="commentCount"></span>
+    <a title="disqus" href="/2022/07/01/x-ui-tls-ws/#disqus_thread" itemprop="discussionUrl">
+      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/01/x-ui-tls-ws/" itemprop="commentCount"></span>
     </a>
   </span>
   
@@ -285,21 +289,46 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
+        <blockquote><p>用这个方法也可以解决IP地址被封的问题，前提是能连接VPS的SSH，用梯子或者用主机厂商的Web SSH就行，虽然有时候不能复制粘贴得一个个手敲。</p>
 </blockquote>
 
-<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a target="_blank" rel="noopener" href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a target="_blank" rel="noopener" href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<span id="more"></span> 
+<h2 id="安装X-ui面板"><a href="#安装X-ui面板" class="headerlink" title="安装X-ui面板"></a>安装X-ui面板</h2><p><a target="_blank" rel="noopener" href="https://github.com/vaxilu/x-ui">GitHub官方项目</a></p>
+<h3 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
 
-<p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
-<h2 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h2><h3 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h3><p>写入ovpn配置文件信息</p>
-<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
-<h3 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
-<h3 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h3><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
-<h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
-<h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
+<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><ol>
+<li>首先从 <a target="_blank" rel="noopener" href="https://github.com/vaxilu/x-ui/releases">https://github.com/vaxilu/x-ui/releases</a> 下载最新的压缩包，一般选择 amd64架构</li>
+<li>然后将这个压缩包上传到服务器的 &#x2F;root&#x2F;目录下，并使用 root用户登录服务器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/</span><br><span class="line"><span class="built_in">rm</span> x-ui/ /usr/local/x-ui/ /usr/bin/x-ui -rf</span><br><span class="line">tar zxvf x-ui-linux-amd64.tar.gz</span><br><span class="line"><span class="built_in">chmod</span> +x x-ui/x-ui x-ui/bin/xray-linux-* x-ui/x-ui.sh</span><br><span class="line"><span class="built_in">cp</span> x-ui/x-ui.sh /usr/bin/x-ui</span><br><span class="line"><span class="built_in">cp</span> -f x-ui/x-ui.service /etc/systemd/system/</span><br><span class="line"><span class="built_in">mv</span> x-ui/ /usr/local/</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl <span class="built_in">enable</span> x-ui</span><br><span class="line">systemctl restart x-ui</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+
+<h3 id="修改登录端口及管理用户名密码"><a href="#修改登录端口及管理用户名密码" class="headerlink" title="修改登录端口及管理用户名密码"></a>修改登录端口及管理用户名密码</h3><p>调出管理命令菜单<code>x-ui</code>根据显示的命令进行操作</p>
+<img src='1.png' width='65%' title='X-ui面板命令菜单'>
+
+<h3 id="登陆X-ui后台"><a href="#登陆X-ui后台" class="headerlink" title="登陆X-ui后台"></a>登陆X-ui后台</h3><p>访问<code>http://vps_ip:面板端口</code></p>
+<h2 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h2><ol>
+<li>白嫖的<br>免费的域名注册 <a target="_blank" rel="noopener" href="https://freenom.com/">https://freenom.com/</a> ，这个注册很讲究，没有直接注册页面，需要先选择域名，再接下来的加入购物车用邮箱验证来注册。使用gmail邮箱，注册信息地址与IP对应，安装chrome插件后，才注册成功。</li>
+<li>剁手的<br>收费的域名注册 <a target="_blank" rel="noopener" href="https://www.namesilo.com/">https://www.namesilo.com/</a></li>
+</ol>
+<h2 id="CloudFlare"><a href="#CloudFlare" class="headerlink" title="CloudFlare"></a>CloudFlare</h2><h3 id="注册CloudFlare"><a href="#注册CloudFlare" class="headerlink" title="注册CloudFlare"></a>注册CloudFlare</h3><p>访问 <a target="_blank" rel="noopener" href="https://www.cloudflare.com/">https://www.cloudflare.com/</a> 注册账号并登录</p>
+<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><ol>
+<li>添加注册的域名</li>
+<li>要使用Cloudflare，请确保已更改权威DNS服务器或名称服务器。这些服务器是分配的Cloudflare名称服务器。将两个格式为 <code>*.ns.cloudflare.com</code> 的Cloudflare名称服务器添加到注册域名的NameServers。以freenom为例，如下图：</li>
+</ol>
+<img src="/2022/07/01/x-ui-tls-ws/2.png" class="" title="更改NameServers">
+
+<h3 id="创建A、AAAA记录"><a href="#创建A、AAAA记录" class="headerlink" title="创建A、AAAA记录"></a>创建A、AAAA记录</h3><p>DNS - 添加记录，A记录对应ipv4地址，AAAA记录对应ipv6地址</p>
+<img src="/2022/07/01/x-ui-tls-ws/4.png" class="" title="添加DNS记录">
+
+<h3 id="创建客户端证书"><a href="#创建客户端证书" class="headerlink" title="创建客户端证书"></a>创建客户端证书</h3><blockquote><p>如果DNS记录里面设置的为<em>已代理</em>，那么用到的证书就是CloudFlare这里生成的。</p>
+</blockquote>
+<p>点击CloudFlare中添加的域名网站 - SSL&#x2F;TLS - 客户端证书 - 创建</p>
+<img src="/2022/07/01/x-ui-tls-ws/3.png" class="" title="创建客户端证书">
+
+<p>保存生成的客户端证书、私钥</p>
+<img src="/2022/07/01/x-ui-tls-ws/5.png" class="" title="生成的客户端证书">
+
+<h2 id="配置V2ray服务"><a href="#配置V2ray服务" class="headerlink" title="配置V2ray服务"></a>配置V2ray服务</h2><p>进入X-ui面板后台，入站列表 - “ + ”新增节点，填入各项信息，粘贴在CloudFlare生成的证书和私钥。添加完成后，点击“查看” - “复制链接”导入到V2ray客户端即可使用</p>
+<img src='6.png' width='50%' title='新增节点'>
     </div>
 
     
@@ -308,8 +337,11 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/OpenVPN/" rel="tag"># OpenVPN</a>
-              <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
+              <a href="/tags/V2ray/" rel="tag"># V2ray</a>
+              <a href="/tags/Xray/" rel="tag"># Xray</a>
+              <a href="/tags/CloudFlare/" rel="tag"># CloudFlare</a>
+              <a href="/tags/TLS/" rel="tag"># TLS</a>
+              <a href="/tags/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/" rel="tag"># 隐匿隧道</a>
           </div>
 
         
@@ -318,13 +350,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/06/30/post-my-first-hexo-page/" rel="prev" title="使用Hexo+Github+Next主题搭建个人博客">
-      <i class="fa fa-chevron-left"></i> 使用Hexo+Github+Next主题搭建个人博客
+    <a href="/2022/07/01/ipsec-vpn/" rel="prev" title="ipsec vpn">
+      <i class="fa fa-chevron-left"></i> ipsec vpn
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/06/30/use-gost-build-encrypted-tunnel/" rel="next" title="使用Gost搭建加密隧道转发V2ray流量">
-      使用Gost搭建加密隧道转发V2ray流量 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -409,7 +438,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E8%84%9A%E6%9C%AC%E6%90%AD%E5%BB%BAOpenVPN%E6%9C%8D%E5%8A%A1%E7%AB%AF"><span class="nav-number">1.</span> <span class="nav-text">一键脚本搭建OpenVPN服务端</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%B8%80%EF%BC%9ANyr-x2F-openvpn-install"><span class="nav-number">1.1.</span> <span class="nav-text">方法一：Nyr&#x2F;openvpn-install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B9%E6%B3%95%E4%BA%8C%EF%BC%9Aangristan-x2F-openvpn-install"><span class="nav-number">1.2.</span> <span class="nav-text">方法二：angristan&#x2F;openvpn-install</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#OpenWrt%E9%85%8D%E7%BD%AE"><span class="nav-number">2.</span> <span class="nav-text">OpenWrt配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0ovpn%E6%96%87%E4%BB%B6%E5%88%B0%E8%BD%AF%E8%B7%AF%E7%94%B1"><span class="nav-number">2.1.</span> <span class="nav-text">上传ovpn文件到软路由</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9OpenVPN%E5%AE%A2%E6%88%B7%E7%AB%AF%E6%8F%92%E4%BB%B6%E9%85%8D%E7%BD%AE"><span class="nav-number">2.2.</span> <span class="nav-text">修改OpenVPN客户端插件配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BAVPN%E8%8A%82%E7%82%B9"><span class="nav-number">2.3.</span> <span class="nav-text">新建VPN节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AF%E6%9C%8D%E5%8A%A1"><span class="nav-number">2.4.</span> <span class="nav-text">重启服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E6%9C%8D%E5%8A%A1%E7%8A%B6%E6%80%81"><span class="nav-number">2.5.</span> <span class="nav-text">查看服务状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B9%9F%E5%8F%AF%E4%BB%A5%E6%89%8B%E5%8A%A8%E5%8A%A0%E8%BD%BD%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%EF%BC%8C%E8%BF%99%E5%BA%94%E8%AF%A5%E6%98%AF%E4%B8%80%E6%AC%A1%E6%80%A7%E7%9A%84"><span class="nav-number">2.6.</span> <span class="nav-text">也可以手动加载配置文件，这应该是一次性的</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85X-ui%E9%9D%A2%E6%9D%BF"><span class="nav-number">1.</span> <span class="nav-text">安装X-ui面板</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%80%E9%94%AE%E5%AE%89%E8%A3%85%E8%84%9A%E6%9C%AC"><span class="nav-number">1.1.</span> <span class="nav-text">一键安装脚本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%89%8B%E5%8A%A8%E5%AE%89%E8%A3%85"><span class="nav-number">1.2.</span> <span class="nav-text">手动安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9%E7%99%BB%E5%BD%95%E7%AB%AF%E5%8F%A3%E5%8F%8A%E7%AE%A1%E7%90%86%E7%94%A8%E6%88%B7%E5%90%8D%E5%AF%86%E7%A0%81"><span class="nav-number">1.3.</span> <span class="nav-text">修改登录端口及管理用户名密码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%99%BB%E9%99%86X-ui%E5%90%8E%E5%8F%B0"><span class="nav-number">1.4.</span> <span class="nav-text">登陆X-ui后台</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B3%A8%E5%86%8C%E5%9F%9F%E5%90%8D"><span class="nav-number">2.</span> <span class="nav-text">注册域名</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CloudFlare"><span class="nav-number">3.</span> <span class="nav-text">CloudFlare</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B3%A8%E5%86%8CCloudFlare"><span class="nav-number">3.1.</span> <span class="nav-text">注册CloudFlare</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0%E7%BD%91%E7%AB%99"><span class="nav-number">3.2.</span> <span class="nav-text">添加网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAA%E3%80%81AAAA%E8%AE%B0%E5%BD%95"><span class="nav-number">3.3.</span> <span class="nav-text">创建A、AAAA记录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E5%AE%A2%E6%88%B7%E7%AB%AF%E8%AF%81%E4%B9%A6"><span class="nav-number">3.4.</span> <span class="nav-text">创建客户端证书</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEV2ray%E6%9C%8D%E5%8A%A1"><span class="nav-number">4.</span> <span class="nav-text">配置V2ray服务</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -617,7 +646,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/',]
       });
       });
   </script>
@@ -634,9 +663,9 @@
 </script>
 <script>
   var disqus_config = function() {
-    this.page.url = "https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/";
-    this.page.identifier = "2022/06/30/openvpn-config-custom-in-openwrt/";
-    this.page.title = "在OpenWrt软路由自定义OpenVPN配置文件";
+    this.page.url = "https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/";
+    this.page.identifier = "2022/07/01/x-ui-tls-ws/";
+    this.page.title = "Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道";
     };
   NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
     if (window.DISQUS) {
@@ -662,9 +691,9 @@ NexT.utils.loadComments(document.querySelector('#disqus_thread'), () => {
       api       : 'https://disqus.com/api/oauth/2.0/authorize/' || 'https://disqus.com/api/',
       apikey    : 'zpjbmWvJdrhSqhub9FMi7vFxQoSP2W5jQkbi92XlXFsy1TtoAGemaxHnDLSV7ldB',
       shortname : 'jjmjj',
-      url       : "https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/",
-      identifier: "2022/06/30/openvpn-config-custom-in-openwrt/",
-      title     : "在OpenWrt软路由自定义OpenVPN配置文件",
+      url       : "https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/",
+      identifier: "2022/07/01/x-ui-tls-ws/",
+      title     : "Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道",
     });
   }, window.DisqusJS);
 });

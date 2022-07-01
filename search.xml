@@ -19,13 +19,22 @@
 <h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
 <h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
+        <category>隐匿隧道</category>
         <category>OpenVPN</category>
-        <category>OpenWrt</category>
       </categories>
       <tags>
         <tag>OpenVPN</tag>
         <tag>OpenWrt</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>ipsec vpn</title>
+    <url>/2022/07/01/ipsec-vpn/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+        <category>IPSec VPN</category>
+      </categories>
   </entry>
   <entry>
     <title>使用Hexo+Github+Next主题搭建个人博客</title>
@@ -126,7 +135,7 @@
 <h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口443</p>
 ]]></content>
       <categories>
-        <category>加密隧道</category>
+        <category>隐匿隧道</category>
         <category>Gost</category>
       </categories>
       <tags>
@@ -134,6 +143,61 @@
         <tag>Gost</tag>
         <tag>TCP</tag>
         <tag>UDP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道</title>
+    <url>/2022/07/01/x-ui-tls-ws/</url>
+    <content><![CDATA[<blockquote><p>用这个方法也可以解决IP地址被封的问题，前提是能连接VPS的SSH，用梯子或者用主机厂商的Web SSH就行，虽然有时候不能复制粘贴得一个个手敲。</p>
+</blockquote>
+
+<h2 id="安装X-ui面板"><a href="#安装X-ui面板" class="headerlink" title="安装X-ui面板"></a>安装X-ui面板</h2><p><a href="https://github.com/vaxilu/x-ui">GitHub官方项目</a></p>
+<h3 id="一键安装脚本"><a href="#一键安装脚本" class="headerlink" title="一键安装脚本"></a>一键安装脚本</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash &lt;(curl -Ls https://raw.githubusercontent.com/vaxilu/x-ui/master/install.sh)</span><br></pre></td></tr></table></figure>
+
+<h3 id="手动安装"><a href="#手动安装" class="headerlink" title="手动安装"></a>手动安装</h3><ol>
+<li>首先从 <a href="https://github.com/vaxilu/x-ui/releases">https://github.com/vaxilu/x-ui/releases</a> 下载最新的压缩包，一般选择 amd64架构</li>
+<li>然后将这个压缩包上传到服务器的 &#x2F;root&#x2F;目录下，并使用 root用户登录服务器<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /root/</span><br><span class="line"><span class="built_in">rm</span> x-ui/ /usr/local/x-ui/ /usr/bin/x-ui -rf</span><br><span class="line">tar zxvf x-ui-linux-amd64.tar.gz</span><br><span class="line"><span class="built_in">chmod</span> +x x-ui/x-ui x-ui/bin/xray-linux-* x-ui/x-ui.sh</span><br><span class="line"><span class="built_in">cp</span> x-ui/x-ui.sh /usr/bin/x-ui</span><br><span class="line"><span class="built_in">cp</span> -f x-ui/x-ui.service /etc/systemd/system/</span><br><span class="line"><span class="built_in">mv</span> x-ui/ /usr/local/</span><br><span class="line">systemctl daemon-reload</span><br><span class="line">systemctl <span class="built_in">enable</span> x-ui</span><br><span class="line">systemctl restart x-ui</span><br></pre></td></tr></table></figure></li>
+</ol>
+<span id="more"></span>
+
+<h3 id="修改登录端口及管理用户名密码"><a href="#修改登录端口及管理用户名密码" class="headerlink" title="修改登录端口及管理用户名密码"></a>修改登录端口及管理用户名密码</h3><p>调出管理命令菜单<code>x-ui</code>根据显示的命令进行操作</p>
+<img src='1.png' width='65%' title='X-ui面板命令菜单'>
+
+<h3 id="登陆X-ui后台"><a href="#登陆X-ui后台" class="headerlink" title="登陆X-ui后台"></a>登陆X-ui后台</h3><p>访问<code>http://vps_ip:面板端口</code></p>
+<h2 id="注册域名"><a href="#注册域名" class="headerlink" title="注册域名"></a>注册域名</h2><ol>
+<li>白嫖的<br>免费的域名注册 <a href="https://freenom.com/">https://freenom.com/</a> ，这个注册很讲究，没有直接注册页面，需要先选择域名，再接下来的加入购物车用邮箱验证来注册。使用gmail邮箱，注册信息地址与IP对应，安装chrome插件后，才注册成功。</li>
+<li>剁手的<br>收费的域名注册 <a href="https://www.namesilo.com/">https://www.namesilo.com/</a></li>
+</ol>
+<h2 id="CloudFlare"><a href="#CloudFlare" class="headerlink" title="CloudFlare"></a>CloudFlare</h2><h3 id="注册CloudFlare"><a href="#注册CloudFlare" class="headerlink" title="注册CloudFlare"></a>注册CloudFlare</h3><p>访问 <a href="https://www.cloudflare.com/">https://www.cloudflare.com/</a> 注册账号并登录</p>
+<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><ol>
+<li>添加注册的域名</li>
+<li>要使用Cloudflare，请确保已更改权威DNS服务器或名称服务器。这些服务器是分配的Cloudflare名称服务器。将两个格式为 <code>*.ns.cloudflare.com</code> 的Cloudflare名称服务器添加到注册域名的NameServers。以freenom为例，如下图：</li>
+</ol>
+<img src="/2022/07/01/x-ui-tls-ws/2.png" class="" title="更改NameServers">
+
+<h3 id="创建A、AAAA记录"><a href="#创建A、AAAA记录" class="headerlink" title="创建A、AAAA记录"></a>创建A、AAAA记录</h3><p>DNS - 添加记录，A记录对应ipv4地址，AAAA记录对应ipv6地址</p>
+<img src="/2022/07/01/x-ui-tls-ws/4.png" class="" title="添加DNS记录">
+
+<h3 id="创建客户端证书"><a href="#创建客户端证书" class="headerlink" title="创建客户端证书"></a>创建客户端证书</h3><blockquote><p>如果DNS记录里面设置的为<em>已代理</em>，那么用到的证书就是CloudFlare这里生成的。</p>
+</blockquote>
+<p>点击CloudFlare中添加的域名网站 - SSL&#x2F;TLS - 客户端证书 - 创建</p>
+<img src="/2022/07/01/x-ui-tls-ws/3.png" class="" title="创建客户端证书">
+
+<p>保存生成的客户端证书、私钥</p>
+<img src="/2022/07/01/x-ui-tls-ws/5.png" class="" title="生成的客户端证书">
+
+<h2 id="配置V2ray服务"><a href="#配置V2ray服务" class="headerlink" title="配置V2ray服务"></a>配置V2ray服务</h2><p>进入X-ui面板后台，入站列表 - “ + ”新增节点，填入各项信息，粘贴在CloudFlare生成的证书和私钥。添加完成后，点击“查看” - “复制链接”导入到V2ray客户端即可使用</p>
+<img src='6.png' width='50%' title='新增节点'>]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+        <category>V2ray</category>
+      </categories>
+      <tags>
+        <tag>V2ray</tag>
+        <tag>Xray</tag>
+        <tag>CloudFlare</tag>
+        <tag>TLS</tag>
+        <tag>隐匿隧道</tag>
       </tags>
   </entry>
 </search>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jjzjj.github.io/tags/index.html</loc>
+    <loc>https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -11,7 +11,16 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/index.html</loc>
+    <loc>https://jjzjj.github.io/2022/07/01/ipsec-vpn/</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -29,7 +38,16 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/</loc>
+    <loc>https://jjzjj.github.io/categories/index.html</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -134,31 +152,73 @@
     <priority>0.2</priority>
   </url>
   
+  <url>
+    <loc>https://jjzjj.github.io/tags/V2ray/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/Xray/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/CloudFlare/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/TLS/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
 
   
   <url>
-    <loc>https://jjzjj.github.io/categories/OpenVPN/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/Gost/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/OpenVPN/OpenWrt/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/Gost/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
