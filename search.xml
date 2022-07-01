@@ -124,11 +124,14 @@
 <p>修改<code>/source/404/index.md</code>内容</p>
 <figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#x27;404 Not Found：该页无法显示&#x27;</span><br><span class="line">comments: false</span><br><span class="line">permalink: /404</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">&lt;blockquote class=&quot;blockquote-center&quot;&gt;</span><br><span class="line">  &lt;p&gt;&lt;a href=&quot;https://jjzjj.github.io/&quot;&gt;返回首页&lt;/a&gt;&lt;/p&gt;</span><br><span class="line">&lt;/blockquote&gt;</span><br></pre></td></tr></table></figure>
 
+<h3 id="给主题加头像"><a href="#给主题加头像" class="headerlink" title="给主题加头像"></a>给主题加头像</h3><p><a href="https://jingyan.baidu.com/article/d5a880ebeb42f113f147cce5.html">Hexo Next主题如何加头像</a></p>
 <h3 id="推荐主题优化配置链接"><a href="#推荐主题优化配置链接" class="headerlink" title="推荐主题优化配置链接"></a>推荐主题优化配置链接</h3><ol>
 <li><a href="https://iitii.github.io/2021/05/28/1/">Hexo Next 主题安装、配置及美化</a></li>
 <li><a href="http://t.zoukankan.com/Luweir-p-14147343.html">Hexo中Next主题个性化美化的解决方案</a></li>
 <li><a href="https://zhuanlan.zhihu.com/p/26625249/">GitHub+Hexo 搭建个人网站详细教程</a></li>
 <li><a href="https://godweiyang.com/2018/04/13/hexo-blog/">超详细Hexo+Github博客搭建小白教程</a></li>
+<li><a href="https://www.jianshu.com/p/27b971d84f76">Hexo NexT文章阅读量排行（热榜）功能</a></li>
+<li><a href="https://www.jianshu.com/p/c7de2ae59975">Hexo-abbrlink生成唯一永久文章链接</a></li>
 </ol>
 ]]></content>
       <tags>

@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/404.html</loc>
+    <loc>https://jjzjj.github.io/tags/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -29,7 +29,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/</loc>
+    <loc>https://jjzjj.github.io/2022/06/30/use-gost-build-encrypted-tunnel/</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/07/01/ipsec-vpn/</loc>
+    <loc>https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -56,7 +56,16 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/06/30/use-gost-build-encrypted-tunnel/</loc>
+    <loc>https://jjzjj.github.io/2022/07/01/ipsec-vpn/</loc>
+    
+    <lastmod>2022-07-01</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/404.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -66,15 +75,6 @@
   
   <url>
     <loc>https://jjzjj.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-07-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
