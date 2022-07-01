@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>ipsec vpn</title>
+    <url>/2022/07/01/ipsec-vpn/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+        <category>IPSec VPN</category>
+      </categories>
+  </entry>
+  <entry>
     <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
     <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
     <content><![CDATA[<blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
@@ -26,15 +35,6 @@
         <tag>OpenVPN</tag>
         <tag>OpenWrt</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>ipsec vpn</title>
-    <url>/2022/07/01/ipsec-vpn/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>隐匿隧道</category>
-        <category>IPSec VPN</category>
-      </categories>
   </entry>
   <entry>
     <title>使用Hexo+Github+Next主题搭建个人博客</title>
