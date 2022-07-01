@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>ipsec vpn</title>
-    <url>/2022/07/01/ipsec-vpn/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>隐匿隧道</category>
-        <category>IPSec VPN</category>
-      </categories>
-  </entry>
-  <entry>
     <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
     <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
     <content><![CDATA[<blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
@@ -34,6 +25,71 @@
       <tags>
         <tag>OpenVPN</tag>
         <tag>OpenWrt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ipsec vpn</title>
+    <url>/2022/07/01/ipsec-vpn/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+        <category>IPSec VPN</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>ubuntu install docker</title>
+    <url>/2022/07/01/ubuntu-install-docker/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>使用Gost搭建加密隧道转发V2ray流量</title>
+    <url>/2022/06/30/use-gost-build-encrypted-tunnel/</url>
+    <content><![CDATA[<blockquote><p>GO Simple Tunnel，GO语言实现的安全隧道</p>
+</blockquote>
+
+<p><a href="https://v2.gost.run/">官方文档</a><br><a href="https://github.com/ginuerzh/gost.git">GitHub项目地址</a></p>
+<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><p>多端口监听<br>可设置转发代理，支持多级转发(代理链)<br>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议<br>Web代理支持探测防御<br>SOCKS5代理支持TLS协商加密<br>支持多种隧道类型<br>Tunnel UDP over TCP<br>本地&#x2F;远程TCP&#x2F;UDP端口转发<br>TCP&#x2F;UDP透明代理<br>支持Shadowsocks(TCP&#x2F;UDP)协议<br>支持SNI代理<br>权限控制<br>负载均衡<br>路由控制<br>DNS解析和代理<br>TUN&#x2F;TAP设备</p>
+<span id="more"></span>
+
+<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>二进制文件<br><a href="https://github.com/ginuerzh/gost/releases">https://github.com/ginuerzh/gost/releases</a></p>
+<p>源码编译</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ginuerzh/gost.git</span><br><span class="line"><span class="built_in">cd</span> gost/cmd/gost</span><br><span class="line">go build</span><br></pre></td></tr></table></figure>
+<p>Docker</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ginuerzh/gost</span><br></pre></td></tr></table></figure>
+<p>Ubuntu Store</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo snap install core</span><br><span class="line">sudo snap install gost</span><br></pre></td></tr></table></figure>
+
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="用Gost对V2ray的流量进行转发"><a href="#用Gost对V2ray的流量进行转发" class="headerlink" title="用Gost对V2ray的流量进行转发"></a>用Gost对V2ray的流量进行转发</h3><h4 id="落地机（V2ray服务端）"><a href="#落地机（V2ray服务端）" class="headerlink" title="落地机（V2ray服务端）"></a>落地机（V2ray服务端）</h4><p>带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用证书</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口?cert=./cert.pem&amp;key=./key.pem&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h4><p>带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
+<p>不带验证密码</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
+<p>使用证书</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&amp;cert=./cert.pem&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口6688</p>
+<h4 id="使用screen命令开启后台运行"><a href="#使用screen命令开启后台运行" class="headerlink" title="使用screen命令开启后台运行"></a>使用screen命令开启后台运行</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S name <span class="comment">#新建一个name的session</span></span><br><span class="line">screen -<span class="built_in">ls</span> <span class="comment">#列出当前所有session</span></span><br><span class="line">screen -r name <span class="comment">#回到name的session</span></span><br><span class="line">screen -d name <span class="comment">#后台运行name的session ctrl + A + D</span></span><br><span class="line">screen -d -r name <span class="comment">#结束当前session并进入name的session</span></span><br></pre></td></tr></table></figure>
+<p>后台运行在命令前面加<code>screen -dm -S gost</code><br>下次访问输入命令<code>screen -r gost</code></p>
+<h3 id="用Gost对V2ray的流量不加密转发"><a href="#用Gost对V2ray的流量不加密转发" class="headerlink" title="用Gost对V2ray的流量不加密转发"></a>用Gost对V2ray的流量不加密转发</h3><h4 id="落地机"><a href="#落地机" class="headerlink" title="落地机"></a>落地机</h4><p>不用配置</p>
+<h4 id="中转机-1"><a href="#中转机-1" class="headerlink" title="中转机"></a>中转机</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=tcp://:443/V2ray服务器IP:V2ray端口 -L=udp://:443/V2ray服务器IP:V2ray端口</span><br></pre></td></tr></table></figure>
+
+<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口443</p>
+]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+        <category>Gost</category>
+      </categories>
+      <tags>
+        <tag>加密隧道</tag>
+        <tag>Gost</tag>
+        <tag>TCP</tag>
+        <tag>UDP</tag>
       </tags>
   </entry>
   <entry>
@@ -136,62 +192,6 @@
         <tag>Hexo</tag>
         <tag>Next</tag>
         <tag>Github</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>ubuntu install docker</title>
-    <url>/2022/07/01/ubuntu-install-docker/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>使用Gost搭建加密隧道转发V2ray流量</title>
-    <url>/2022/06/30/use-gost-build-encrypted-tunnel/</url>
-    <content><![CDATA[<blockquote><p>GO Simple Tunnel，GO语言实现的安全隧道</p>
-</blockquote>
-
-<p><a href="https://v2.gost.run/">官方文档</a><br><a href="https://github.com/ginuerzh/gost.git">GitHub项目地址</a></p>
-<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><p>多端口监听<br>可设置转发代理，支持多级转发(代理链)<br>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议<br>Web代理支持探测防御<br>SOCKS5代理支持TLS协商加密<br>支持多种隧道类型<br>Tunnel UDP over TCP<br>本地&#x2F;远程TCP&#x2F;UDP端口转发<br>TCP&#x2F;UDP透明代理<br>支持Shadowsocks(TCP&#x2F;UDP)协议<br>支持SNI代理<br>权限控制<br>负载均衡<br>路由控制<br>DNS解析和代理<br>TUN&#x2F;TAP设备</p>
-<span id="more"></span>
-
-<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>二进制文件<br><a href="https://github.com/ginuerzh/gost/releases">https://github.com/ginuerzh/gost/releases</a></p>
-<p>源码编译</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ginuerzh/gost.git</span><br><span class="line"><span class="built_in">cd</span> gost/cmd/gost</span><br><span class="line">go build</span><br></pre></td></tr></table></figure>
-<p>Docker</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ginuerzh/gost</span><br></pre></td></tr></table></figure>
-<p>Ubuntu Store</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo snap install core</span><br><span class="line">sudo snap install gost</span><br></pre></td></tr></table></figure>
-
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="用Gost对V2ray的流量进行转发"><a href="#用Gost对V2ray的流量进行转发" class="headerlink" title="用Gost对V2ray的流量进行转发"></a>用Gost对V2ray的流量进行转发</h3><h4 id="落地机（V2ray服务端）"><a href="#落地机（V2ray服务端）" class="headerlink" title="落地机（V2ray服务端）"></a>落地机（V2ray服务端）</h4><p>带验证密码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
-<p>不带验证密码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
-<p>使用证书</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口?cert=./cert.pem&amp;key=./key.pem&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h4><p>带验证密码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
-<p>不带验证密码</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
-<p>使用证书</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&amp;cert=./cert.pem&quot;</span></span><br></pre></td></tr></table></figure>
-
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口6688</p>
-<h4 id="使用screen命令开启后台运行"><a href="#使用screen命令开启后台运行" class="headerlink" title="使用screen命令开启后台运行"></a>使用screen命令开启后台运行</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S name <span class="comment">#新建一个name的session</span></span><br><span class="line">screen -<span class="built_in">ls</span> <span class="comment">#列出当前所有session</span></span><br><span class="line">screen -r name <span class="comment">#回到name的session</span></span><br><span class="line">screen -d name <span class="comment">#后台运行name的session ctrl + A + D</span></span><br><span class="line">screen -d -r name <span class="comment">#结束当前session并进入name的session</span></span><br></pre></td></tr></table></figure>
-<p>后台运行在命令前面加<code>screen -dm -S gost</code><br>下次访问输入命令<code>screen -r gost</code></p>
-<h3 id="用Gost对V2ray的流量不加密转发"><a href="#用Gost对V2ray的流量不加密转发" class="headerlink" title="用Gost对V2ray的流量不加密转发"></a>用Gost对V2ray的流量不加密转发</h3><h4 id="落地机"><a href="#落地机" class="headerlink" title="落地机"></a>落地机</h4><p>不用配置</p>
-<h4 id="中转机-1"><a href="#中转机-1" class="headerlink" title="中转机"></a>中转机</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=tcp://:443/V2ray服务器IP:V2ray端口 -L=udp://:443/V2ray服务器IP:V2ray端口</span><br></pre></td></tr></table></figure>
-
-<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口443</p>
-]]></content>
-      <categories>
-        <category>隐匿隧道</category>
-        <category>Gost</category>
-      </categories>
-      <tags>
-        <tag>加密隧道</tag>
-        <tag>Gost</tag>
-        <tag>TCP</tag>
-        <tag>UDP</tag>
       </tags>
   </entry>
   <entry>
