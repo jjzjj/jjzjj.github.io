@@ -65,7 +65,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/tags/index.html</loc>
+    <loc>https://jjzjj.github.io/categories/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -74,7 +74,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/index.html</loc>
+    <loc>https://jjzjj.github.io/tags/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -106,34 +106,6 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/Gost/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/TCP/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/UDP/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jjzjj.github.io/tags/%E5%BB%BA%E7%AB%99/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
@@ -156,6 +128,34 @@
   
   <url>
     <loc>https://jjzjj.github.io/tags/Github/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/Gost/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/TCP/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/UDP/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -206,14 +206,14 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/Gost/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/Gost/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -227,7 +227,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/</loc>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
