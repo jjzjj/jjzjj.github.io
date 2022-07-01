@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
+    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
+    <content><![CDATA[<blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
+</blockquote>
+
+<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<span id="more"></span> 
+
+<p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
+<h2 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h2><h3 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h3><p>写入ovpn配置文件信息</p>
+<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="code"><pre><span class="line">vim /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
+<h3 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
+<h3 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h3><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
+<h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
+<h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>OpenVPN</category>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>OpenVPN</tag>
+        <tag>OpenWrt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Hexo+Github+Next主题搭建个人博客</title>
     <url>/2022/06/30/post-my-first-hexo-page/</url>
     <content><![CDATA[<blockquote><p>折腾了小半天，总算把简洁的个人博客搭建成功了，一直都想弄一个博客啥的来记录下平时积累的东西，写在txt文本、word离线的容易丢，后面用OneNote记录也蛮方便，移动端有时候要查也行，还支持OCR图片查询，但是折腾排版格式个人觉得很麻烦，搭了很多次wp，搭完进去一看到写东西的界面排版花里胡哨，又不写了，最后还是写在了csdn，结果上次简单写了几句openvpn的命令，审核不过被删了。大多时候还是简单新建一个文本文档记录下，过后就转移到OneNote。在网上查资料的时候，发现Hexo框架+Next主题搭的个人博客网站非常符合自己的需求，界面简洁，使用md语法写在文本上，最后git一提交，而且数据存在本地，又可以在github弄一个项目，又免去了另外购置vps主机和域名。如果不想用xxxx.github.io的域名，也可以替换一个自己购买申请的域名。第一篇就记录下如何以Hexo+Github+Next来搭建的。</p>
@@ -59,33 +86,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
-    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
-    <content><![CDATA[<blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
-</blockquote>
-
-<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<span id="more"></span> 
-
-<p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
-<h2 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h2><h3 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h3><p>写入ovpn配置文件信息</p>
-<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="code"><pre><span class="line">vim /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
-<h3 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
-<h3 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h3><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
-<h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
-<h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>OpenVPN</category>
-        <category>OpenWrt</category>
-      </categories>
-      <tags>
-        <tag>OpenVPN</tag>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>使用Gost搭建加密隧道转发V2ray流量</title>
     <url>/2022/06/30/use-gost-build-encrypted-tunnel/</url>
     <content><![CDATA[<blockquote><p>GO Simple Tunnel，GO语言实现的安全隧道</p>
@@ -135,15 +135,5 @@
         <tag>TCP</tag>
         <tag>UDP</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>add x-ui</title>
-    <url>/2022/07/01/add-x-ui/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>ipsec vpn</title>
-    <url>/2022/07/01/ipsec-vpn/</url>
-    <content><![CDATA[]]></content>
   </entry>
 </search>

@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://jjzjj.github.io/2022/07/01/ipsec-vpn/</loc>
+    <loc>https://jjzjj.github.io/tags/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -11,9 +11,9 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/07/01/add-x-ui/</loc>
+    <loc>https://jjzjj.github.io/categories/index.html</loc>
     
-    <lastmod>2022-06-30</lastmod>
+    <lastmod>2022-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -22,16 +22,7 @@
   <url>
     <loc>https://jjzjj.github.io/2022/06/30/use-gost-build-encrypted-tunnel/</loc>
     
-    <lastmod>2022-06-30</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/</loc>
-    
-    <lastmod>2022-06-30</lastmod>
+    <lastmod>2022-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -40,25 +31,16 @@
   <url>
     <loc>https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/</loc>
     
-    <lastmod>2022-06-30</lastmod>
+    <lastmod>2022-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/tags/index.html</loc>
+    <loc>https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/</loc>
     
-    <lastmod>2022-06-29</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/categories/index.html</loc>
-    
-    <lastmod>2022-06-29</lastmod>
+    <lastmod>2022-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -67,7 +49,7 @@
   <url>
     <loc>https://jjzjj.github.io/404.html</loc>
     
-    <lastmod>2022-06-29</lastmod>
+    <lastmod>2022-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -81,6 +63,20 @@
     <priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/OpenVPN/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/OpenWrt/</loc>
+    <lastmod>2022-07-01</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/%E5%BB%BA%E7%AB%99/</loc>
@@ -105,20 +101,6 @@
   
   <url>
     <loc>https://jjzjj.github.io/tags/Github/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/OpenVPN/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/OpenWrt/</loc>
     <lastmod>2022-07-01</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
