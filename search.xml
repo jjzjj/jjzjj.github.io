@@ -37,6 +37,57 @@
       </tags>
   </entry>
   <entry>
+    <title>在Docker容器编译原版OpenWrt PassWall插件</title>
+    <url>/2022/07/02/openwrt-build-passwall/</url>
+    <content><![CDATA[<h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
+<li>拉取<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li>或<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
+<footer><strong>解决在Docker容器中make权限不足</strong><cite><a href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> bin</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入Docker容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li><p>或</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加包含passwall的feeds</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWpackages https://github.com/xiaorouji/openwrt-passwall.git;packages&quot;</span> &gt;&gt; feeds.conf.default</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWluci https://github.com/xiaorouji/openwrt-passwall.git;luci&quot;</span> &gt;&gt; feeds.conf.default</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载feeds源中的软件包源码（在SDK目录下）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在SDK根目录，安装feeds中luci-app-passwall的软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认组件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整Open­Wrt系统组件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预下载编译所需的软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j1 V=s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个是清洁编译4线程</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make package/luci-app-passwall/&#123;clean,compile&#125; -j4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个是可以看到具体流程的可以看到错误（推荐首次使用）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make package/luci-app-passwall/compile V=99</span><br></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+      <categories>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>PassWall</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用Hexo+Github+Next主题搭建个人博客</title>
     <url>/2022/06/30/post-my-first-hexo-page/</url>
     <content><![CDATA[<blockquote><p>折腾了小半天，总算把简洁的个人博客搭建成功了，一直都想弄一个博客啥的来记录下平时积累的东西，写在txt文本、word离线的容易丢，后面用OneNote记录也蛮方便，移动端有时候要查也行，还支持OCR图片查询，但是折腾排版格式个人觉得很麻烦，搭了很多次wp，搭完进去一看到写东西的界面排版花里胡哨，又不写了，最后还是写在了csdn，结果上次简单写了几句openvpn的命令，审核不过被删了。大多时候还是简单新建一个文本文档记录下，过后就转移到OneNote。在网上查资料的时候，发现Hexo框架+Next主题搭的个人博客网站非常符合自己的需求，界面简洁，使用md语法写在文本上，最后git一提交，而且数据存在本地，又可以在github弄一个项目，又免去了另外购置vps主机和域名。如果不想用xxxx.github.io的域名，也可以替换一个自己购买申请的域名。第一篇就记录下如何以Hexo+Github+Next来搭建的。</p>
@@ -142,9 +193,22 @@
       </tags>
   </entry>
   <entry>
-    <title>ubuntu install docker</title>
+    <title>在Ubuntu 20.04安装Docker</title>
     <url>/2022/07/01/ubuntu-install-docker/</url>
-    <content><![CDATA[]]></content>
+    <content><![CDATA[<p>使用<code>apt update</code>更新软件包索引，接着使用<code>apt remove</code>移除旧版本的docker。<br>然后使用curl命令导入docker存储库的GPG密钥。使用<code>add-apt-repository</code>将Docker APT存储库添加到系统。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">sudo apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &amp;&amp; \</span><br><span class="line">sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>没有sudo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - &amp;&amp; \</span><br><span class="line">add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>当发布新版本的Docker时，Docker都会随着系统更新而升级，当然您可以手动运行<code>sudo apt update &amp;&amp; sudo apt upgrade</code>来更新&#x2F;升级docker。<br>使用systemctl来检查Docker服务的状态来以Docker是否正确的安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
   </entry>
   <entry>
     <title>使用Gost搭建加密隧道转发V2ray流量</title>
@@ -245,6 +309,7 @@
 <img src='6.png' width='50%' title='新增节点'>
 
 <p>除了VMESS，还可以添加其它协议的节点。</p>
+<h2 id="提速CDN"><a href="#提速CDN" class="headerlink" title="提速CDN"></a>提速CDN</h2><p><a href="https://github.com/XIU2/CloudflareSpeedTest">https://github.com/XIU2/CloudflareSpeedTest</a></p>
 ]]></content>
       <categories>
         <category>隐匿隧道</category>

@@ -20,7 +20,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"disqus","storage":true,"lazyload":false,"nav":{"disqus":null,"text":"加载 Disqus 评论","order":-1},"activeClass":"disqus"},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="Welcome To My Blog">
@@ -204,6 +204,91 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/02/openwrt-build-passwall/" class="post-title-link" itemprop="url">在Docker容器编译原版OpenWrt PassWall插件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-02 09:34:06 / 修改时间：12:14:22" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
+<li>拉取<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li>或<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
+</ul>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/02/openwrt-build-passwall/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -218,7 +303,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2022/07/01/ubuntu-install-docker/" class="post-title-link" itemprop="url">ubuntu install docker</a>
+            <a href="/2022/07/01/ubuntu-install-docker/" class="post-title-link" itemprop="url">在Ubuntu 20.04安装Docker</a>
         </h2>
 
         <div class="post-meta">
@@ -235,8 +320,17 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 01:38:43" itemprop="dateModified" datetime="2022-07-02T01:38:43+08:00">2022-07-02</time>
+                <time title="修改时间：2022-07-02 11:53:49" itemprop="dateModified" datetime="2022-07-02T11:53:49+08:00">2022-07-02</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Docker/" itemprop="url" rel="index"><span itemprop="name">Docker</span></a>
+                </span>
+            </span>
 
           
             <span class="post-meta-item" title="阅读次数">
@@ -246,20 +340,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="firestore-visitors-count"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/07/01/ubuntu-install-docker/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/01/ubuntu-install-docker/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -270,7 +350,14 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <p>使用<code>apt update</code>更新软件包索引，接着使用<code>apt remove</code>移除旧版本的docker。<br>然后使用curl命令导入docker存储库的GPG密钥。使用<code>add-apt-repository</code>将Docker APT存储库添加到系统。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">sudo apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &amp;&amp; \</span><br><span class="line">sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>没有sudo</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - &amp;&amp; \</span><br><span class="line">add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>当发布新版本的Docker时，Docker都会随着系统更新而升级，当然您可以手动运行<code>sudo apt update &amp;&amp; sudo apt upgrade</code>来更新&#x2F;升级docker。<br>使用systemctl来检查Docker服务的状态来以Docker是否正确的安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -320,7 +407,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 01:38:43" itemprop="dateModified" datetime="2022-07-02T01:38:43+08:00">2022-07-02</time>
+                <time title="修改时间：2022-07-02 10:21:19" itemprop="dateModified" datetime="2022-07-02T10:21:19+08:00">2022-07-02</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -344,20 +431,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="firestore-visitors-count"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/07/01/x-ui-tls-ws/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/01/x-ui-tls-ws/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -459,20 +532,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="firestore-visitors-count"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/07/01/ipsec-vpn/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/07/01/ipsec-vpn/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -557,20 +616,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="firestore-visitors-count"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/06/30/use-gost-build-encrypted-tunnel/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/06/30/use-gost-build-encrypted-tunnel/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -667,20 +712,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="firestore-visitors-count"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/06/30/openvpn-config-custom-in-openwrt/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/06/30/openvpn-config-custom-in-openwrt/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -753,7 +784,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 02:41:51" itemprop="dateModified" datetime="2022-07-02T02:41:51+08:00">2022-07-02</time>
+                <time title="修改时间：2022-07-02 10:22:07" itemprop="dateModified" datetime="2022-07-02T10:22:07+08:00">2022-07-02</time>
               </span>
 
           
@@ -764,20 +795,6 @@
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="firestore-visitors-count"></span>
             </span>
-  
-  <span class="post-meta-item">
-    
-      <span class="post-meta-item-icon">
-        <i class="fa fa-comment-o"></i>
-      </span>
-      <span class="post-meta-item-text">Disqus：</span>
-    
-    <a title="disqus" href="/2022/06/30/post-my-first-hexo-page/#disqus_thread" itemprop="discussionUrl">
-      <span class="post-comments-count disqus-comment-count" data-disqus-identifier="2022/06/30/post-my-first-hexo-page/" itemprop="commentCount"></span>
-    </a>
-  </span>
-  
-  
 
         </div>
       </header>
@@ -884,20 +901,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-count">17</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -1103,17 +1120,6 @@
       });
       });
   </script>
-
-<script>
-  function loadCount() {
-    var d = document, s = d.createElement('script');
-    s.src = 'https://jjmjj.disqus.com/count.js';
-    s.id = 'dsq-count-scr';
-    (d.head || d.body).appendChild(s);
-  }
-  // defer loading until the whole page loading is completed
-  window.addEventListener('load', loadCount, false);
-</script>
 
 </body>
 </html>

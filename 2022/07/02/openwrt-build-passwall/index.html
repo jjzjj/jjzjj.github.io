@@ -23,17 +23,20 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome To My Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hedwig">
-<meta property="og:url" content="https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/index.html">
+  <meta name="description" content="编译 拉取1docker pull openwrtorg&#x2F;sdk 或1docker pull openwrtorg&#x2F;sdk:x86_64-22.03-SNAPSHOT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="在Docker容器编译原版OpenWrt PassWall插件">
+<meta property="og:url" content="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="Welcome To My Blog">
+<meta property="og:description" content="编译 拉取1docker pull openwrtorg&#x2F;sdk 或1docker pull openwrtorg&#x2F;sdk:x86_64-22.03-SNAPSHOT">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-02T01:34:06.000Z">
+<meta property="article:modified_time" content="2022-07-02T04:14:22.087Z">
 <meta property="article:author" content="It&#39;s Me!">
+<meta property="article:tag" content="PassWall">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/">
+<link rel="canonical" href="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/">
 
 
 <script id="page-configurations">
@@ -41,12 +44,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>分类: 隐匿隧道 | Hedwig</title>
+  <title>在Docker容器编译原版OpenWrt PassWall插件 | Hedwig</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6W2739PX"></script>
     <script>
@@ -198,111 +201,143 @@
         <div class="content-wrap">
           
 
-          <div class="content category">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h2 class="collection-header">隐匿隧道
-          <small>分类</small>
-        </h2>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          在Docker容器编译原版OpenWrt PassWall插件
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-02 09:34:06 / 修改时间：12:14:22" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
+        <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
+<li>拉取<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li>或<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
+</ul>
+<span id="more"></span>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-01T10:13:02+08:00"
-              content="2022-07-01">
-          07-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/01/x-ui-tls-ws/" itemprop="url">
-            <span itemprop="name">Xray+TLS+WS搭建VMESS、VLESS、KCP等隐匿隧道</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-01T10:11:20+08:00"
-              content="2022-07-01">
-          07-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/01/ipsec-vpn/" itemprop="url">
-            <span itemprop="name">ipsec vpn</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-30T23:04:23+08:00"
-              content="2022-06-30">
-          06-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/30/use-gost-build-encrypted-tunnel/" itemprop="url">
-            <span itemprop="name">使用Gost搭建加密隧道转发V2ray流量</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-06-30T15:23:02+08:00"
-              content="2022-06-30">
-          06-30
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/06/30/openvpn-config-custom-in-openwrt/" itemprop="url">
-            <span itemprop="name">在OpenWrt软路由自定义OpenVPN配置文件</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<ul>
+<li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
+<footer><strong>解决在Docker容器中make权限不足</strong><cite><a target="_blank" rel="noopener" href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> bin</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入Docker容器</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li><p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加包含passwall的feeds</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWpackages https://github.com/xiaorouji/openwrt-passwall.git;packages&quot;</span> &gt;&gt; feeds.conf.default</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWluci https://github.com/xiaorouji/openwrt-passwall.git;luci&quot;</span> &gt;&gt; feeds.conf.default</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载feeds源中的软件包源码（在SDK目录下）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在SDK根目录，安装feeds中luci-app-passwall的软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认组件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整Open­Wrt系统组件</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预下载编译所需的软件包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make download -j1 V=s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个是清洁编译4线程</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make package/luci-app-passwall/&#123;clean,compile&#125; -j4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个是可以看到具体流程的可以看到错误（推荐首次使用）</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make package/luci-app-passwall/compile V=99</span><br></pre></td></tr></table></figure></li>
+</ul>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      
+<div>
+<br />
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束-------------</div>
+    
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/PassWall/" rel="tag"># PassWall</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/01/ubuntu-install-docker/" rel="prev" title="在Ubuntu 20.04安装Docker">
+      <i class="fa fa-chevron-left"></i> 在Ubuntu 20.04安装Docker
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
   
 
 
@@ -355,6 +390,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -585,7 +621,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/',]
       });
       });
   </script>

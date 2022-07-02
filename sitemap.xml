@@ -2,9 +2,36 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/</loc>
     
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/</loc>
+    
+    <lastmod>2022-07-02</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -20,25 +47,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/</loc>
-    
-    <lastmod>2022-07-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://jjzjj.github.io/2022/06/30/use-gost-build-encrypted-tunnel/</loc>
-    
-    <lastmod>2022-07-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -85,7 +94,7 @@
 
   <url>
     <loc>https://jjzjj.github.io/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
@@ -93,105 +102,119 @@
   
   <url>
     <loc>https://jjzjj.github.io/tags/OpenVPN/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/OpenWrt/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/%E5%BB%BA%E7%AB%99/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/Hexo/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/Next/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/Github/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/Docker/</loc>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/Gost/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/TCP/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/UDP/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/V2ray/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/Xray/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/CloudFlare/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/TLS/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/tags/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/PassWall/</loc>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
@@ -200,35 +223,49 @@
   
   <url>
     <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/categories/OpenWrt/</loc>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/categories/Docker/</loc>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/Gost/</loc>
-    <lastmod>2022-07-01</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
     <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/</loc>
-    <lastmod>2022-07-01</lastmod>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/</loc>
+    <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
