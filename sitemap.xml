@@ -11,7 +11,7 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/</loc>
+    <loc>https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/</loc>
     
     <lastmod>2022-07-02</lastmod>
     
@@ -20,7 +20,34 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/</loc>
+    <loc>https://jjzjj.github.io/categories/index.html</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/tags/index.html</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/resources/index.html</loc>
+    
+    <lastmod>2022-07-02</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/2022/07/01/ubuntu-install-docker/</loc>
     
     <lastmod>2022-07-02</lastmod>
     
@@ -32,15 +59,6 @@
     <loc>https://jjzjj.github.io/2022/07/01/x-ui-tls-ws/</loc>
     
     <lastmod>2022-07-02</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/tags/index.html</loc>
-    
-    <lastmod>2022-07-01</lastmod>
     
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
@@ -75,15 +93,6 @@
   
   <url>
     <loc>https://jjzjj.github.io/404.html</loc>
-    
-    <lastmod>2022-07-01</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://jjzjj.github.io/categories/index.html</loc>
     
     <lastmod>2022-07-01</lastmod>
     
@@ -229,13 +238,6 @@
   </url>
   
   <url>
-    <loc>https://jjzjj.github.io/categories/OpenWrt/</loc>
-    <lastmod>2022-07-02</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
@@ -265,6 +267,13 @@
   
   <url>
     <loc>https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/</loc>
+    <lastmod>2022-07-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://jjzjj.github.io/categories/NAS/</loc>
     <lastmod>2022-07-02</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
