@@ -23,18 +23,20 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="编译 拉取1docker pull openwrtorg&#x2F;sdk 或1docker pull openwrtorg&#x2F;sdk:x86_64-22.03-SNAPSHOT">
+  <meta name="description" content="首次编译 拉取1docker pull openwrtorg&#x2F;sdk 或1docker pull openwrtorg&#x2F;sdk:x86_64-22.03-SNAPSHOT">
 <meta property="og:type" content="article">
 <meta property="og:title" content="在Docker容器编译原版OpenWrt PassWall插件">
 <meta property="og:url" content="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="编译 拉取1docker pull openwrtorg&#x2F;sdk 或1docker pull openwrtorg&#x2F;sdk:x86_64-22.03-SNAPSHOT">
+<meta property="og:description" content="首次编译 拉取1docker pull openwrtorg&#x2F;sdk 或1docker pull openwrtorg&#x2F;sdk:x86_64-22.03-SNAPSHOT">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/1.png">
 <meta property="article:published_time" content="2022-07-02T01:34:06.000Z">
-<meta property="article:modified_time" content="2022-07-02T06:07:56.334Z">
+<meta property="article:modified_time" content="2022-07-02T10:05:13.522Z">
 <meta property="article:author" content="It&#39;s Me!">
 <meta property="article:tag" content="PassWall">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/1.png">
 
 <link rel="canonical" href="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/">
 
@@ -252,7 +254,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-02 09:34:06 / 修改时间：14:07:56" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
+              <time title="创建时间：2022-07-02 09:34:06 / 修改时间：18:05:13" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -282,7 +284,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h3><ul>
+        <h2 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h2><ul>
 <li>拉取<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
 <li>或<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
 </ul>
@@ -313,7 +315,7 @@
 <li><p>调整Open­Wrt系统组件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>预下载编译所需的软件包</p>
+<li><p>预下载编译所需的软件包，-j后面的数字代表线程</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make download -j1 V=s</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>这个是清洁编译4线程</p>
@@ -322,6 +324,17 @@
 <li><p>这个是可以看到具体流程的可以看到错误（推荐首次使用）</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make package/luci-app-passwall/compile V=99</span><br></pre></td></tr></table></figure></li>
 </ul>
+<h2 id="更新以后再次编译"><a href="#更新以后再次编译" class="headerlink" title="更新以后再次编译"></a>更新以后再次编译</h2><ul>
+<li>先清空上次编译的软件包源码，再按着首次编译的步骤再弄一次<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make clean</span><br></pre></td></tr></table></figure></li>
+<li>如果还是失败可以尝试<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./feeds &amp;&amp; <span class="built_in">rm</span> -rf ./tmp</span><br></pre></td></tr></table></figure></li>
+<li>更新feeds源中的软件包源码<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure></li>
+<li>在SDK根目录，安装feeds中luci-app-passwall的软件包<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure></li>
+<li>默认组件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure></li>
+<li>调整Open­Wrt系统组件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="编译成功"><a href="#编译成功" class="headerlink" title="编译成功"></a>编译成功</h2><p>最终还是拿VPS来编译，应该需要全局网络环境才行<br><img src='1.png' width='80%' title='编译成功'></p>
+<h2 id="安装PassWall插件"><a href="#安装PassWall插件" class="headerlink" title="安装PassWall插件"></a>安装PassWall插件</h2><p>先更新软件源，移除dnsmasq，安装dnsmasq-full,luci-compat，wget-ssl等依赖包</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg remove dnsmasq </span><br><span class="line"><span class="built_in">rm</span> -rf /etc/config/dhcp </span><br><span class="line">opkg install dnsmasq-full wget-ssl ipset iptables-mod-nat-extra openssl-util curl iptables-mod-tproxy iptables-mod-iprange ip-full ip6tables-mod-nat luci-compat coreutils haproxy coreutils unzip coreutils-nohup libuci-lua resolveip</span><br><span class="line">opkg list-upgradable | <span class="built_in">cut</span> -f 1 -d <span class="string">&#x27; &#x27;</span> | xargs opkg upgrade</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -351,7 +364,10 @@
     <a href="/2022/07/01/ubuntu-install-docker/" rel="prev" title="在Ubuntu 20.04安装Docker">
       <i class="fa fa-chevron-left"></i> 在Ubuntu 20.04安装Docker
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2022/07/02/scp/" rel="next" title="SCP命令操作">
+      SCP命令操作 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -410,7 +426,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">编译</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%A6%96%E6%AC%A1%E7%BC%96%E8%AF%91"><span class="nav-number">1.</span> <span class="nav-text">首次编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%9B%B4%E6%96%B0%E4%BB%A5%E5%90%8E%E5%86%8D%E6%AC%A1%E7%BC%96%E8%AF%91"><span class="nav-number">2.</span> <span class="nav-text">更新以后再次编译</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E8%AF%91%E6%88%90%E5%8A%9F"><span class="nav-number">3.</span> <span class="nav-text">编译成功</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85PassWall%E6%8F%92%E4%BB%B6"><span class="nav-number">4.</span> <span class="nav-text">安装PassWall插件</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -426,20 +442,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">17</span>
+        <span class="site-state-item-count">19</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
