@@ -149,11 +149,6 @@
     <a href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/" rel="section"><i class="fa fa-fw fa-paper-plane"></i>隐匿隧道</a>
 
   </li>
-        <li class="menu-item menu-item-scrapy">
-
-    <a href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/" rel="section"><i class="fa fa-fw fa-flash"></i>网络爬虫</a>
-
-  </li>
         <li class="menu-item menu-item-nas">
 
     <a href="/categories/NAS/" rel="section"><i class="fa fa-fw fa-server"></i>NAS</a>
@@ -220,6 +215,160 @@
 
           <div class="content index posts-expand">
             
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/03/add-openwrt-overlay-space/" class="post-title-link" itemprop="url">OpenWrt扩容Overlay空间，解决无法安装插件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-03 01:19:30 / 修改时间：01:49:25" itemprop="dateCreated datePublished" datetime="2022-07-03T01:19:30+08:00">2022-07-03</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <p>官方原版OpenWrt固件只有120M的空间，装几个插件就歇菜了，用以下方法扩容</p>
+<h4 id="下载官方固件"><a href="#下载官方固件" class="headerlink" title="下载官方固件"></a>下载官方固件</h4><p><a target="_blank" rel="noopener" href="https://www.openwrt.org/">https://www.openwrt.org</a></p>
+<h4 id="解压img-gz"><a href="#解压img-gz" class="headerlink" title="解压img.gz"></a>解压img.gz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -kd openwrt-21.02.2-x86-64-generic-squashfs-combined.img.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="扩容500M"><a href="#扩容500M" class="headerlink" title="扩容500M"></a>扩容500M</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero bs=1M count=500 &gt;&gt; openwrt-21.02.2-x86-64-generic-squashfs-combined.img</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/03/add-openwrt-overlay-space/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/install-openwrt-for-soft-route/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/02/install-openwrt-for-soft-route/" class="post-title-link" itemprop="url">install openwrt for soft route</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-02 20:27:36" itemprop="dateCreated datePublished" datetime="2022-07-02T20:27:36+08:00">2022-07-02</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
       
   
   
@@ -324,10 +473,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-02 18:44:10 / 修改时间：19:30:02" itemprop="dateCreated datePublished" datetime="2022-07-02T18:44:10+08:00">2022-07-02</time>
+              <time title="创建时间：2022-07-02 18:44:10" itemprop="dateCreated datePublished" datetime="2022-07-02T18:44:10+08:00">2022-07-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-03 01:33:56" itemprop="dateModified" datetime="2022-07-03T01:33:56+08:00">2022-07-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -369,19 +524,14 @@
 <li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
 <footer><strong>解决在Docker容器中make权限不足</strong><cite><a target="_blank" rel="noopener" href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> public</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 public</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入Docker容器</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/public/:/home/build/openwrt/bin -it openwrtorg/imagebuilder</span><br></pre></td></tr></table></figure></li>
-<li><p>或</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/public/:/home/build/openwrt/bin -it openwrtorg/imagebuilder:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开始编译</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make image</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译完成</p>
-<img src='1.png' width='80%' title='编译完成'></li>
-</ul>
-
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/02/docker-make-openwrt/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
       
     </div>
 
@@ -455,10 +605,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#x40;&#52;&#x34;&#46;&#53;&#x35;&#x2e;&#54;&#x36;&#x2e;&#x37;&#55;">&#x72;&#x6f;&#111;&#x74;&#x40;&#52;&#x34;&#46;&#53;&#x35;&#x2e;&#54;&#x36;&#x2e;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
+          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#52;&#x34;&#x2e;&#53;&#x35;&#46;&#x36;&#54;&#x2e;&#x37;&#x37;">&#114;&#111;&#x6f;&#116;&#64;&#52;&#x34;&#x2e;&#53;&#x35;&#46;&#x36;&#54;&#x2e;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#64;&#52;&#x34;&#46;&#x35;&#53;&#46;&#x36;&#54;&#x2e;&#55;&#55;">&#114;&#x6f;&#x6f;&#116;&#64;&#52;&#x34;&#46;&#x35;&#53;&#46;&#x36;&#54;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#x40;&#x34;&#52;&#x2e;&#x35;&#53;&#46;&#54;&#x36;&#46;&#55;&#55;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#x34;&#52;&#x2e;&#x35;&#53;&#46;&#54;&#x36;&#46;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>
       
@@ -502,10 +652,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-02 09:34:06 / 修改时间：18:05:13" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
+              <time title="创建时间：2022-07-02 09:34:06" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-03 17:31:53" itemprop="dateModified" datetime="2022-07-03T17:31:53+08:00">2022-07-03</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="fa fa-folder-o"></i>
@@ -534,9 +690,9 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h2><ul>
+          <h4 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h4><ul>
 <li>拉取<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
-<li>或<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
+<li>或<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-21.02-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
 </ul>
           <!--noindex-->
             <div class="post-button">
@@ -867,7 +1023,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 01:38:43" itemprop="dateModified" datetime="2022-07-02T01:38:43+08:00">2022-07-02</time>
+                <time title="修改时间：2022-07-04 00:04:50" itemprop="dateModified" datetime="2022-07-04T00:04:50+08:00">2022-07-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -905,7 +1061,7 @@
 </blockquote>
 
 <p><a target="_blank" rel="noopener" href="https://v2.gost.run/">官方文档</a><br><a target="_blank" rel="noopener" href="https://github.com/ginuerzh/gost.git">GitHub项目地址</a></p>
-<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><p>多端口监听<br>可设置转发代理，支持多级转发(代理链)<br>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议<br>Web代理支持探测防御<br>SOCKS5代理支持TLS协商加密<br>支持多种隧道类型<br>Tunnel UDP over TCP<br>本地&#x2F;远程TCP&#x2F;UDP端口转发<br>TCP&#x2F;UDP透明代理<br>支持Shadowsocks(TCP&#x2F;UDP)协议<br>支持SNI代理<br>权限控制<br>负载均衡<br>路由控制<br>DNS解析和代理<br>TUN&#x2F;TAP设备</p>
+<h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><p>多端口监听<br>可设置转发代理，支持多级转发(代理链)<br>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议<br>Web代理支持探测防御<br>SOCKS5代理支持TLS协商加密<br>支持多种隧道类型<br>Tunnel UDP over TCP<br>本地&#x2F;远程TCP&#x2F;UDP端口转发<br>TCP&#x2F;UDP透明代理<br>支持Shadowsocks(TCP&#x2F;UDP)协议<br>支持SNI代理<br>权限控制<br>负载均衡<br>路由控制<br>DNS解析和代理<br>TUN&#x2F;TAP设备</p>
           <!--noindex-->
             <div class="post-button">
               <a class="btn" href="/2022/06/30/use-gost-build-encrypted-tunnel/#more" rel="contents">
@@ -928,188 +1084,11 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/06/30/openvpn-config-custom-in-openwrt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="It's Me!">
-      <meta itemprop="description" content="Welcome To My Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hedwig">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/30/openvpn-config-custom-in-openwrt/" class="post-title-link" itemprop="url">在OpenWrt软路由自定义OpenVPN配置文件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-30 15:23:02" itemprop="dateCreated datePublished" datetime="2022-06-30T15:23:02+08:00">2022-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 01:38:43" itemprop="dateModified" datetime="2022-07-02T01:38:43+08:00">2022-07-02</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/" itemprop="url" rel="index"><span itemprop="name">隐匿隧道</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/" itemprop="url" rel="index"><span itemprop="name">OpenVPN</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
-</blockquote>
-
-<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a target="_blank" rel="noopener" href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a target="_blank" rel="noopener" href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/06/30/openvpn-config-custom-in-openwrt/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/06/30/post-my-first-hexo-page/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="It's Me!">
-      <meta itemprop="description" content="Welcome To My Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hedwig">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/06/30/post-my-first-hexo-page/" class="post-title-link" itemprop="url">使用Hexo+Github+Next主题搭建个人博客</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-06-30 09:18:44" itemprop="dateCreated datePublished" datetime="2022-06-30T09:18:44+08:00">2022-06-30</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-02 13:50:55" itemprop="dateModified" datetime="2022-07-02T13:50:55+08:00">2022-07-02</time>
-              </span>
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <blockquote><p>折腾了小半天，总算把简洁的个人博客搭建成功了，一直都想弄一个博客啥的来记录下平时积累的东西，写在txt文本、word离线的容易丢，后面用OneNote记录也蛮方便，移动端有时候要查也行，还支持OCR图片查询，但是折腾排版格式个人觉得很麻烦，搭了很多次wp，搭完进去一看到写东西的界面排版花里胡哨，又不写了，最后还是写在了csdn，结果上次简单写了几句openvpn的命令，审核不过被删了。大多时候还是简单新建一个文本文档记录下，过后就转移到OneNote。在网上查资料的时候，发现Hexo框架+Next主题搭的个人博客网站非常符合自己的需求，界面简洁，使用md语法写在文本上，最后git一提交，而且数据存在本地，又可以在github弄一个项目，又免去了另外购置vps主机和域名。如果不想用xxxx.github.io的域名，也可以替换一个自己购买申请的域名。第一篇就记录下如何以Hexo+Github+Next来搭建的。</p>
-</blockquote>
-
-<h2 id="搭建Hexo-Next网站"><a href="#搭建Hexo-Next网站" class="headerlink" title="搭建Hexo+Next网站"></a>搭建Hexo+Next网站</h2><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/index.html">Hexo 中文官方文档</a><br><a target="_blank" rel="noopener" href="https://theme-next.iissnan.com/getting-started.html">Next 中文官方文档</a></p>
-<blockquote><p>如果要搭建的话，还是花几小时从头到尾把官方文档看一遍比较好，首先这些文档比较少，内容也很简单，边实践边摸索，比一上来就搜各种教程要更加有效率。</p>
-</blockquote>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/06/30/post-my-first-hexo-page/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
+  <nav class="pagination">
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
+  </nav>
 
 
 
@@ -1176,7 +1155,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">10</span>
+          <span class="site-state-item-count">12</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -1356,8 +1335,6 @@
 <script src="/js/next-boot.js"></script>
 
 
-  <script defer src="/lib/three/three.min.js"></script>
-    <script defer src="/lib/three/canvas_sphere.min.js"></script>
 
 
   

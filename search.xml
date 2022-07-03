@@ -1,40 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Docker容器编译原版OpenWrt固件</title>
-    <url>/2022/07/02/docker-make-openwrt/</url>
-    <content><![CDATA[<ul>
-<li><p>拉取</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/imagebuilder</span><br></pre></td></tr></table></figure></li>
-<li><p>或</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/imagebuilder:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
-</li>
-<li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
-<footer><strong>解决在Docker容器中make权限不足</strong><cite><a href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> public</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 public</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入Docker容器</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/public/:/home/build/openwrt/bin -it openwrtorg/imagebuilder</span><br></pre></td></tr></table></figure></li>
-<li><p>或</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/public/:/home/build/openwrt/bin -it openwrtorg/imagebuilder:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>开始编译</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make image</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>编译完成</p>
-<img src='1.png' width='80%' title='编译完成'></li>
-</ul>
-]]></content>
-      <categories>
-        <category>NAS</category>
-        <category>OpenWrt</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>OpenWrt</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>ipsec vpn</title>
     <url>/2022/07/01/ipsec-vpn/</url>
     <content><![CDATA[]]></content>
@@ -42,20 +8,6 @@
         <category>隐匿隧道</category>
         <category>IPSec VPN</category>
       </categories>
-  </entry>
-  <entry>
-    <title>Linux常用命令</title>
-    <url>/2022/07/02/linux-command/</url>
-    <content><![CDATA[<p>查看文件夹大小</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -h</span><br></pre></td></tr></table></figure>
-<p>压缩文件夹</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -czf filename.tar.gz *</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
   </entry>
   <entry>
     <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
@@ -80,70 +32,8 @@
         <category>OpenVPN</category>
       </categories>
       <tags>
-        <tag>OpenWrt</tag>
         <tag>OpenVPN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Docker容器编译原版OpenWrt PassWall插件</title>
-    <url>/2022/07/02/openwrt-build-passwall/</url>
-    <content><![CDATA[<h2 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h2><ul>
-<li>拉取<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
-<li>或<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
-</ul>
-<span id="more"></span>
-
-<ul>
-<li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
-<footer><strong>解决在Docker容器中make权限不足</strong><cite><a href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> bin</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 bin</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>进入Docker容器</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
-<li><p>或</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>添加包含passwall的feeds</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWpackages https://github.com/xiaorouji/openwrt-passwall.git;packages&quot;</span> &gt;&gt; feeds.conf.default</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWluci https://github.com/xiaorouji/openwrt-passwall.git;luci&quot;</span> &gt;&gt; feeds.conf.default</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>下载feeds源中的软件包源码（在SDK目录下）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>在SDK根目录，安装feeds中luci-app-passwall的软件包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>默认组件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>调整Open­Wrt系统组件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>预下载编译所需的软件包，-j后面的数字代表线程</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j1 V=s</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这个是清洁编译4线程</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make package/luci-app-passwall/&#123;clean,compile&#125; -j4</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>这个是可以看到具体流程的可以看到错误（推荐首次使用）</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make package/luci-app-passwall/compile V=99</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="更新以后再次编译"><a href="#更新以后再次编译" class="headerlink" title="更新以后再次编译"></a>更新以后再次编译</h2><ul>
-<li>先清空上次编译的软件包源码，再按着首次编译的步骤再弄一次<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make clean</span><br></pre></td></tr></table></figure></li>
-<li>如果还是失败可以尝试<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./feeds &amp;&amp; <span class="built_in">rm</span> -rf ./tmp</span><br></pre></td></tr></table></figure></li>
-<li>更新feeds源中的软件包源码<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure></li>
-<li>在SDK根目录，安装feeds中luci-app-passwall的软件包<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure></li>
-<li>默认组件<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure></li>
-<li>调整Open­Wrt系统组件<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure></li>
-</ul>
-<h2 id="编译成功"><a href="#编译成功" class="headerlink" title="编译成功"></a>编译成功</h2><p>最终还是拿VPS来编译，应该需要全局网络环境才行<br><img src='1.png' width='80%' title='编译成功'></p>
-<h2 id="安装PassWall插件"><a href="#安装PassWall插件" class="headerlink" title="安装PassWall插件"></a>安装PassWall插件</h2><p>先更新软件源，移除dnsmasq，安装dnsmasq-full,luci-compat，wget-ssl等依赖包</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg remove dnsmasq </span><br><span class="line"><span class="built_in">rm</span> -rf /etc/config/dhcp </span><br><span class="line">opkg install dnsmasq-full wget-ssl ipset iptables-mod-nat-extra openssl-util curl iptables-mod-tproxy iptables-mod-iprange ip-full ip6tables-mod-nat luci-compat coreutils haproxy coreutils unzip coreutils-nohup libuci-lua resolveip</span><br><span class="line">opkg list-upgradable | <span class="built_in">cut</span> -f 1 -d <span class="string">&#x27; &#x27;</span> | xargs opkg upgrade</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>NAS</category>
-      </categories>
-      <tags>
-        <tag>PassWall</tag>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
   <entry>
@@ -255,22 +145,6 @@
       </tags>
   </entry>
   <entry>
-    <title>SCP命令操作</title>
-    <url>/2022/07/02/scp/</url>
-    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#x40;&#52;&#x34;&#46;&#53;&#x35;&#x2e;&#54;&#x36;&#x2e;&#x37;&#55;">&#x72;&#x6f;&#111;&#x74;&#x40;&#52;&#x34;&#46;&#53;&#x35;&#x2e;&#54;&#x36;&#x2e;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#114;&#x6f;&#x6f;&#116;&#64;&#52;&#x34;&#46;&#x35;&#53;&#46;&#x36;&#54;&#x2e;&#55;&#55;">&#114;&#x6f;&#x6f;&#116;&#64;&#52;&#x34;&#46;&#x35;&#53;&#46;&#x36;&#54;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>SCP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>在Ubuntu 20.04安装Docker</title>
     <url>/2022/07/01/ubuntu-install-docker/</url>
     <content><![CDATA[<p>使用<code>apt update</code>更新软件包索引，接着使用<code>apt remove</code>移除旧版本的docker。<br>然后使用curl命令导入docker存储库的GPG密钥。使用<code>add-apt-repository</code>将Docker APT存储库添加到系统。</p>
@@ -295,39 +169,48 @@
 </blockquote>
 
 <p><a href="https://v2.gost.run/">官方文档</a><br><a href="https://github.com/ginuerzh/gost.git">GitHub项目地址</a></p>
-<h2 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h2><p>多端口监听<br>可设置转发代理，支持多级转发(代理链)<br>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议<br>Web代理支持探测防御<br>SOCKS5代理支持TLS协商加密<br>支持多种隧道类型<br>Tunnel UDP over TCP<br>本地&#x2F;远程TCP&#x2F;UDP端口转发<br>TCP&#x2F;UDP透明代理<br>支持Shadowsocks(TCP&#x2F;UDP)协议<br>支持SNI代理<br>权限控制<br>负载均衡<br>路由控制<br>DNS解析和代理<br>TUN&#x2F;TAP设备</p>
+<h3 id="功能特性"><a href="#功能特性" class="headerlink" title="功能特性"></a>功能特性</h3><p>多端口监听<br>可设置转发代理，支持多级转发(代理链)<br>支持标准HTTP&#x2F;HTTPS&#x2F;HTTP2&#x2F;SOCKS4(A)&#x2F;SOCKS5代理协议<br>Web代理支持探测防御<br>SOCKS5代理支持TLS协商加密<br>支持多种隧道类型<br>Tunnel UDP over TCP<br>本地&#x2F;远程TCP&#x2F;UDP端口转发<br>TCP&#x2F;UDP透明代理<br>支持Shadowsocks(TCP&#x2F;UDP)协议<br>支持SNI代理<br>权限控制<br>负载均衡<br>路由控制<br>DNS解析和代理<br>TUN&#x2F;TAP设备</p>
 <span id="more"></span>
 
-<h2 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h2><p>二进制文件<br><a href="https://github.com/ginuerzh/gost/releases">https://github.com/ginuerzh/gost/releases</a></p>
-<p>源码编译</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ginuerzh/gost.git</span><br><span class="line"><span class="built_in">cd</span> gost/cmd/gost</span><br><span class="line">go build</span><br></pre></td></tr></table></figure>
+<h3 id="下载安装"><a href="#下载安装" class="headerlink" title="下载安装"></a>下载安装</h3><h4 id="二进制文件"><a href="#二进制文件" class="headerlink" title="二进制文件"></a>二进制文件</h4><p><a href="https://github.com/ginuerzh/gost/releases">https://github.com/ginuerzh/gost/releases</a></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://github.com/ginuerzh/gost/releases/download/v2.11.2/gost-linux-amd64-2.11.2.gz</span><br><span class="line">gunzip gost-linux-amd64-2.11.2.gz </span><br><span class="line"><span class="built_in">mv</span> gost-linux-amd64-2.11.2 gost</span><br><span class="line"><span class="built_in">chmod</span> +x gost</span><br></pre></td></tr></table></figure>
+
+<h4 id="源码编译"><a href="#源码编译" class="headerlink" title="源码编译"></a>源码编译</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/ginuerzh/gost.git</span><br><span class="line"><span class="built_in">cd</span> gost/cmd/gost</span><br><span class="line">go build</span><br></pre></td></tr></table></figure>
 <p>Docker</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull ginuerzh/gost</span><br></pre></td></tr></table></figure>
 <p>Ubuntu Store</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo snap install core</span><br><span class="line">sudo snap install gost</span><br></pre></td></tr></table></figure>
 
-<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><h3 id="用Gost对V2ray的流量进行转发"><a href="#用Gost对V2ray的流量进行转发" class="headerlink" title="用Gost对V2ray的流量进行转发"></a>用Gost对V2ray的流量进行转发</h3><h4 id="落地机（V2ray服务端）"><a href="#落地机（V2ray服务端）" class="headerlink" title="落地机（V2ray服务端）"></a>落地机（V2ray服务端）</h4><p>带验证密码</p>
+<h3 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h3><h4 id="用Gost对V2ray的流量进行转发"><a href="#用Gost对V2ray的流量进行转发" class="headerlink" title="用Gost对V2ray的流量进行转发"></a>用Gost对V2ray的流量进行转发</h4><h5 id="落地机（V2ray服务端）"><a href="#落地机（V2ray服务端）" class="headerlink" title="落地机（V2ray服务端）"></a>落地机（V2ray服务端）</h5><p>带验证密码</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
 <p>不带验证密码</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://监听本地端口/127.0.0.1:V2ray端口&quot;</span></span><br></pre></td></tr></table></figure>
 <p>使用证书</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=<span class="string">&quot;relay+mtls://username:password@:监听本地端口/127.0.0.1:V2ray端口?cert=./cert.pem&amp;key=./key.pem&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h4><p>带验证密码</p>
+<h5 id="中转机"><a href="#中转机" class="headerlink" title="中转机"></a>中转机</h5><p>带验证密码</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
 <p>不带验证密码</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://V2ray服务器IP:V2ray监听端口?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
 <p>使用证书</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@V2ray服务器IP:V2ray监听端口?mbind=true&amp;cert=./cert.pem&quot;</span></span><br></pre></td></tr></table></figure>
 
-<h4 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口6688</p>
-<h4 id="使用screen命令开启后台运行"><a href="#使用screen命令开启后台运行" class="headerlink" title="使用screen命令开启后台运行"></a>使用screen命令开启后台运行</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S name <span class="comment">#新建一个name的session</span></span><br><span class="line">screen -<span class="built_in">ls</span> <span class="comment">#列出当前所有session</span></span><br><span class="line">screen -r name <span class="comment">#回到name的session</span></span><br><span class="line">screen -d name <span class="comment">#后台运行name的session ctrl + A + D</span></span><br><span class="line">screen -d -r name <span class="comment">#结束当前session并进入name的session</span></span><br></pre></td></tr></table></figure>
+<h5 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h5><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口6688</p>
+<h5 id="使用screen命令开启后台运行"><a href="#使用screen命令开启后台运行" class="headerlink" title="使用screen命令开启后台运行"></a>使用screen命令开启后台运行</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -S name <span class="comment">#新建一个name的session</span></span><br><span class="line">screen -<span class="built_in">ls</span> <span class="comment">#列出当前所有session</span></span><br><span class="line">screen -r name <span class="comment">#回到name的session</span></span><br><span class="line">screen -d name <span class="comment">#后台运行name的session ctrl + A + D</span></span><br><span class="line">screen -d -r name <span class="comment">#结束当前session并进入name的session</span></span><br></pre></td></tr></table></figure>
 <p>后台运行在命令前面加<code>screen -dm -S gost</code><br>下次访问输入命令<code>screen -r gost</code></p>
-<h3 id="用Gost对V2ray的流量不加密转发"><a href="#用Gost对V2ray的流量不加密转发" class="headerlink" title="用Gost对V2ray的流量不加密转发"></a>用Gost对V2ray的流量不加密转发</h3><h4 id="落地机"><a href="#落地机" class="headerlink" title="落地机"></a>落地机</h4><p>不用配置</p>
-<h4 id="中转机-1"><a href="#中转机-1" class="headerlink" title="中转机"></a>中转机</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=tcp://:443/V2ray服务器IP:V2ray端口 -L=udp://:443/V2ray服务器IP:V2ray端口</span><br></pre></td></tr></table></figure>
+<h4 id="用Gost对V2ray的流量不加密转发"><a href="#用Gost对V2ray的流量不加密转发" class="headerlink" title="用Gost对V2ray的流量不加密转发"></a>用Gost对V2ray的流量不加密转发</h4><h5 id="落地机"><a href="#落地机" class="headerlink" title="落地机"></a>落地机</h5><p>不用配置</p>
+<h5 id="中转机-1"><a href="#中转机-1" class="headerlink" title="中转机"></a>中转机</h5><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./gost -L=tcp://:443/V2ray服务器IP:V2ray端口 -L=udp://:443/V2ray服务器IP:V2ray端口</span><br></pre></td></tr></table></figure>
 
-<h4 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h4><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口443</p>
-]]></content>
+<h5 id="客户端-1"><a href="#客户端-1" class="headerlink" title="客户端"></a>客户端</h5><p>将V2ray的客户端中服务器地址换成中转机的IP及中转机监听的端口443</p>
+<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><h4 id="V2Ray服务端配置，端口3443，tls"><a href="#V2Ray服务端配置，端口3443，tls" class="headerlink" title="V2Ray服务端配置，端口3443，tls"></a>V2Ray服务端配置，端口3443，tls</h4><img src='1.png' width='50%' title='v2ray服务端配置'>
+
+<h4 id="落地机命令"><a href="#落地机命令" class="headerlink" title="落地机命令"></a>落地机命令</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -dm -S gost ./gost -L=<span class="string">&quot;relay+mtls://username:password@:44443/127.0.0.1:3443&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="中转机命令"><a href="#中转机命令" class="headerlink" title="中转机命令"></a>中转机命令</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">screen -dm -S gost ./gost -L=udp://:6688 -L=tcp://:6688 -F=<span class="string">&quot;relay+mtls://username:password@194.110.110.110:44443?mbind=true&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="OpenWrt客户端配置"><a href="#OpenWrt客户端配置" class="headerlink" title="OpenWrt客户端配置"></a>OpenWrt客户端配置</h4><img src='2.png' width='50%' title='v2ray客户端配置'>
+
+<h4 id="流量转发成功"><a href="#流量转发成功" class="headerlink" title="流量转发成功"></a>流量转发成功</h4><img src='3.png' width='50%' title='v2ray客户端配置'>]]></content>
       <categories>
         <category>隐匿隧道</category>
         <category>Gost</category>
@@ -399,6 +282,172 @@
         <tag>CloudFlare</tag>
         <tag>TLS</tag>
         <tag>隐匿隧道</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>在Docker容器编译原版OpenWrt PassWall插件</title>
+    <url>/2022/07/02/openwrt-build-passwall/</url>
+    <content><![CDATA[<h4 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h4><ul>
+<li>拉取<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li>或<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-21.02-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
+</ul>
+<span id="more"></span>
+
+<ul>
+<li><blockquote><p>如果按照官方给的命令进行编译，需要给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
+<footer><strong>解决在Docker容器中make权限不足</strong><cite><a href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> bin</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 bin</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>进入Docker容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
+<li><p>或</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/bin/:/home/build/openwrt/bin -it openwrtorg/sdk:x86_64-21.02-SNAPSHOT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>添加包含passwall的feeds</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWpackages https://github.com/xiaorouji/openwrt-passwall.git;packages&quot;</span> &gt;&gt; feeds.conf.default</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;src-git PWluci https://github.com/xiaorouji/openwrt-passwall.git;luci&quot;</span> &gt;&gt; feeds.conf.default</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>下载feeds源中的软件包源码（在SDK目录下）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>在SDK根目录，安装feeds中luci-app-passwall的软件包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>默认组件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>调整Open­Wrt系统组件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>预下载编译所需的软件包，-j后面的数字代表线程</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make download -j1 V=s</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个是清洁编译4线程</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make package/luci-app-passwall/&#123;clean,compile&#125; -j4</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个是可以看到具体流程的可以看到错误（推荐首次使用）</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make package/luci-app-passwall/compile V=99</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="更新以后再次编译"><a href="#更新以后再次编译" class="headerlink" title="更新以后再次编译"></a>更新以后再次编译</h4><ul>
+<li>先清空上次编译的软件包源码，再按着首次编译的步骤再弄一次<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make clean</span><br></pre></td></tr></table></figure></li>
+<li>如果还是失败可以尝试<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">rm</span> -rf ./feeds &amp;&amp; <span class="built_in">rm</span> -rf ./tmp</span><br></pre></td></tr></table></figure></li>
+<li>更新feeds源中的软件包源码<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds update -a</span><br></pre></td></tr></table></figure></li>
+<li>在SDK根目录，安装feeds中luci-app-passwall的软件包<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">./scripts/feeds install luci-app-passwall</span><br></pre></td></tr></table></figure></li>
+<li>默认组件<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make defconfig</span><br></pre></td></tr></table></figure></li>
+<li>调整Open­Wrt系统组件<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make menuconfig</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h4 id="编译成功"><a href="#编译成功" class="headerlink" title="编译成功"></a>编译成功</h4><p>最终还是拿VPS来编译，应该需要全局网络环境才行<br><img src='1.png' width='100%' title='编译成功'></p>
+<h4 id="原版OpenWrt固件空间不够，需要扩容才能安装PassWall"><a href="#原版OpenWrt固件空间不够，需要扩容才能安装PassWall" class="headerlink" title="原版OpenWrt固件空间不够，需要扩容才能安装PassWall"></a>原版OpenWrt固件空间不够，需要扩容才能安装PassWall</h4><a href="/2022/07/03/add-openwrt-overlay-space/" title="OpenWrt扩容Overlay空间，解决无法安装插件">OpenWrt扩容Overlay空间，解决无法安装插件</a>
+
+<h4 id="安装PassWall插件"><a href="#安装PassWall插件" class="headerlink" title="安装PassWall插件"></a>安装PassWall插件</h4><ol>
+<li><p>先更新软件源，移除dnsmasq，安装dnsmasq-full,luci-compat，wget-ssl等依赖包</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">opkg update</span><br><span class="line">opkg remove dnsmasq </span><br><span class="line"><span class="built_in">rm</span> -rf /etc/config/dhcp </span><br><span class="line">opkg install dnsmasq-full wget-ssl ipset iptables-mod-nat-extra openssl-util curl iptables-mod-tproxy iptables-mod-iprange ip-full ip6tables-mod-nat luci-compat coreutils haproxy coreutils unzip coreutils-nohup libuci-lua resolveip</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装PWpackages文件夹里面的ipk</p>
+</li>
+<li><p>再安装PWluci文件夹的主插件</p>
+</li>
+<li><p>安装成功</p>
+</li>
+</ol>
+<img src='2.png' width='100%' title='安装成功'>]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>PassWall</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SCP命令操作</title>
+    <url>/2022/07/02/scp/</url>
+    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#114;&#111;&#x6f;&#116;&#64;&#52;&#x34;&#x2e;&#53;&#x35;&#46;&#x36;&#54;&#x2e;&#x37;&#x37;">&#114;&#111;&#x6f;&#116;&#64;&#52;&#x34;&#x2e;&#53;&#x35;&#46;&#x36;&#54;&#x2e;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#x40;&#x34;&#52;&#x2e;&#x35;&#53;&#46;&#54;&#x36;&#46;&#55;&#55;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#x34;&#52;&#x2e;&#x35;&#53;&#46;&#54;&#x36;&#46;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>SCP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker容器编译原版OpenWrt固件</title>
+    <url>/2022/07/02/docker-make-openwrt/</url>
+    <content><![CDATA[<ul>
+<li><p>拉取</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/imagebuilder</span><br></pre></td></tr></table></figure></li>
+<li><p>或</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull openwrtorg/imagebuilder:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
+</li>
+<li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
+<footer><strong>解决在Docker容器中make权限不足</strong><cite><a href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> public</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 public</span><br></pre></td></tr></table></figure>
+<span id="more"></span></li>
+<li><p>进入Docker容器</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/public/:/home/build/openwrt/bin -it openwrtorg/imagebuilder</span><br></pre></td></tr></table></figure></li>
+<li><p>或</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo docker run --<span class="built_in">rm</span> -v <span class="string">&quot;<span class="subst">$(pwd)</span>&quot;</span>/public/:/home/build/openwrt/bin -it openwrtorg/imagebuilder:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>开始编译</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make image</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>编译完成</p>
+<img src='1.png' width='80%' title='编译完成'></li>
+</ul>
+]]></content>
+      <categories>
+        <category>NAS</category>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2022/07/02/linux-command/</url>
+    <content><![CDATA[<p>查看文件夹大小</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -h</span><br></pre></td></tr></table></figure>
+<p>压缩文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -czf filename.tar.gz *</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>install openwrt for soft route</title>
+    <url>/2022/07/02/install-openwrt-for-soft-route/</url>
+    <content><![CDATA[]]></content>
+  </entry>
+  <entry>
+    <title>OpenWrt扩容Overlay空间，解决无法安装插件</title>
+    <url>/2022/07/03/add-openwrt-overlay-space/</url>
+    <content><![CDATA[<p>官方原版OpenWrt固件只有120M的空间，装几个插件就歇菜了，用以下方法扩容</p>
+<h4 id="下载官方固件"><a href="#下载官方固件" class="headerlink" title="下载官方固件"></a>下载官方固件</h4><p><a href="https://www.openwrt.org/">https://www.openwrt.org</a></p>
+<h4 id="解压img-gz"><a href="#解压img-gz" class="headerlink" title="解压img.gz"></a>解压img.gz</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gzip -kd openwrt-21.02.2-x86-64-generic-squashfs-combined.img.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="扩容500M"><a href="#扩容500M" class="headerlink" title="扩容500M"></a>扩容500M</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero bs=1M count=500 &gt;&gt; openwrt-21.02.2-x86-64-generic-squashfs-combined.img</span><br></pre></td></tr></table></figure>
+<span id="more"></span>
+<img src='1.png' width='100%' title='扩容'>
+
+<h4 id="将扩容的空间放入img镜像"><a href="#将扩容的空间放入img镜像" class="headerlink" title="将扩容的空间放入img镜像"></a>将扩容的空间放入img镜像</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">parted openwrt-21.02.2-x86-64-generic-squashfs-combined.img</span><br><span class="line"><span class="built_in">print</span></span><br><span class="line">resizepart 2 100%</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
+<img src='2.png' width='100%' title='扩容成功'>
+
+<h4 id="网络其它方法"><a href="#网络其它方法" class="headerlink" title="网络其它方法"></a>网络其它方法</h4><blockquote><p>引用以下方法搞定</p>
+<footer><strong>第038期 OpenWrt完美扩容Overlay 硬核新方法，真扩容，零空间浪费，专治强迫症！</strong><cite><a href="https://www.126126.xyz/post/038/">www.126126.xyz/post/038</a></cite></footer></blockquote>]]></content>
+      <categories>
+        <category>NAS</category>
+        <category>OpenWrt</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
       </tags>
   </entry>
 </search>
