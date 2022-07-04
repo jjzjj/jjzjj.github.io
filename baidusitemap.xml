@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jjzjj.github.io/2022/07/02/linux-command/</loc>
+    <lastmod>2022-07-04</lastmod>
+  </url>
+  <url>
+    <loc>https://jjzjj.github.io/2022/07/04/shga/</loc>
+    <lastmod>2022-07-04</lastmod>
+  </url>
+  <url>
     <loc>https://jjzjj.github.io/2022/06/30/use-gost-build-encrypted-tunnel/</loc>
     <lastmod>2022-07-03</lastmod>
   </url>
@@ -18,10 +26,6 @@
   </url>
   <url>
     <loc>https://jjzjj.github.io/2022/07/02/install-openwrt-for-soft-route/</loc>
-    <lastmod>2022-07-02</lastmod>
-  </url>
-  <url>
-    <loc>https://jjzjj.github.io/2022/07/02/linux-command/</loc>
     <lastmod>2022-07-02</lastmod>
   </url>
   <url>
