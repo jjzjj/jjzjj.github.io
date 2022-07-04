@@ -458,4 +458,15 @@
         <tag>隐匿隧道</tag>
       </tags>
   </entry>
+  <entry>
+    <title>批量爬取推特推文</title>
+    <url>/2022/07/04/scray-twitter/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>网络爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
+      </tags>
+  </entry>
 </search>
