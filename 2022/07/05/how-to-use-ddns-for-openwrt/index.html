@@ -23,19 +23,26 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome To My Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="schedule">
-<meta property="og:url" content="https://jjzjj.github.io/schedule/index.html">
+  <meta name="description" content="一般家庭宽带没有固定的公网ip地址，动态老变，访问内网的资源不方便，使用以下方法可以解决。   基本要求 公网地址 一个域名  申请Token（以腾讯云为例）访问：https:&#x2F;&#x2F;console.dnspod.cn&#x2F;account&#x2F;token&#x2F;token 申请Token">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用动态域名解析DDNS访问内网群晖">
+<meta property="og:url" content="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="Welcome To My Blog">
+<meta property="og:description" content="一般家庭宽带没有固定的公网ip地址，动态老变，访问内网的资源不方便，使用以下方法可以解决。   基本要求 公网地址 一个域名  申请Token（以腾讯云为例）访问：https:&#x2F;&#x2F;console.dnspod.cn&#x2F;account&#x2F;token&#x2F;token 申请Token">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-07-04T08:10:36.000Z">
-<meta property="article:modified_time" content="2022-07-04T08:16:23.744Z">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/1.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/2.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/3.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/4.png">
+<meta property="article:published_time" content="2022-07-05T11:25:08.000Z">
+<meta property="article:modified_time" content="2022-07-05T11:57:51.636Z">
 <meta property="article:author" content="It&#39;s Me!">
+<meta property="article:tag" content="OpenWrt">
+<meta property="article:tag" content="群晖">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/1.png">
 
-<link rel="canonical" href="https://jjzjj.github.io/schedule/">
+<link rel="canonical" href="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/">
 
 
 <script id="page-configurations">
@@ -43,13 +50,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>schedule | Hedwig
-</title>
+  <title>如何使用动态域名解析DDNS访问内网群晖 | Hedwig</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6W2739PX"></script>
     <script>
@@ -220,200 +226,137 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">schedule
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何使用动态域名解析DDNS访问内网群晖
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-05 19:25:08 / 修改时间：19:57:51" itemprop="dateCreated datePublished" datetime="2022-07-05T19:25:08+08:00">2022-07-05</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote><p>一般家庭宽带没有固定的公网ip地址，动态老变，访问内网的资源不方便，使用以下方法可以解决。</p>
+</blockquote>
+
+<h3 id="基本要求"><a href="#基本要求" class="headerlink" title="基本要求"></a>基本要求</h3><ul>
+<li>公网地址</li>
+<li>一个域名</li>
+</ul>
+<h3 id="申请Token（以腾讯云为例）"><a href="#申请Token（以腾讯云为例）" class="headerlink" title="申请Token（以腾讯云为例）"></a>申请Token（以腾讯云为例）</h3><p>访问：<a target="_blank" rel="noopener" href="https://console.dnspod.cn/account/token/token">https://console.dnspod.cn/account/token/token</a> 申请Token</p>
+<span id="more"></span>
+<img src='1.png' width='80%' title='dnspod'>
+
+<p>点击“创建密钥”，保存接下来生成的Token（id,token）</p>
+<img src='2.png' width='50%' title='生成Token'>
+
+<h3 id="进入OpenWrt设置"><a href="#进入OpenWrt设置" class="headerlink" title="进入OpenWrt设置"></a>进入OpenWrt设置</h3><p>进入OpenWrt后台，网络 - 腾讯云DDNS，填入上面申请的Token</p>
+<img src='3.png' width='80%' title='设置腾讯云DDNS'>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>内网路由器做好端口映射，设置完成即可使用域名访问内网资源。</p>
+<img src='4.png' width='80%' title='测试'>
+    </div>
+
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/03/add-openwrt-overlay-space/" rel="bookmark">OpenWrt扩容Overlay空间，解决无法安装插件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/02/docker-make-openwrt/" rel="bookmark">Docker容器编译原版OpenWrt固件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/02/openwrt-build-passwall/" rel="bookmark">在Docker容器编译原版OpenWrt PassWall插件</a></div>
+    </li>
+  </ul>
+<div>
+<br />
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束-------------</div>
+    
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="event-list">
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
+              <a href="/tags/%E7%BE%A4%E6%99%96/" rel="tag"># 群晖</a>
           </div>
-          <script>
-(function() {
-  // Initialization
-  var calendar = {
-    orderBy     : 'startTime',
-    showLocation: false,
-    offsetMax   : 72,
-    offsetMin   : 4,
-    showDeleted : false,
-    singleEvents: true,
-    maxResults  : 250
-  };
-
-  // Read config form theme config file
-  Object.assign(calendar, {"calendar_id":"<required>","api_key":"<required>","orderBy":"startTime","offsetMax":24,"offsetMin":4,"showDeleted":false,"singleEvents":true,"maxResults":250});
-
-  var now = new Date();
-  var timeMax = new Date();
-  var timeMin = new Date();
-
-  timeMax.setHours(now.getHours() + calendar.offsetMax);
-  timeMin.setHours(now.getHours() - calendar.offsetMin);
-
-  // Build URL
-  const params = {
-    key         : calendar.api_key,
-    orderBy     : calendar.orderBy,
-    timeMax     : timeMax.toISOString(),
-    timeMin     : timeMin.toISOString(),
-    showDeleted : calendar.showDeleted,
-    singleEvents: calendar.singleEvents,
-    maxResults  : calendar.maxResults
-  };
-
-  var request_url = 'https://www.googleapis.com/calendar/v3/calendars/' + calendar.calendar_id + '/events?' + Object.entries(params).map(([key, value]) => `${key}=${encodeURIComponent(value)}`).join('&');
-
-  fetchData();
-  var fetchDataTimer = setInterval(fetchData, 60000);
-  window.addEventListener('pjax:send', () => {
-    clearInterval(fetchDataTimer);
-  });
-
-  function fetchData() {
-    var eventList = document.querySelector('.event-list');
-    if (!eventList) return;
-
-    fetch(request_url).then(response => {
-      return response.json();
-    }).then(data => {
-      if (data.items.length === 0) {
-        eventList.innerHTML = '<hr>';
-        return;
-      }
-      // Clean the event list
-      eventList.innerHTML = '';
-      var prevEnd = 0; // used to decide where to insert an <hr>
-
-      data.items.forEach(event => {
-        // Parse data
-        var utc   = new Date().getTimezoneOffset() * 60000;
-        var start = event.start.dateTime = new Date(event.start.dateTime || (new Date(event.start.date).getTime() + utc));
-        var end   = event.end.dateTime = new Date(event.end.dateTime || (new Date(event.end.date).getTime() + utc));
-
-        tense = judgeTense(now, start, end); // 0:now 1:future -1:past
-
-        if (tense === 1 && prevEnd < now) {
-          eventList.innerHTML += '<hr>';
-        }
-
-        eventDOM = buildEventDOM(tense, event);
-        eventList.innerHTML += eventDOM;
-
-        prevEnd = end;
-      });
-    });
-  }
-
-  function getRelativeTime(current, previous) {
-    var msPerMinute = 60 * 1000;
-    var msPerHour = msPerMinute * 60;
-    var msPerDay = msPerHour * 24;
-    var msPerMonth = msPerDay * 30;
-    var msPerYear = msPerDay * 365;
-
-    var elapsed = current - previous;
-    var tense = elapsed > 0 ? 'ago' : 'later';
-
-    elapsed = Math.abs(elapsed);
-
-    if      ( elapsed < msPerHour  ) {
-      return Math.round(elapsed / msPerMinute) + ' minutes ' + tense;
-    }
-    else if ( elapsed < msPerDay   ) {
-      return Math.round(elapsed / msPerHour) + ' hours ' + tense;
-    }
-    else if ( elapsed < msPerMonth ) {
-      return 'about ' + Math.round(elapsed / msPerDay) + ' days ' + tense;
-    }
-    else if ( elapsed < msPerYear  ) {
-      return 'about ' + Math.round(elapsed / msPerMonth) + ' months ' + tense;
-    }
-    else {
-      return 'about' + Math.round(elapsed / msPerYear) + ' years' + tense;
-    }
-  }
-
-  function judgeTense(now, eventStart, eventEnd) {
-    if      (eventEnd   < now) { return -1; }
-    else if (eventStart > now) { return  1; }
-    else                       { return  0; }
-  }
-
-  function buildEventDOM(tense, event) {
-    var tenseClass = '';
-    var start      = event.start.dateTime;
-    var end        = event.end.dateTime;
-    switch(tense) {
-      case 0 : // now
-        tenseClass = 'event-now';
-        break;
-      case 1 : // future
-        tenseClass = 'event-future';
-        break;
-      case -1: // past
-        tenseClass = 'event-past';
-        break;
-      default:
-        throw 'Time data error';
-    }
-    var durationFormat = {
-      weekday: 'short',
-      hour   : '2-digit',
-      minute : '2-digit'
-    };
-    var relativeTimeStr = (tense === 0) ? 'NOW' : getRelativeTime(now, start);
-    var durationStr = start.toLocaleTimeString([], durationFormat) + ' - ' + end.toLocaleTimeString([], durationFormat);
-
-    var locationDOM = '';
-    if (calendar.showLocation && event.location) {
-      locationDOM = '<span class="event-location event-details">' + event.location + '</span>';
-    }
-
-    var eventContent = `<div class="event ${tenseClass}">
-        <h2 class="event-summary">
-          ${event.summary}
-          <span class="event-relative-time">${relativeTimeStr}</span>
-        </h2>
-        ${locationDOM}
-        <span class="event-duration event-details">${durationStr}</span>
-      </div>`;
-    return eventContent;
-  }
-})();
-</script>
 
         
-      </div>
-      
-      
-      
-    </div>
-    
 
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/04/scray-twitter/" rel="prev" title="批量爬取推特推文">
+      <i class="fa fa-chevron-left"></i> 批量爬取推特推文
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -464,6 +407,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E6%9C%AC%E8%A6%81%E6%B1%82"><span class="nav-number">1.</span> <span class="nav-text">基本要求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%B3%E8%AF%B7Token%EF%BC%88%E4%BB%A5%E8%85%BE%E8%AE%AF%E4%BA%91%E4%B8%BA%E4%BE%8B%EF%BC%89"><span class="nav-number">2.</span> <span class="nav-text">申请Token（以腾讯云为例）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5OpenWrt%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">进入OpenWrt设置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">测试</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -692,7 +636,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/schedule/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/',]
       });
       });
   </script>
