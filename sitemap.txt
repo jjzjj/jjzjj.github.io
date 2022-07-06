@@ -1,3 +1,4 @@
+https://jjzjj.github.io/2022/07/06/tor-browser-socks5/
 https://jjzjj.github.io/2022/07/05/how-to-use-ddns-for-openwrt/
 https://jjzjj.github.io/2022/07/04/scray-twitter/
 https://jjzjj.github.io/2022/07/02/linux-command/
@@ -21,6 +22,7 @@ https://jjzjj.github.io/404.html
 https://jjzjj.github.io/
 https://jjzjj.github.io/tags/OpenWrt/
 https://jjzjj.github.io/tags/Docker/
+https://jjzjj.github.io/tags/%E7%BE%A4%E6%99%96/
 https://jjzjj.github.io/tags/Linux/
 https://jjzjj.github.io/tags/OpenVPN/
 https://jjzjj.github.io/tags/PassWall/
@@ -30,6 +32,8 @@ https://jjzjj.github.io/tags/Next/
 https://jjzjj.github.io/tags/Github/
 https://jjzjj.github.io/tags/SCP/
 https://jjzjj.github.io/tags/Python/
+https://jjzjj.github.io/tags/Tor/
+https://jjzjj.github.io/tags/Socks5/
 https://jjzjj.github.io/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/
 https://jjzjj.github.io/tags/Gost/
 https://jjzjj.github.io/tags/TCP/
@@ -39,13 +43,12 @@ https://jjzjj.github.io/tags/Xray/
 https://jjzjj.github.io/tags/CloudFlare/
 https://jjzjj.github.io/tags/TLS/
 https://jjzjj.github.io/tags/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/
-https://jjzjj.github.io/tags/%E7%BE%A4%E6%99%96/
 https://jjzjj.github.io/categories/NAS/
-https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/
 https://jjzjj.github.io/categories/NAS/OpenWrt/
+https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/
 https://jjzjj.github.io/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/
-https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/
 https://jjzjj.github.io/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/
+https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/
 https://jjzjj.github.io/categories/Docker/
 https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/Gost/
 https://jjzjj.github.io/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/

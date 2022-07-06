@@ -23,19 +23,30 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome To My Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="日志分类">
-<meta property="og:url" content="https://jjzjj.github.io/categories/index.html">
+  <meta name="description" content="Tor是一个使用点对点连接的网络，从一个人到另一个人的连接被高度加密，不仅允许安全地访问网站而不留下他们是谁的痕迹，而且它们允许人们加密日常的互联网连接。   安装Tor浏览器在Tor网站上下载安装最新版本的Tor浏览器，https:&#x2F;&#x2F;www.torproject.org&#x2F;download&#x2F; 本机已经提前准备有socks5的代理127.0.0.1:1089，例如V2Ray、SSR       安">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用Tor洋葱浏览器作为Socks5代理">
+<meta property="og:url" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="Welcome To My Blog">
+<meta property="og:description" content="Tor是一个使用点对点连接的网络，从一个人到另一个人的连接被高度加密，不仅允许安全地访问网站而不留下他们是谁的痕迹，而且它们允许人们加密日常的互联网连接。   安装Tor浏览器在Tor网站上下载安装最新版本的Tor浏览器，https:&#x2F;&#x2F;www.torproject.org&#x2F;download&#x2F; 本机已经提前准备有socks5的代理127.0.0.1:1089，例如V2Ray、SSR       安">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2022-06-29T13:04:19.000Z">
-<meta property="article:modified_time" content="2022-07-02T05:12:57.409Z">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/1.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/2.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/3.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/4.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/5.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/6.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/7.png">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/8.png">
+<meta property="article:published_time" content="2022-07-06T01:57:47.000Z">
+<meta property="article:modified_time" content="2022-07-06T06:38:32.583Z">
 <meta property="article:author" content="It&#39;s Me!">
+<meta property="article:tag" content="Tor">
+<meta property="article:tag" content="Socks5">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/1.png">
 
-<link rel="canonical" href="https://jjzjj.github.io/categories/">
+<link rel="canonical" href="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/">
 
 
 <script id="page-configurations">
@@ -43,13 +54,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>日志分类 | Hedwig
-</title>
+  <title>如何使用Tor洋葱浏览器作为Socks5代理 | Hedwig</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6W2739PX"></script>
     <script>
@@ -220,51 +230,151 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">日志分类
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/">
 
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          如何使用Tor洋葱浏览器作为Socks5代理
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-06 09:57:47 / 修改时间：14:38:32" itemprop="dateCreated datePublished" datetime="2022-07-06T09:57:47+08:00">2022-07-06</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/" itemprop="url" rel="index"><span itemprop="name">隐匿隧道</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <blockquote><p>Tor是一个使用点对点连接的网络，从一个人到另一个人的连接被高度加密，不仅允许安全地访问网站而不留下他们是谁的痕迹，而且它们允许人们加密日常的互联网连接。</p>
+</blockquote>
+
+<h3 id="安装Tor浏览器"><a href="#安装Tor浏览器" class="headerlink" title="安装Tor浏览器"></a>安装Tor浏览器</h3><p>在Tor网站上下载安装最新版本的Tor浏览器，<a target="_blank" rel="noopener" href="https://www.torproject.org/download/">https://www.torproject.org/download/</a></p>
+<p>本机已经提前准备有socks5的代理127.0.0.1:1089，例如V2Ray、SSR</p>
+<img src='1.png' width='80%' title='安装Tor'>
+
+<img src='2.png' width='80%' title='设置Tor的网络代理'>
+
+<img src='3.png' width='80%' title='Tor正常访问网址'>
+
+<h3 id="安装Proxifier"><a href="#安装Proxifier" class="headerlink" title="安装Proxifier"></a>安装Proxifier</h3><ol>
+<li>从主站点下载 Proxifier <a target="_blank" rel="noopener" href="http://proxifier.com/download">http://proxifier.com/download</a></li>
+<li>按照提示安装 Proxifier</li>
+<li>序列号注册</li>
+</ol>
+<ul>
+<li>1KFZUS-F3JGV-T95Y7-BXGAS-5NHHP</li>
+<li>T3ZWQ-P2738-3FJWS-YE7HT-6NA3K</li>
+<li>KFZUS-F3JGV-T95Y7-BXGAS-5NHHP</li>
+<li>65Z2L-P36BY-YWJYC-TMJZL-YDZ2S</li>
+<li>SFZHH-2Y246-Z483L-EU92B-LNYUA</li>
+<li>GSZVS-5W4WA-T9F2E-L3XUX-68473</li>
+<li>FTZ8A-R3CP8-AVHYW-KKRMQ-SYDLS</li>
+<li>Q3ZWN-QWLZG-32G22-SCJXZ-9B5S4</li>
+<li>DAZPH-G39D3-R4QY7-9PVAY-VQ6BU</li>
+<li>KLZ5G-X37YY-65ZYN-EUSV7-WPPBS</li>
+<li>6JZUY-32TKX-TK9W7-DU387-9RWKZ</li>
+</ul>
+<blockquote><p>将Tor作为代理服务器，必须使Tor一直处于打开状态。</p>
+</blockquote>
+
+<h3 id="配置Proxifier"><a href="#配置Proxifier" class="headerlink" title="配置Proxifier"></a>配置Proxifier</h3><p>单击“配置文件”，然后点击“名称解析”，按如图设置</p>
+<img src='4.png' width='80%' title='配置Proxifier'>
+
+<p>配置Tor的socks5代理，127.0.0.1:9150</p>
+<img src='5.png' width='80%' title='配置Proxifier Socks5代理'>
+
+<img src='6.png' width='80%' title='配置Proxifier 规则'>
+
+<p>对于无法使用Proxifier进行代理，需将V2Ray、SSR的系统代理关掉</p>
+<img src='7.png' width='80%' title='关掉软件设置的系统代理'>
+
+<p>使用Tor代理成功</p>
+<img src='8.png' width='80%' title='使用Tor代理成功'>
+    </div>
+
+    
+    
+    
+      
+<div>
+<br />
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束-------------</div>
+    
 </div>
 
-</header>
 
-      
-      
-      
-      <div class="post-body">
-          <div class="category-all-page">
-            <div class="category-all-title">
-              目前共计 10 个分类
-            </div>
-            <div class="category-all">
-              <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Docker/">Docker</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/NAS/">NAS</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/NAS/OpenWrt/">OpenWrt</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">常用命令</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E7%BD%91%E7%BB%9C%E7%88%AC%E8%99%AB/">网络爬虫</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/">隐匿隧道</a><span class="category-list-count">5</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/Gost/">Gost</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/IPSec-VPN/">IPSec VPN</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/OpenVPN/">OpenVPN</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/V2ray/">V2ray</a><span class="category-list-count">1</span></li></ul></li></ul>
-            </div>
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Tor/" rel="tag"># Tor</a>
+              <a href="/tags/Socks5/" rel="tag"># Socks5</a>
           </div>
-        
-      </div>
-      
-      
-      
-    </div>
-    
 
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/05/how-to-use-ddns-for-openwrt/" rel="prev" title="如何使用动态域名解析DDNS访问内网群晖">
+      <i class="fa fa-chevron-left"></i> 如何使用动态域名解析DDNS访问内网群晖
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
@@ -315,6 +425,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Tor%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">安装Tor浏览器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Proxifier"><span class="nav-number">2.</span> <span class="nav-text">安装Proxifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEProxifier"><span class="nav-number">3.</span> <span class="nav-text">配置Proxifier</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -543,7 +654,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/categories/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/06/tor-browser-socks5/',]
       });
       });
   </script>

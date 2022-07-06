@@ -59,6 +59,36 @@
       </tags>
   </entry>
   <entry>
+    <title>如何使用动态域名解析DDNS访问内网群晖</title>
+    <url>/2022/07/05/how-to-use-ddns-for-openwrt/</url>
+    <content><![CDATA[<blockquote><p>一般家庭宽带没有固定的公网ip地址，动态老变，访问内网的资源不方便，使用以下方法可以解决。</p>
+</blockquote>
+
+<h3 id="基本要求"><a href="#基本要求" class="headerlink" title="基本要求"></a>基本要求</h3><ul>
+<li>公网地址</li>
+<li>一个域名</li>
+</ul>
+<h3 id="申请Token（以腾讯云为例）"><a href="#申请Token（以腾讯云为例）" class="headerlink" title="申请Token（以腾讯云为例）"></a>申请Token（以腾讯云为例）</h3><p>访问：<a href="https://console.dnspod.cn/account/token/token">https://console.dnspod.cn/account/token/token</a> 申请Token</p>
+<span id="more"></span>
+<img src='1.png' width='80%' title='dnspod'>
+
+<p>点击“创建密钥”，保存接下来生成的Token（id,token）</p>
+<img src='2.png' width='50%' title='生成Token'>
+
+<h3 id="进入OpenWrt设置"><a href="#进入OpenWrt设置" class="headerlink" title="进入OpenWrt设置"></a>进入OpenWrt设置</h3><p>进入OpenWrt后台，网络 - 腾讯云DDNS，填入上面申请的Token</p>
+<img src='3.png' width='80%' title='设置腾讯云DDNS'>
+
+<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>内网路由器做好端口映射，设置完成即可使用域名访问内网资源。</p>
+<img src='4.png' width='80%' title='测试'>]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
+        <tag>群晖</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>install openwrt for soft route</title>
     <url>/2022/07/02/install-openwrt-for-soft-route/</url>
     <content><![CDATA[]]></content>
@@ -294,10 +324,10 @@
   <entry>
     <title>SCP命令操作</title>
     <url>/2022/07/02/scp/</url>
-    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#114;&#111;&#111;&#x74;&#x40;&#x34;&#x34;&#x2e;&#x35;&#53;&#46;&#54;&#54;&#x2e;&#55;&#55;">&#114;&#111;&#111;&#x74;&#x40;&#x34;&#x34;&#x2e;&#x35;&#53;&#46;&#54;&#54;&#x2e;&#55;&#55;</a>:&#x2F;远程文件夹</p>
+    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#x34;&#x34;&#x2e;&#53;&#x35;&#x2e;&#x36;&#x36;&#46;&#x37;&#55;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#x34;&#x34;&#x2e;&#53;&#x35;&#x2e;&#x36;&#x36;&#46;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#x40;&#52;&#52;&#46;&#53;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#x37;&#55;">&#x72;&#x6f;&#x6f;&#116;&#x40;&#52;&#52;&#46;&#53;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#x37;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#55;&#55;">&#x72;&#x6f;&#111;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -305,6 +335,17 @@
       </categories>
       <tags>
         <tag>SCP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>批量爬取推特推文</title>
+    <url>/2022/07/04/scray-twitter/</url>
+    <content><![CDATA[]]></content>
+      <categories>
+        <category>网络爬虫</category>
+      </categories>
+      <tags>
+        <tag>Python</tag>
       </tags>
   </entry>
   <entry>
@@ -316,6 +357,62 @@
       </categories>
       <tags>
         <tag>Python</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>如何使用Tor洋葱浏览器作为Socks5代理</title>
+    <url>/2022/07/06/tor-browser-socks5/</url>
+    <content><![CDATA[<blockquote><p>Tor是一个使用点对点连接的网络，从一个人到另一个人的连接被高度加密，不仅允许安全地访问网站而不留下他们是谁的痕迹，而且它们允许人们加密日常的互联网连接。</p>
+</blockquote>
+
+<h3 id="安装Tor浏览器"><a href="#安装Tor浏览器" class="headerlink" title="安装Tor浏览器"></a>安装Tor浏览器</h3><p>在Tor网站上下载安装最新版本的Tor浏览器，<a href="https://www.torproject.org/download/">https://www.torproject.org/download/</a></p>
+<p>本机已经提前准备有socks5的代理127.0.0.1:1089，例如V2Ray、SSR</p>
+<img src='1.png' width='80%' title='安装Tor'>
+
+<img src='2.png' width='80%' title='设置Tor的网络代理'>
+
+<img src='3.png' width='80%' title='Tor正常访问网址'>
+
+<h3 id="安装Proxifier"><a href="#安装Proxifier" class="headerlink" title="安装Proxifier"></a>安装Proxifier</h3><ol>
+<li>从主站点下载 Proxifier <a href="http://proxifier.com/download">http://proxifier.com/download</a></li>
+<li>按照提示安装 Proxifier</li>
+<li>序列号注册</li>
+</ol>
+<ul>
+<li>1KFZUS-F3JGV-T95Y7-BXGAS-5NHHP</li>
+<li>T3ZWQ-P2738-3FJWS-YE7HT-6NA3K</li>
+<li>KFZUS-F3JGV-T95Y7-BXGAS-5NHHP</li>
+<li>65Z2L-P36BY-YWJYC-TMJZL-YDZ2S</li>
+<li>SFZHH-2Y246-Z483L-EU92B-LNYUA</li>
+<li>GSZVS-5W4WA-T9F2E-L3XUX-68473</li>
+<li>FTZ8A-R3CP8-AVHYW-KKRMQ-SYDLS</li>
+<li>Q3ZWN-QWLZG-32G22-SCJXZ-9B5S4</li>
+<li>DAZPH-G39D3-R4QY7-9PVAY-VQ6BU</li>
+<li>KLZ5G-X37YY-65ZYN-EUSV7-WPPBS</li>
+<li>6JZUY-32TKX-TK9W7-DU387-9RWKZ</li>
+</ul>
+<blockquote><p>将Tor作为代理服务器，必须使Tor一直处于打开状态。</p>
+</blockquote>
+
+<h3 id="配置Proxifier"><a href="#配置Proxifier" class="headerlink" title="配置Proxifier"></a>配置Proxifier</h3><p>单击“配置文件”，然后点击“名称解析”，按如图设置</p>
+<img src='4.png' width='80%' title='配置Proxifier'>
+
+<p>配置Tor的socks5代理，127.0.0.1:9150</p>
+<img src='5.png' width='80%' title='配置Proxifier Socks5代理'>
+
+<img src='6.png' width='80%' title='配置Proxifier 规则'>
+
+<p>对于无法使用Proxifier进行代理，需将V2Ray、SSR的系统代理关掉</p>
+<img src='7.png' width='80%' title='关掉软件设置的系统代理'>
+
+<p>使用Tor代理成功</p>
+<img src='8.png' width='80%' title='使用Tor代理成功'>]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+      </categories>
+      <tags>
+        <tag>Tor</tag>
+        <tag>Socks5</tag>
       </tags>
   </entry>
   <entry>
@@ -456,47 +553,6 @@
         <tag>CloudFlare</tag>
         <tag>TLS</tag>
         <tag>隐匿隧道</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>批量爬取推特推文</title>
-    <url>/2022/07/04/scray-twitter/</url>
-    <content><![CDATA[]]></content>
-      <categories>
-        <category>网络爬虫</category>
-      </categories>
-      <tags>
-        <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>如何使用动态域名解析DDNS访问内网群晖</title>
-    <url>/2022/07/05/how-to-use-ddns-for-openwrt/</url>
-    <content><![CDATA[<blockquote><p>一般家庭宽带没有固定的公网ip地址，动态老变，访问内网的资源不方便，使用以下方法可以解决。</p>
-</blockquote>
-
-<h3 id="基本要求"><a href="#基本要求" class="headerlink" title="基本要求"></a>基本要求</h3><ul>
-<li>公网地址</li>
-<li>一个域名</li>
-</ul>
-<h3 id="申请Token（以腾讯云为例）"><a href="#申请Token（以腾讯云为例）" class="headerlink" title="申请Token（以腾讯云为例）"></a>申请Token（以腾讯云为例）</h3><p>访问：<a href="https://console.dnspod.cn/account/token/token">https://console.dnspod.cn/account/token/token</a> 申请Token</p>
-<span id="more"></span>
-<img src='1.png' width='80%' title='dnspod'>
-
-<p>点击“创建密钥”，保存接下来生成的Token（id,token）</p>
-<img src='2.png' width='50%' title='生成Token'>
-
-<h3 id="进入OpenWrt设置"><a href="#进入OpenWrt设置" class="headerlink" title="进入OpenWrt设置"></a>进入OpenWrt设置</h3><p>进入OpenWrt后台，网络 - 腾讯云DDNS，填入上面申请的Token</p>
-<img src='3.png' width='80%' title='设置腾讯云DDNS'>
-
-<h3 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h3><p>内网路由器做好端口映射，设置完成即可使用域名访问内网资源。</p>
-<img src='4.png' width='80%' title='测试'>]]></content>
-      <categories>
-        <category>NAS</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
-        <tag>群晖</tag>
       </tags>
   </entry>
 </search>
