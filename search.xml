@@ -367,7 +367,7 @@
 
 <h3 id="安装Tor浏览器"><a href="#安装Tor浏览器" class="headerlink" title="安装Tor浏览器"></a>安装Tor浏览器</h3><p>在Tor网站上下载安装最新版本的Tor浏览器，<a href="https://www.torproject.org/download/">https://www.torproject.org/download/</a></p>
 <p>本机已经提前准备有socks5的代理127.0.0.1:1089，例如V2Ray、SSR</p>
-<span id="more"></span>
+<!--  more-->
 
 <img src='1.png' width='80%' title='安装Tor'>
 
@@ -403,6 +403,9 @@
 
 <p>配置Tor的socks5代理，127.0.0.1:9150</p>
 <img src='5.png' width='80%' title='配置Proxifier Socks5代理'>
+
+<p>配置Proxifier本地规则</p>
+<img src='6.png' width='80%' title='配置Proxifier 规则'>
 
 <p>对于无法使用Proxifier进行代理，需将V2Ray、SSR的系统代理关掉</p>
 <img src='7.png' width='80%' title='关掉软件设置的系统代理'>
