@@ -367,6 +367,8 @@
 
 <h3 id="安装Tor浏览器"><a href="#安装Tor浏览器" class="headerlink" title="安装Tor浏览器"></a>安装Tor浏览器</h3><p>在Tor网站上下载安装最新版本的Tor浏览器，<a href="https://www.torproject.org/download/">https://www.torproject.org/download/</a></p>
 <p>本机已经提前准备有socks5的代理127.0.0.1:1089，例如V2Ray、SSR</p>
+<span id="more"></span>
+
 <img src='1.png' width='80%' title='安装Tor'>
 
 <p>设置Tor浏览器的网络代理连接设置</p>
