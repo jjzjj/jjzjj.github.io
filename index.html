@@ -224,6 +224,77 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/28/docker-install-jellyfinon-diskstation/" class="post-title-link" itemprop="url">群晖docker使用命令行搭建jellyfin流媒体播放平台</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-28 01:04:27 / 修改时间：01:07:27" itemprop="dateCreated datePublished" datetime="2022-07-28T01:04:27+08:00">2022-07-28</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /volume1/docker/jellyfin/&#123;config,cache&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置本地媒体目录及网络、端口8096，-v-前面跟物理路径，后面映射路径"><a href="#设置本地媒体目录及网络、端口8096，-v-前面跟物理路径，后面映射路径" class="headerlink" title="设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径"></a>设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8096:8096 -p 8920:8920 -v /volume1/docker/jellyfin/config:/config -v /volume1/docker/jellyfin/cache:/cache -v /volume1/video:/video -v /volume2/video2:/video2 -v /volume3/video3:/video3 -v /volume4/video4:/video4 --net=host jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/26/usb-install-diskstation/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -247,10 +318,16 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2022-07-26 13:55:38 / 修改时间：14:23:46" itemprop="dateCreated datePublished" datetime="2022-07-26T13:55:38+08:00">2022-07-26</time>
+              <time title="创建时间：2022-07-26 13:55:38" itemprop="dateCreated datePublished" datetime="2022-07-26T13:55:38+08:00">2022-07-26</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-28 00:28:47" itemprop="dateModified" datetime="2022-07-28T00:28:47+08:00">2022-07-28</time>
+              </span>
 
           
             <span class="post-meta-item" title="阅读次数">
@@ -283,6 +360,7 @@
 <li>使用分区工具diskgenius导出grub.cfg文件，用Notepad++编辑grub.cfg文件（修改VID、PID、SN和MAC地址），再替换回去</li>
 </ol>
 <h3 id="序列号SN生成"><a href="#序列号SN生成" class="headerlink" title="序列号SN生成"></a>序列号SN生成</h3><p><a target="_blank" rel="noopener" href="https://xpenogen.github.io/serial_generator/index.html">https://xpenogen.github.io/serial_generator/index.html</a><br><a target="_blank" rel="noopener" href="https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/">https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/</a></p>
+<h3 id="硬解"><a href="#硬解" class="headerlink" title="硬解"></a>硬解</h3><p><a target="_blank" rel="noopener" href="https://wp.gxnas.com/7952.html">关于9代10代11代12代cpu安装DS918核显不显、不能硬解的说明（支持DSM6.X和DSM7.X）</a></p>
 
       
     </div>
@@ -955,85 +1033,6 @@
   
   
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/scp/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="It's Me!">
-      <meta itemprop="description" content="Welcome To My Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hedwig">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/02/scp/" class="post-title-link" itemprop="url">SCP命令操作</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2022-07-02 18:09:36 / 修改时间：18:24:08" itemprop="dateCreated datePublished" datetime="2022-07-02T18:09:36+08:00">2022-07-02</time>
-            </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/" itemprop="url" rel="index"><span itemprop="name">常用命令</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#64;&#x34;&#52;&#46;&#x35;&#53;&#46;&#54;&#x36;&#x2e;&#x37;&#x37;">&#x72;&#x6f;&#x6f;&#116;&#64;&#x34;&#52;&#46;&#x35;&#53;&#46;&#54;&#x36;&#x2e;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#114;&#111;&#x6f;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#53;&#x2e;&#x36;&#54;&#x2e;&#55;&#x37;">&#114;&#111;&#x6f;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#53;&#x2e;&#x36;&#54;&#x2e;&#55;&#x37;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
 
   
   <nav class="pagination">
@@ -1105,7 +1104,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-count">18</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>

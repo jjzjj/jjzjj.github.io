@@ -23,17 +23,19 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="Welcome To My Blog">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hedwig">
-<meta property="og:url" content="https://jjzjj.github.io/archives/2022/07/index.html">
+  <meta name="description" content="拉取1docker pull jellyfin&#x2F;jellyfin:latest  新建文件夹1mkdir -p &#x2F;volume1&#x2F;docker&#x2F;jellyfin&#x2F;&amp;#123;config,cache&amp;#125;  设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径1docker run -d -p 8096:8096 -p 8920:8920 -v &#x2F;volume1&#x2F;dock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="群晖docker使用命令行搭建jellyfin流媒体播放平台">
+<meta property="og:url" content="https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="Welcome To My Blog">
+<meta property="og:description" content="拉取1docker pull jellyfin&#x2F;jellyfin:latest  新建文件夹1mkdir -p &#x2F;volume1&#x2F;docker&#x2F;jellyfin&#x2F;&amp;#123;config,cache&amp;#125;  设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径1docker run -d -p 8096:8096 -p 8920:8920 -v &#x2F;volume1&#x2F;dock">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-07-27T17:04:27.000Z">
+<meta property="article:modified_time" content="2022-07-27T17:07:27.357Z">
 <meta property="article:author" content="It&#39;s Me!">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://jjzjj.github.io/archives/2022/07/">
+<link rel="canonical" href="https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/">
 
 
 <script id="page-configurations">
@@ -41,12 +43,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Hedwig</title>
+  <title>群晖docker使用命令行搭建jellyfin流媒体播放平台 | Hedwig</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6W2739PX"></script>
     <script>
@@ -218,234 +220,110 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 18 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          群晖docker使用命令行搭建jellyfin流媒体播放平台
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-28 01:04:27 / 修改时间：01:07:27" itemprop="dateCreated datePublished" datetime="2022-07-28T01:04:27+08:00">2022-07-28</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2022</span>
-    </div>
+        <h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+<h3 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /volume1/docker/jellyfin/&#123;config,cache&#125;</span><br></pre></td></tr></table></figure>
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-28T01:04:27+08:00"
-              content="2022-07-28">
-          07-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/28/docker-install-jellyfinon-diskstation/" itemprop="url">
-            <span itemprop="name">群晖docker使用命令行搭建jellyfin流媒体播放平台</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-26T13:55:38+08:00"
-              content="2022-07-26">
-          07-26
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/26/usb-install-diskstation/" itemprop="url">
-            <span itemprop="name">使用U盘引导安装黑群晖</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-06T09:57:47+08:00"
-              content="2022-07-06">
-          07-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/06/tor-browser-socks5/" itemprop="url">
-            <span itemprop="name">如何使用Tor洋葱浏览器作为Socks5代理</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-05T19:25:08+08:00"
-              content="2022-07-05">
-          07-05
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/05/how-to-use-ddns-for-openwrt/" itemprop="url">
-            <span itemprop="name">如何使用动态域名解析DDNS访问内网群晖</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-04T20:53:46+08:00"
-              content="2022-07-04">
-          07-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/04/scray-twitter/" itemprop="url">
-            <span itemprop="name">批量爬取推特推文</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-04T15:58:40+08:00"
-              content="2022-07-04">
-          07-04
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/04/shga/" itemprop="url">
-            <span itemprop="name">sh泄漏数据库样本提取J情代码</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-03T01:19:30+08:00"
-              content="2022-07-03">
-          07-03
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/03/add-openwrt-overlay-space/" itemprop="url">
-            <span itemprop="name">OpenWrt扩容Overlay空间，解决无法安装插件</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-02T20:27:36+08:00"
-              content="2022-07-02">
-          07-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/02/install-openwrt-for-soft-route/" itemprop="url">
-            <span itemprop="name">install openwrt for soft route</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-02T19:00:59+08:00"
-              content="2022-07-02">
-          07-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/02/linux-command/" itemprop="url">
-            <span itemprop="name">Linux常用命令</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2022-07-02T18:44:10+08:00"
-              content="2022-07-02">
-          07-02
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2022/07/02/docker-make-openwrt/" itemprop="url">
-            <span itemprop="name">Docker容器编译原版OpenWrt固件</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
+<h3 id="设置本地媒体目录及网络、端口8096，-v-前面跟物理路径，后面映射路径"><a href="#设置本地媒体目录及网络、端口8096，-v-前面跟物理路径，后面映射路径" class="headerlink" title="设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径"></a>设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p 8096:8096 -p 8920:8920 -v /volume1/docker/jellyfin/config:/config -v /volume1/docker/jellyfin/cache:/cache -v /volume1/video:/video -v /volume2/video2:/video2 -v /volume3/video3:/video3 -v /volume4/video4:/video4 --net=host jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
 
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+      
+  <div class="popular-posts-header">相关文章</div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/03/add-openwrt-overlay-space/" rel="bookmark">OpenWrt扩容Overlay空间，解决无法安装插件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/02/docker-make-openwrt/" rel="bookmark">Docker容器编译原版OpenWrt固件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/05/how-to-use-ddns-for-openwrt/" rel="bookmark">如何使用动态域名解析DDNS访问内网群晖</a></div>
+    </li>
+  </ul>
+<div>
+<br />
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束-------------</div>
+    
+</div>
+
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2022/07/26/usb-install-diskstation/" rel="prev" title="使用U盘引导安装黑群晖">
+      <i class="fa fa-chevron-left"></i> 使用U盘引导安装黑群晖
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/2022/07/page/2/">2</a><a class="extend next" rel="next" href="/archives/2022/07/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 
@@ -497,6 +375,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%8B%89%E5%8F%96"><span class="nav-number">1.</span> <span class="nav-text">拉取</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%B0%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="nav-number">2.</span> <span class="nav-text">新建文件夹</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BE%E7%BD%AE%E6%9C%AC%E5%9C%B0%E5%AA%92%E4%BD%93%E7%9B%AE%E5%BD%95%E5%8F%8A%E7%BD%91%E7%BB%9C%E3%80%81%E7%AB%AF%E5%8F%A38096%EF%BC%8C-v-%E5%89%8D%E9%9D%A2%E8%B7%9F%E7%89%A9%E7%90%86%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%90%8E%E9%9D%A2%E6%98%A0%E5%B0%84%E8%B7%AF%E5%BE%84"><span class="nav-number">3.</span> <span class="nav-text">设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -725,7 +604,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/archives/2022/07/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/',]
       });
       });
   </script>
