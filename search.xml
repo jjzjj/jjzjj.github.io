@@ -324,10 +324,10 @@
   <entry>
     <title>SCP命令操作</title>
     <url>/2022/07/02/scp/</url>
-    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#x34;&#x34;&#x2e;&#53;&#x35;&#x2e;&#x36;&#x36;&#46;&#x37;&#55;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#x34;&#x34;&#x2e;&#53;&#x35;&#x2e;&#x36;&#x36;&#46;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
+    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#64;&#x34;&#52;&#46;&#x35;&#53;&#46;&#54;&#x36;&#x2e;&#x37;&#x37;">&#x72;&#x6f;&#x6f;&#116;&#64;&#x34;&#52;&#46;&#x35;&#53;&#46;&#54;&#x36;&#x2e;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#55;&#55;">&#x72;&#x6f;&#111;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#114;&#111;&#x6f;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#53;&#x2e;&#x36;&#54;&#x2e;&#55;&#x37;">&#114;&#111;&#x6f;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#53;&#x2e;&#x36;&#54;&#x2e;&#55;&#x37;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>]]></content>
       <categories>
@@ -437,6 +437,24 @@
       <tags>
         <tag>Docker</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>使用U盘引导安装黑群晖</title>
+    <url>/2022/07/26/usb-install-diskstation/</url>
+    <content><![CDATA[<h3 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h3><ol>
+<li>ChipEasy –（芯片无忧读取U盘vidpid）<br><a href="https://www.onlinedown.net/soft/117925.htm">https://www.onlinedown.net/soft/117925.htm</a></li>
+<li>win32diskimager –（群晖img镜像写入工具）<br><a href="https://www.onlinedown.net/soft/110173.htm">https://www.onlinedown.net/soft/110173.htm</a></li>
+<li>分区工具diskgenius –（导出编辑grub.cfg文件）<br><a href="https://www.pcsoft.com.cn/soft/35522.html">https://www.pcsoft.com.cn/soft/35522.html</a></li>
+<li>SynologyAssistantSetup –（群晖软件助手）<br><a href="https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#utilities">https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#utilities</a></li>
+<li>固件下载<br><a href="https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#system">https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#system</a></li>
+</ol>
+<h3 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h3><ol>
+<li>首先运行ChipEasy,记录下U盘中设备ID中VID及PID的值</li>
+<li>安装Win32DiskImager并运行，选择群晖U盘引导镜像img文件，设备选择到用作启动盘的<br>U盘盘符，点击“写入”</li>
+<li>使用分区工具diskgenius导出grub.cfg文件，用Notepad++编辑grub.cfg文件（修改VID、PID、SN和MAC地址），再替换回去</li>
+</ol>
+<h3 id="序列号SN生成"><a href="#序列号SN生成" class="headerlink" title="序列号SN生成"></a>序列号SN生成</h3><p><a href="https://xpenogen.github.io/serial_generator/index.html">https://xpenogen.github.io/serial_generator/index.html</a><br><a href="https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/">https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/</a></p>
+]]></content>
   </entry>
   <entry>
     <title>使用Gost搭建加密隧道转发V2ray流量</title>

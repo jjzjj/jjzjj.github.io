@@ -224,6 +224,84 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/26/usb-install-diskstation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/26/usb-install-diskstation/" class="post-title-link" itemprop="url">使用U盘引导安装黑群晖</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2022-07-26 13:55:38 / 修改时间：14:23:46" itemprop="dateCreated datePublished" datetime="2022-07-26T13:55:38+08:00">2022-07-26</time>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-users"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="firestore-visitors-count"></span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h3 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h3><ol>
+<li>ChipEasy –（芯片无忧读取U盘vidpid）<br><a target="_blank" rel="noopener" href="https://www.onlinedown.net/soft/117925.htm">https://www.onlinedown.net/soft/117925.htm</a></li>
+<li>win32diskimager –（群晖img镜像写入工具）<br><a target="_blank" rel="noopener" href="https://www.onlinedown.net/soft/110173.htm">https://www.onlinedown.net/soft/110173.htm</a></li>
+<li>分区工具diskgenius –（导出编辑grub.cfg文件）<br><a target="_blank" rel="noopener" href="https://www.pcsoft.com.cn/soft/35522.html">https://www.pcsoft.com.cn/soft/35522.html</a></li>
+<li>SynologyAssistantSetup –（群晖软件助手）<br><a target="_blank" rel="noopener" href="https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#utilities">https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#utilities</a></li>
+<li>固件下载<br><a target="_blank" rel="noopener" href="https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#system">https://www.synology.cn/zh-cn/support/download/DS918+?version=6.2#system</a></li>
+</ol>
+<h3 id="制作启动U盘"><a href="#制作启动U盘" class="headerlink" title="制作启动U盘"></a>制作启动U盘</h3><ol>
+<li>首先运行ChipEasy,记录下U盘中设备ID中VID及PID的值</li>
+<li>安装Win32DiskImager并运行，选择群晖U盘引导镜像img文件，设备选择到用作启动盘的<br>U盘盘符，点击“写入”</li>
+<li>使用分区工具diskgenius导出grub.cfg文件，用Notepad++编辑grub.cfg文件（修改VID、PID、SN和MAC地址），再替换回去</li>
+</ol>
+<h3 id="序列号SN生成"><a href="#序列号SN生成" class="headerlink" title="序列号SN生成"></a>序列号SN生成</h3><p><a target="_blank" rel="noopener" href="https://xpenogen.github.io/serial_generator/index.html">https://xpenogen.github.io/serial_generator/index.html</a><br><a target="_blank" rel="noopener" href="https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/">https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/</a></p>
+
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/06/tor-browser-socks5/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -936,103 +1014,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#x6f;&#x74;&#64;&#x34;&#x34;&#x2e;&#53;&#x35;&#x2e;&#x36;&#x36;&#46;&#x37;&#55;">&#x72;&#x6f;&#x6f;&#x74;&#64;&#x34;&#x34;&#x2e;&#53;&#x35;&#x2e;&#x36;&#x36;&#46;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
+          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#x6f;&#x6f;&#116;&#64;&#x34;&#52;&#46;&#x35;&#53;&#46;&#54;&#x36;&#x2e;&#x37;&#x37;">&#x72;&#x6f;&#x6f;&#116;&#64;&#x34;&#52;&#46;&#x35;&#53;&#46;&#54;&#x36;&#x2e;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#111;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#55;&#55;">&#x72;&#x6f;&#111;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#x35;&#x2e;&#x36;&#x36;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#114;&#111;&#x6f;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#53;&#x2e;&#x36;&#54;&#x2e;&#55;&#x37;">&#114;&#111;&#x6f;&#x74;&#64;&#52;&#x34;&#46;&#x35;&#53;&#x2e;&#x36;&#54;&#x2e;&#55;&#x37;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/openwrt-build-passwall/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="It's Me!">
-      <meta itemprop="description" content="Welcome To My Blog">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hedwig">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2022/07/02/openwrt-build-passwall/" class="post-title-link" itemprop="url">在Docker容器编译原版OpenWrt PassWall插件</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2022-07-02 09:34:06" itemprop="dateCreated datePublished" datetime="2022-07-02T09:34:06+08:00">2022-07-02</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2022-07-03 17:31:53" itemprop="dateModified" datetime="2022-07-03T17:31:53+08:00">2022-07-03</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
-                </span>
-            </span>
-
-          
-            <span class="post-meta-item" title="阅读次数">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-users"></i>
-              </span>
-              <span class="post-meta-item-text">阅读次数：</span>
-              <span class="firestore-visitors-count"></span>
-            </span>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h4 id="首次编译"><a href="#首次编译" class="headerlink" title="首次编译"></a>首次编译</h4><ul>
-<li>拉取<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk</span><br></pre></td></tr></table></figure></li>
-<li>或<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/sdk:x86_64-21.02-SNAPSHOT</span><br></pre></td></tr></table></figure></li>
-</ul>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2022/07/02/openwrt-build-passwall/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 
@@ -1118,7 +1105,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">16</span>
+          <span class="site-state-item-count">17</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
