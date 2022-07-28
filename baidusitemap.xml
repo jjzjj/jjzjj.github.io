@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  <url>
+    <loc>https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/</loc>
+    <lastmod>2022-07-28</lastmod>
+  </url>
+  <url>
     <loc>https://jjzjj.github.io/2022/07/29/use-ffmpeg-make-ds-video-can-support-dts-eac3/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
@@ -14,10 +22,6 @@
   </url>
   <url>
     <loc>https://jjzjj.github.io/2022/07/26/usb-install-diskstation/</loc>
-    <lastmod>2022-07-28</lastmod>
-  </url>
-  <url>
-    <loc>https://jjzjj.github.io/2022/07/28/docker-install-jellyfinon-diskstation/</loc>
     <lastmod>2022-07-28</lastmod>
   </url>
   <url>

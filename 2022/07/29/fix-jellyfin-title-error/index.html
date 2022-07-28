@@ -23,23 +23,23 @@
     var CONFIG = {"hostname":"jjzjj.github.io","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"right","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="官方原版OpenWrt固件只有120M的空间，装几个插件就歇菜了，用以下方法扩容 下载官方固件https:&#x2F;&#x2F;www.openwrt.org 解压img.gz1gzip -kd openwrt-21.02.2-x86-64-generic-squashfs-combined.img.gz  扩容500M1sudo dd if&#x3D;&#x2F;dev&#x2F;zero bs&#x3D;1M count&#x3D;500 &gt;&gt; o">
+  <meta name="description" content="当前环境：群晖DSM 6.2.4-25556 Update 6jellyfin版本 10.8.0问题如图所示，设置了媒体库的名称，但是在主页显示的时候是乱码，原因是jellyfin对中文支持不好   下载中文字体我去网上搜了一份微软雅黑.ttf的字体文件，然后将其复制成6份，依次如下：DejaVuSans.ttfDejaVuSans-Bold.ttfDejaVuSansMono.ttfDejaVu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="OpenWrt扩容Overlay空间，解决无法安装插件">
-<meta property="og:url" content="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/index.html">
+<meta property="og:title" content="解决jellyfin媒体库标题乱码">
+<meta property="og:url" content="https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/index.html">
 <meta property="og:site_name" content="Hedwig">
-<meta property="og:description" content="官方原版OpenWrt固件只有120M的空间，装几个插件就歇菜了，用以下方法扩容 下载官方固件https:&#x2F;&#x2F;www.openwrt.org 解压img.gz1gzip -kd openwrt-21.02.2-x86-64-generic-squashfs-combined.img.gz  扩容500M1sudo dd if&#x3D;&#x2F;dev&#x2F;zero bs&#x3D;1M count&#x3D;500 &gt;&gt; o">
+<meta property="og:description" content="当前环境：群晖DSM 6.2.4-25556 Update 6jellyfin版本 10.8.0问题如图所示，设置了媒体库的名称，但是在主页显示的时候是乱码，原因是jellyfin对中文支持不好   下载中文字体我去网上搜了一份微软雅黑.ttf的字体文件，然后将其复制成6份，依次如下：DejaVuSans.ttfDejaVuSans-Bold.ttfDejaVuSansMono.ttfDejaVu">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/1.png">
-<meta property="og:image" content="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/2.png">
-<meta property="article:published_time" content="2022-07-02T17:19:30.000Z">
-<meta property="article:modified_time" content="2022-07-02T17:49:25.483Z">
+<meta property="og:image" content="https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/1.jpeg">
+<meta property="article:published_time" content="2022-07-28T17:09:49.000Z">
+<meta property="article:modified_time" content="2022-07-28T17:35:57.415Z">
 <meta property="article:author" content="It&#39;s Me!">
-<meta property="article:tag" content="OpenWrt">
+<meta property="article:tag" content="群晖">
+<meta property="article:tag" content="Jellyfin">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/1.png">
+<meta name="twitter:image" content="https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/1.jpeg">
 
-<link rel="canonical" href="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/">
+<link rel="canonical" href="https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/">
 
 
 <script id="page-configurations">
@@ -52,7 +52,7 @@
   };
 </script>
 
-  <title>OpenWrt扩容Overlay空间，解决无法安装插件 | Hedwig</title>
+  <title>解决jellyfin媒体库标题乱码 | Hedwig</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-NP6W2739PX"></script>
     <script>
@@ -231,7 +231,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -244,7 +244,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          OpenWrt扩容Overlay空间，解决无法安装插件
+          解决jellyfin媒体库标题乱码
         </h1>
 
         <div class="post-meta">
@@ -255,7 +255,7 @@
               <span class="post-meta-item-text">发表于</span>
               
 
-              <time title="创建时间：2022-07-03 01:19:30 / 修改时间：01:49:25" itemprop="dateCreated datePublished" datetime="2022-07-03T01:19:30+08:00">2022-07-03</time>
+              <time title="创建时间：2022-07-29 01:09:49 / 修改时间：01:35:57" itemprop="dateCreated datePublished" datetime="2022-07-29T01:09:49+08:00">2022-07-29</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,10 +264,6 @@
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
                   <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
-                </span>
-                  ，
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/NAS/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
                 </span>
             </span>
 
@@ -282,19 +278,22 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>官方原版OpenWrt固件只有120M的空间，装几个插件就歇菜了，用以下方法扩容</p>
-<h4 id="下载官方固件"><a href="#下载官方固件" class="headerlink" title="下载官方固件"></a>下载官方固件</h4><p><a target="_blank" rel="noopener" href="https://www.openwrt.org/">https://www.openwrt.org</a></p>
-<h4 id="解压img-gz"><a href="#解压img-gz" class="headerlink" title="解压img.gz"></a>解压img.gz</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gzip -kd openwrt-21.02.2-x86-64-generic-squashfs-combined.img.gz</span><br></pre></td></tr></table></figure>
+        <blockquote><p>当前环境：群晖DSM 6.2.4-25556 Update 6<br>jellyfin版本 10.8.0<br>问题如图所示，设置了媒体库的名称，但是在主页显示的时候是乱码，原因是jellyfin对中文支持不好</p>
+</blockquote>
 
-<h4 id="扩容500M"><a href="#扩容500M" class="headerlink" title="扩容500M"></a>扩容500M</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo <span class="built_in">dd</span> <span class="keyword">if</span>=/dev/zero bs=1M count=500 &gt;&gt; openwrt-21.02.2-x86-64-generic-squashfs-combined.img</span><br></pre></td></tr></table></figure>
+<h3 id="下载中文字体"><a href="#下载中文字体" class="headerlink" title="下载中文字体"></a><a target="_blank" rel="noopener" href="http://fonts.top/FangZheng/43651.html">下载中文字体</a></h3><p>我去网上搜了一份微软雅黑.ttf的字体文件，然后将其复制成6份，依次如下：<br>DejaVuSans.ttf<br>DejaVuSans-Bold.ttf<br>DejaVuSansMono.ttf<br>DejaVuSansMono-Bold.ttf<br>DejaVuSerif.ttf<br>DejaVuSerif-Bold.ttf</p>
 <span id="more"></span>
-<img src='1.png' width='100%' title='扩容'>
 
-<h4 id="将扩容的空间放入img镜像"><a href="#将扩容的空间放入img镜像" class="headerlink" title="将扩容的空间放入img镜像"></a>将扩容的空间放入img镜像</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">parted openwrt-21.02.2-x86-64-generic-squashfs-combined.img</span><br><span class="line"><span class="built_in">print</span></span><br><span class="line">resizepart 2 100%</span><br><span class="line">quit</span><br></pre></td></tr></table></figure>
-<img src='2.png' width='100%' title='扩容成功'>
-
-<h4 id="网络其它方法"><a href="#网络其它方法" class="headerlink" title="网络其它方法"></a>网络其它方法</h4><blockquote><p>引用以下方法搞定</p>
-<footer><strong>第038期 OpenWrt完美扩容Overlay 硬核新方法，真扩容，零空间浪费，专治强迫症！</strong><cite><a target="_blank" rel="noopener" href="https://www.126126.xyz/post/038/">www.126126.xyz/post/038</a></cite></footer></blockquote>
+<h3 id="上传字体文件"><a href="#上传字体文件" class="headerlink" title="上传字体文件"></a>上传字体文件</h3><p>在安装jellyfin的时候已经装载了一个config文件夹，所以我将上面6个文件上传到docker&#x2F;jellyfin&#x2F;config&#x2F;fonts文件夹里面</p>
+<h3 id="进docker里面复制字体文件"><a href="#进docker里面复制字体文件" class="headerlink" title="进docker里面复制字体文件"></a>进docker里面复制字体文件</h3><ol>
+<li>SSH进入群晖NAS<br>查看容器，记住jellyfin的容器ID<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></li>
+<li>进入容器<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it 3524687e43ad /bin/bash</span><br></pre></td></tr></table></figure></li>
+<li>进入原字体文件夹进行备份<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/fonts/truetype/dejavu</span><br><span class="line"><span class="built_in">mkdir</span> Deja_bak</span><br><span class="line"><span class="built_in">cp</span> *.ttf Deja_bak/</span><br></pre></td></tr></table></figure></li>
+<li>删掉原字体文件<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/share/fonts/truetype/dejavu</span><br><span class="line"><span class="built_in">rm</span> -rf *.ttf</span><br></pre></td></tr></table></figure></li>
+<li>将上传到docker&#x2F;jellyfin&#x2F;config&#x2F;fonts的字体文件复制到&#x2F;usr&#x2F;share&#x2F;fonts&#x2F;truetype&#x2F;dejavu，只需要用装载的路径就行了<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cp</span> /config/fonts/*.ttf /usr/share/fonts/truetype/dejavu/</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="进入控制台进行设置，“控制台”——“播放”——“备用字体文件路径”"><a href="#进入控制台进行设置，“控制台”——“播放”——“备用字体文件路径”" class="headerlink" title="进入控制台进行设置，“控制台”——“播放”——“备用字体文件路径”"></a>进入控制台进行设置，“控制台”——“播放”——“备用字体文件路径”</h3><p>这里同时也是为了解决影片使用ass字幕的时候出现方框乱码<br><img src='1.jpeg' width='80%' title='设置jellyfin字体'></p>
+<h3 id="重启jellyfin服务器，在媒体库“修改图片”——删除图片——重新刷新元数据"><a href="#重启jellyfin服务器，在媒体库“修改图片”——删除图片——重新刷新元数据" class="headerlink" title="重启jellyfin服务器，在媒体库“修改图片”——删除图片——重新刷新元数据"></a>重启jellyfin服务器，在媒体库“修改图片”——删除图片——重新刷新元数据</h3>
     </div>
 
     
@@ -304,10 +303,19 @@
   <div class="popular-posts-header">相关文章</div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <div class="popular-posts-title"><a href="/2022/07/02/docker-make-openwrt/" rel="bookmark">Docker容器编译原版OpenWrt固件</a></div>
+      <div class="popular-posts-title"><a href="/2022/07/28/docker-install-jellyfinon-diskstation/" rel="bookmark">群晖docker使用命令行搭建jellyfin流媒体播放平台</a></div>
     </li>
     <li class="popular-posts-item">
       <div class="popular-posts-title"><a href="/2022/07/05/how-to-use-ddns-for-openwrt/" rel="bookmark">如何使用动态域名解析DDNS访问内网群晖</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/02/openwrt-build-passwall/" rel="bookmark">在Docker容器编译原版OpenWrt PassWall插件</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/26/usb-install-diskstation/" rel="bookmark">使用U盘引导安装黑群晖</a></div>
+    </li>
+    <li class="popular-posts-item">
+      <div class="popular-posts-title"><a href="/2022/07/29/use-ffmpeg-make-ds-video-can-support-dts-eac3/" rel="bookmark">利用第三方解码器ffmpeg让群晖DSM6.2.4版本的Video Station支持DTS视频编码和EAC3音频编码</a></div>
     </li>
   </ul>
 <div>
@@ -320,7 +328,8 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/OpenWrt/" rel="tag"># OpenWrt</a>
+              <a href="/tags/%E7%BE%A4%E6%99%96/" rel="tag"># 群晖</a>
+              <a href="/tags/Jellyfin/" rel="tag"># Jellyfin</a>
           </div>
 
         
@@ -329,13 +338,10 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2022/07/02/install-openwrt-for-soft-route/" rel="prev" title="install openwrt for soft route">
-      <i class="fa fa-chevron-left"></i> install openwrt for soft route
+    <a href="/2022/07/29/use-ffmpeg-make-ds-video-can-support-dts-eac3/" rel="prev" title="利用第三方解码器ffmpeg让群晖DSM6.2.4版本的Video Station支持DTS视频编码和EAC3音频编码">
+      <i class="fa fa-chevron-left"></i> 利用第三方解码器ffmpeg让群晖DSM6.2.4版本的Video Station支持DTS视频编码和EAC3音频编码
     </a></div>
-      <div class="post-nav-item">
-    <a href="/2022/07/04/shga/" rel="next" title="sh泄漏数据库样本提取J情代码">
-      sh泄漏数据库样本提取J情代码 <i class="fa fa-chevron-right"></i>
-    </a></div>
+      <div class="post-nav-item"></div>
     </div>
       </footer>
     
@@ -394,7 +400,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E5%AE%98%E6%96%B9%E5%9B%BA%E4%BB%B6"><span class="nav-number">1.</span> <span class="nav-text">下载官方固件</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%8E%8Bimg-gz"><span class="nav-number">2.</span> <span class="nav-text">解压img.gz</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9500M"><span class="nav-number">3.</span> <span class="nav-text">扩容500M</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%B0%86%E6%89%A9%E5%AE%B9%E7%9A%84%E7%A9%BA%E9%97%B4%E6%94%BE%E5%85%A5img%E9%95%9C%E5%83%8F"><span class="nav-number">4.</span> <span class="nav-text">将扩容的空间放入img镜像</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E5%85%B6%E5%AE%83%E6%96%B9%E6%B3%95"><span class="nav-number">5.</span> <span class="nav-text">网络其它方法</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD%E4%B8%AD%E6%96%87%E5%AD%97%E4%BD%93"><span class="nav-number">1.</span> <span class="nav-text">下载中文字体</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%B8%8A%E4%BC%A0%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">上传字体文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9Bdocker%E9%87%8C%E9%9D%A2%E5%A4%8D%E5%88%B6%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6"><span class="nav-number">3.</span> <span class="nav-text">进docker里面复制字体文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%9B%E5%85%A5%E6%8E%A7%E5%88%B6%E5%8F%B0%E8%BF%9B%E8%A1%8C%E8%AE%BE%E7%BD%AE%EF%BC%8C%E2%80%9C%E6%8E%A7%E5%88%B6%E5%8F%B0%E2%80%9D%E2%80%94%E2%80%94%E2%80%9C%E6%92%AD%E6%94%BE%E2%80%9D%E2%80%94%E2%80%94%E2%80%9C%E5%A4%87%E7%94%A8%E5%AD%97%E4%BD%93%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84%E2%80%9D"><span class="nav-number">4.</span> <span class="nav-text">进入控制台进行设置，“控制台”——“播放”——“备用字体文件路径”</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%8D%E5%90%AFjellyfin%E6%9C%8D%E5%8A%A1%E5%99%A8%EF%BC%8C%E5%9C%A8%E5%AA%92%E4%BD%93%E5%BA%93%E2%80%9C%E4%BF%AE%E6%94%B9%E5%9B%BE%E7%89%87%E2%80%9D%E2%80%94%E2%80%94%E5%88%A0%E9%99%A4%E5%9B%BE%E7%89%87%E2%80%94%E2%80%94%E9%87%8D%E6%96%B0%E5%88%B7%E6%96%B0%E5%85%83%E6%95%B0%E6%8D%AE"><span class="nav-number">5.</span> <span class="nav-text">重启jellyfin服务器，在媒体库“修改图片”——删除图片——重新刷新元数据</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -552,7 +558,7 @@
       quicklink({
         timeout : 3000,
         priority: true,
-        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/03/add-openwrt-overlay-space/',]
+        ignores : [uri => uri.includes('#'),uri => uri === 'https://jjzjj.github.io/2022/07/29/fix-jellyfin-title-error/',]
       });
       });
   </script>
