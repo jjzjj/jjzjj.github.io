@@ -1,6 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>群晖docker使用命令行搭建jellyfin流媒体播放平台</title>
+    <url>/2022/07/28/docker-install-jellyfinon-diskstation/</url>
+    <content><![CDATA[<h3 id="使用SSH进入群晖管理后台"><a href="#使用SSH进入群晖管理后台" class="headerlink" title="使用SSH进入群晖管理后台"></a>使用SSH进入群晖管理后台</h3><p>群晖系统中打开SSH功能 (控制面板-&gt;终端机和SNMP-&gt;启动SSH功能-&gt;应用)</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ssh admin@192.168.50.252</span><br><span class="line">sudo -i</span><br></pre></td></tr></table></figure>
+
+<h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
+
+<h3 id="新建config-cache文件夹"><a href="#新建config-cache文件夹" class="headerlink" title="新建config,cache文件夹"></a>新建config,cache文件夹</h3><p>为以后jellyfin的配置文件和缓存文件准备目录</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /volume1/docker/jellyfin/&#123;config,cache&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置本地媒体目录及网络、端口8096，8920，-v-前面跟物理路径，-后面映射路径"><a href="#设置本地媒体目录及网络、端口8096，8920，-v-前面跟物理路径，-后面映射路径" class="headerlink" title="设置本地媒体目录及网络、端口8096，8920，-v 前面跟物理路径，:后面映射路径"></a>设置本地媒体目录及网络、端口8096，8920，-v 前面跟物理路径，:后面映射路径</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 8096:8096 -p 8920:8920 -v /volume1/docker/jellyfin/config:/config -v /volume1/docker/jellyfin/cache:/cache -v /volume1/video:/video -v /volume2/video2:/video2 -v /volume3/video3:/video3 -v /volume4/video4:/video4 --device=/dev/dri/renderD128 --restart unless-stopped --net=host jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h3 id="查看系统是否支持显卡硬解转码"><a href="#查看系统是否支持显卡硬解转码" class="headerlink" title="查看系统是否支持显卡硬解转码"></a>查看系统是否支持显卡硬解转码</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">ls</span> /dev/dri</span><br></pre></td></tr></table></figure>
+<p>如果出现<code>card0  renderD128</code>则表示支持集显硬解转码</p>
+<h3 id="查看容器"><a href="#查看容器" class="headerlink" title="查看容器"></a>查看容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker <span class="built_in">exec</span> -it  3524687e43ad  /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h3 id="Jellyfin设置"><a href="#Jellyfin设置" class="headerlink" title="Jellyfin设置"></a>Jellyfin设置</h3><p>Jellyfin 后台启用硬件转码功能 [ 硬件加速选择：Video Acceleration API (VA API)(experimental) ，并勾选“启用硬件解码” ]</p>
+<blockquote><p>引用以下方法</p>
+<footer><strong>群晖用Jellyfin实现GPU硬解实时转码</strong><cite><a href="https://wp.gxnas.com/4912.html">wp.gxnas.com/4912.html</a></cite></footer></blockquote>]]></content>
+      <categories>
+        <category>NAS</category>
+      </categories>
+      <tags>
+        <tag>群晖</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>OpenWrt扩容Overlay空间，解决无法安装插件</title>
     <url>/2022/07/03/add-openwrt-overlay-space/</url>
     <content><![CDATA[<p>官方原版OpenWrt固件只有120M的空间，装几个插件就歇菜了，用以下方法扩容</p>
@@ -84,8 +115,19 @@
         <category>NAS</category>
       </categories>
       <tags>
-        <tag>OpenWrt</tag>
         <tag>群晖</tag>
+        <tag>OpenWrt</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Linux常用命令</title>
+    <url>/2022/07/02/linux-command/</url>
+    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -h                  <span class="comment">#查看文件夹大小</span></span><br><span class="line"></span><br><span class="line">tar -czf filename.tar.gz * <span class="comment">#压缩文件夹</span></span><br><span class="line"></span><br><span class="line">gunzip filename.gz     <span class="comment"># 解压gz</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">uname</span> -a               <span class="comment"># 查看内核/操作系统/CPU信息的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">head</span> -n 1 /etc/issue   <span class="comment"># 查看操作系统版本，是数字1不是字母L   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo      <span class="comment"># 查看CPU信息的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line">hostname               <span class="comment"># 查看计算机名的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line">lspci -tv              <span class="comment"># 列出所有PCI设备   </span></span><br><span class="line"></span><br><span class="line">lsusb -tv              <span class="comment"># 列出所有USB设备的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line">lsmod                  <span class="comment"># 列出加载的内核模块   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">env</span>                    <span class="comment"># 查看环境变量资源   </span></span><br><span class="line"></span><br><span class="line">free -m                <span class="comment"># 查看内存使用量和交换区使用量   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">df</span> -h                  <span class="comment"># 查看各分区使用情况   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">du</span> -sh                 <span class="comment"># 查看指定目录的大小   </span></span><br><span class="line"></span><br><span class="line">grep MemTotal /proc/meminfo   <span class="comment"># 查看内存总量   </span></span><br><span class="line"></span><br><span class="line">grep MemFree /proc/meminfo    <span class="comment"># 查看空闲内存量   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">uptime</span>                 <span class="comment"># 查看系统运行时间、用户数、负载   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /proc/loadavg      <span class="comment"># 查看系统负载磁盘和分区   </span></span><br><span class="line"></span><br><span class="line">mount | column -t      <span class="comment"># 查看挂接的分区状态   </span></span><br><span class="line"></span><br><span class="line">fdisk -l               <span class="comment"># 查看所有分区   </span></span><br><span class="line"></span><br><span class="line">swapon -s              <span class="comment"># 查看所有交换分区   </span></span><br><span class="line"></span><br><span class="line">hdparm -i /dev/hda     <span class="comment"># 查看磁盘参数(仅适用于IDE设备)   </span></span><br><span class="line"></span><br><span class="line">dmesg | grep IDE       <span class="comment"># 查看启动时IDE设备检测状况网络   </span></span><br><span class="line"></span><br><span class="line">ifconfig               <span class="comment"># 查看所有网络接口的属性   </span></span><br><span class="line"></span><br><span class="line">iptables -L            <span class="comment"># 查看防火墙设置   </span></span><br><span class="line"></span><br><span class="line">route -n               <span class="comment"># 查看路由表   </span></span><br><span class="line"></span><br><span class="line">netstat -lntp          <span class="comment"># 查看所有监听端口   </span></span><br><span class="line"></span><br><span class="line">netstat -antp          <span class="comment"># 查看所有已经建立的连接   </span></span><br><span class="line"></span><br><span class="line">netstat -s             <span class="comment"># 查看网络统计信息进程   </span></span><br><span class="line"></span><br><span class="line">ps -ef                 <span class="comment"># 查看所有进程</span></span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -101,6 +143,33 @@
         <category>隐匿隧道</category>
         <category>IPSec VPN</category>
       </categories>
+  </entry>
+  <entry>
+    <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
+    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
+    <content><![CDATA[<blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
+</blockquote>
+
+<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
+<span id="more"></span> 
+
+<p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
+<h2 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h2><h3 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h3><p>写入ovpn配置文件信息</p>
+<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="code"><pre><span class="line">vim /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
+<h3 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
+<h3 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h3><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
+<h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
+<h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>隐匿隧道</category>
+        <category>OpenVPN</category>
+      </categories>
+      <tags>
+        <tag>OpenWrt</tag>
+        <tag>OpenVPN</tag>
+      </tags>
   </entry>
   <entry>
     <title>在Docker容器编译原版OpenWrt PassWall插件</title>
@@ -173,17 +242,6 @@
       </categories>
       <tags>
         <tag>PassWall</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Linux常用命令</title>
-    <url>/2022/07/02/linux-command/</url>
-    <content><![CDATA[<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">du</span> -h                  <span class="comment">#查看文件夹大小</span></span><br><span class="line"></span><br><span class="line">tar -czf filename.tar.gz * <span class="comment">#压缩文件夹</span></span><br><span class="line"></span><br><span class="line">gunzip filename.gz     <span class="comment"># 解压gz</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">uname</span> -a               <span class="comment"># 查看内核/操作系统/CPU信息的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">head</span> -n 1 /etc/issue   <span class="comment"># 查看操作系统版本，是数字1不是字母L   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /proc/cpuinfo      <span class="comment"># 查看CPU信息的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line">hostname               <span class="comment"># 查看计算机名的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line">lspci -tv              <span class="comment"># 列出所有PCI设备   </span></span><br><span class="line"></span><br><span class="line">lsusb -tv              <span class="comment"># 列出所有USB设备的linux系统信息命令   </span></span><br><span class="line"></span><br><span class="line">lsmod                  <span class="comment"># 列出加载的内核模块   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">env</span>                    <span class="comment"># 查看环境变量资源   </span></span><br><span class="line"></span><br><span class="line">free -m                <span class="comment"># 查看内存使用量和交换区使用量   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">df</span> -h                  <span class="comment"># 查看各分区使用情况   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">du</span> -sh                 <span class="comment"># 查看指定目录的大小   </span></span><br><span class="line"></span><br><span class="line">grep MemTotal /proc/meminfo   <span class="comment"># 查看内存总量   </span></span><br><span class="line"></span><br><span class="line">grep MemFree /proc/meminfo    <span class="comment"># 查看空闲内存量   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">uptime</span>                 <span class="comment"># 查看系统运行时间、用户数、负载   </span></span><br><span class="line"></span><br><span class="line"><span class="built_in">cat</span> /proc/loadavg      <span class="comment"># 查看系统负载磁盘和分区   </span></span><br><span class="line"></span><br><span class="line">mount | column -t      <span class="comment"># 查看挂接的分区状态   </span></span><br><span class="line"></span><br><span class="line">fdisk -l               <span class="comment"># 查看所有分区   </span></span><br><span class="line"></span><br><span class="line">swapon -s              <span class="comment"># 查看所有交换分区   </span></span><br><span class="line"></span><br><span class="line">hdparm -i /dev/hda     <span class="comment"># 查看磁盘参数(仅适用于IDE设备)   </span></span><br><span class="line"></span><br><span class="line">dmesg | grep IDE       <span class="comment"># 查看启动时IDE设备检测状况网络   </span></span><br><span class="line"></span><br><span class="line">ifconfig               <span class="comment"># 查看所有网络接口的属性   </span></span><br><span class="line"></span><br><span class="line">iptables -L            <span class="comment"># 查看防火墙设置   </span></span><br><span class="line"></span><br><span class="line">route -n               <span class="comment"># 查看路由表   </span></span><br><span class="line"></span><br><span class="line">netstat -lntp          <span class="comment"># 查看所有监听端口   </span></span><br><span class="line"></span><br><span class="line">netstat -antp          <span class="comment"># 查看所有已经建立的连接   </span></span><br><span class="line"></span><br><span class="line">netstat -s             <span class="comment"># 查看网络统计信息进程   </span></span><br><span class="line"></span><br><span class="line">ps -ef                 <span class="comment"># 查看所有进程</span></span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -295,49 +353,6 @@
       </tags>
   </entry>
   <entry>
-    <title>在OpenWrt软路由自定义OpenVPN配置文件</title>
-    <url>/2022/06/30/openvpn-config-custom-in-openwrt/</url>
-    <content><![CDATA[<blockquote><p>官方的openwrt原版固件里面可以直接上传openvpn配置文件，但是我在第三方的固件里面没看到有这个功能，只能手动输入openvpn的配置，但是我不管怎么输，老出错没有成功的。后面我就直接将配置文件上传到openwrt里面调用，就可以了，ui界面原理上也是这样调用。</p>
-</blockquote>
-
-<h2 id="一键脚本搭建OpenVPN服务端"><a href="#一键脚本搭建OpenVPN服务端" class="headerlink" title="一键脚本搭建OpenVPN服务端"></a>一键脚本搭建OpenVPN服务端</h2><h3 id="方法一：Nyr-x2F-openvpn-install"><a href="#方法一：Nyr-x2F-openvpn-install" class="headerlink" title="方法一：Nyr&#x2F;openvpn-install"></a>方法一：<a href="https://github.com/Nyr/openvpn-install.git">Nyr&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">wget https://git.io/vpn -O openvpn-install.sh &amp;&amp; bash openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<h3 id="方法二：angristan-x2F-openvpn-install"><a href="#方法二：angristan-x2F-openvpn-install" class="headerlink" title="方法二：angristan&#x2F;openvpn-install"></a>方法二：<a href="https://github.com/angristan/openvpn-install.git">angristan&#x2F;openvpn-install</a></h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl -O https://raw.githubusercontent.com/angristan/openvpn-install/master/openvpn-install.sh</span><br><span class="line"><span class="built_in">chmod</span> +x openvpn-install.sh</span><br><span class="line">./openvpn-install.sh</span><br></pre></td></tr></table></figure>
-<span id="more"></span> 
-
-<p>生成的.ovpn后缀的配置文件放在当前用户文件夹，文件里面带有证书<br><code>cat /root/name.vpn</code></p>
-<h2 id="OpenWrt配置"><a href="#OpenWrt配置" class="headerlink" title="OpenWrt配置"></a>OpenWrt配置</h2><h3 id="上传ovpn文件到软路由"><a href="#上传ovpn文件到软路由" class="headerlink" title="上传ovpn文件到软路由"></a>上传ovpn文件到软路由</h3><p>写入ovpn配置文件信息</p>
-<figure class="highlight plaintext"><figcaption><span>name.ovpn</span></figcaption><table><tr><td class="code"><pre><span class="line">vim /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>
-<h3 id="修改OpenVPN客户端插件配置"><a href="#修改OpenVPN客户端插件配置" class="headerlink" title="修改OpenVPN客户端插件配置"></a>修改OpenVPN客户端插件配置</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vim /etc/config/openvpn</span><br></pre></td></tr></table></figure>
-<h3 id="新建VPN节点"><a href="#新建VPN节点" class="headerlink" title="新建VPN节点"></a>新建VPN节点</h3><figure class="highlight plaintext"><figcaption><span>openvpn</span></figcaption><table><tr><td class="code"><pre><span class="line">config openvpn openvpnclient</span><br><span class="line">    option enabled &#x27;1&#x27;</span><br><span class="line">    option config &#x27;/etc/config/name.ovpn&#x27;</span><br></pre></td></tr></table></figure>
-<h3 id="重启服务"><a href="#重启服务" class="headerlink" title="重启服务"></a>重启服务</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn restart</span><br></pre></td></tr></table></figure>
-<h3 id="查看服务状态"><a href="#查看服务状态" class="headerlink" title="查看服务状态"></a>查看服务状态</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">/etc/init.d/openvpn status</span><br></pre></td></tr></table></figure>
-<h3 id="也可以手动加载配置文件，这应该是一次性的"><a href="#也可以手动加载配置文件，这应该是一次性的" class="headerlink" title="也可以手动加载配置文件，这应该是一次性的"></a>也可以手动加载配置文件，这应该是一次性的</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">openvpn --config /etc/config/name.ovpn</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>隐匿隧道</category>
-        <category>OpenVPN</category>
-      </categories>
-      <tags>
-        <tag>OpenWrt</tag>
-        <tag>OpenVPN</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SCP命令操作</title>
-    <url>/2022/07/02/scp/</url>
-    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#x34;&#52;&#x2e;&#x35;&#53;&#46;&#54;&#x36;&#46;&#x37;&#x37;">&#x72;&#111;&#111;&#116;&#64;&#x34;&#52;&#x2e;&#x35;&#53;&#46;&#54;&#x36;&#46;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#x6f;&#111;&#116;&#x40;&#52;&#52;&#46;&#53;&#x35;&#x2e;&#x36;&#54;&#x2e;&#55;&#55;">&#x72;&#x6f;&#111;&#116;&#x40;&#52;&#52;&#46;&#53;&#x35;&#x2e;&#x36;&#54;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>常用命令</category>
-      </categories>
-      <tags>
-        <tag>SCP</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>批量爬取推特推文</title>
     <url>/2022/07/04/scray-twitter/</url>
     <content><![CDATA[]]></content>
@@ -349,6 +364,22 @@
       </tags>
   </entry>
   <entry>
+    <title>SCP命令操作</title>
+    <url>/2022/07/02/scp/</url>
+    <content><![CDATA[<h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#x34;&#52;&#46;&#53;&#53;&#46;&#x36;&#54;&#46;&#x37;&#55;">&#x72;&#111;&#111;&#116;&#64;&#x34;&#52;&#46;&#53;&#53;&#46;&#x36;&#54;&#46;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#111;&#x6f;&#x74;&#x40;&#x34;&#x34;&#46;&#53;&#53;&#x2e;&#54;&#x36;&#x2e;&#55;&#55;">&#x72;&#111;&#x6f;&#x74;&#x40;&#x34;&#x34;&#46;&#53;&#53;&#x2e;&#54;&#x36;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>常用命令</category>
+      </categories>
+      <tags>
+        <tag>SCP</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>sh泄漏数据库样本提取J情代码</title>
     <url>/2022/07/04/shga/</url>
     <content><![CDATA[<h3 id="对shga的数据进行正则提取J情操作"><a href="#对shga的数据进行正则提取J情操作" class="headerlink" title="对shga的数据进行正则提取J情操作"></a>对shga的数据进行正则提取J情操作</h3><figure class="highlight plaintext"><table><tr><td class="code"><pre><span class="line"># -*- coding:utf-8 -*-</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line">f = open(&#x27;case_data_index.json&#x27;,&#x27;r&#x27;)</span><br><span class="line">for i in f:</span><br><span class="line">    print(&#x27;打印原文:\n&#123;&#125;&#x27;.format(i))</span><br><span class="line">    print(&#x27;==&#x27;*50)</span><br><span class="line">    #判断是否有警情</span><br><span class="line">    tiqulist = re.findall(r&#x27;\&quot;BRIEF_CASE\&quot;:\&quot;(.*?)\&quot;\,\&quot;CASE_TYPE&#x27;,i)</span><br><span class="line">    if(tiqulist):</span><br><span class="line">        tiqu = tiqulist[0]</span><br><span class="line">        print(&#x27;打印提取:\n&#123;&#125;&#x27;.format(tiqu))</span><br><span class="line">        print(&#x27;==&#x27; * 50)</span><br><span class="line">        #判断是否有手机号</span><br><span class="line">        rephone = re.findall(r&#x27;(?&lt;!\d)(1\d&#123;10&#125;)(?!\d)&#x27;, tiqu)</span><br><span class="line">        if(rephone):</span><br><span class="line">            # 正则查找手机号码</span><br><span class="line">            strinfo = re.compile(r&#x27;(?&lt;!\d)(1\d&#123;10&#125;)(?!\d)&#x27;)</span><br><span class="line">            tiqu = strinfo.sub(&#x27;1XXXXXXXXXX&#x27;, tiqu)</span><br><span class="line">            print(&#x27;打印修改手机:\n&#123;&#125;&#x27;.format(tiqu))</span><br><span class="line">            print(&#x27;==&#x27; * 50)</span><br><span class="line">        #判断是否有身份证号</span><br><span class="line">        reid= re.findall(r&#x27;[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]&#x27;,tiqu)</span><br><span class="line">        if(reid):</span><br><span class="line">            regularExpression = &#x27;[1-9]\d&#123;5&#125;(18|19|([23]\d))\d&#123;2&#125;((0[1-9])|(10|11|12))(([0-2][1-9])|10|20|30|31)\d&#123;3&#125;[0-9Xx]&#x27;</span><br><span class="line">            strid = re.compile(regularExpression)</span><br><span class="line">            tiqu = strid.sub(&#x27;已隐藏&#x27;, tiqu)</span><br><span class="line">            print(&#x27;打印修改身份:\n&#123;&#125;&#x27;.format(tiqu))</span><br><span class="line">            print(&#x27;==&#x27; * 50)</span><br><span class="line"></span><br><span class="line">        with open (&#x27;22.csv&#x27;,&#x27;a+&#x27;,encoding=&#x27;utf-8&#x27;) as f2:</span><br><span class="line">            print(&#x27;写入替换:\n&#123;&#125;&#x27;.format(tiqu))</span><br><span class="line">            f2.write(tiqu)</span><br><span class="line">            f2.write(&#x27;\n&#x27;)</span><br><span class="line">            print(&#x27;**&#x27; * 50)</span><br></pre></td></tr></table></figure>]]></content>
@@ -357,24 +388,6 @@
       </categories>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>在Ubuntu 20.04安装Docker</title>
-    <url>/2022/07/01/ubuntu-install-docker/</url>
-    <content><![CDATA[<p>使用<code>apt update</code>更新软件包索引，接着使用<code>apt remove</code>移除旧版本的docker。<br>然后使用curl命令导入docker存储库的GPG密钥。使用<code>add-apt-repository</code>将Docker APT存储库添加到系统。</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">sudo apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &amp;&amp; \</span><br><span class="line">sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>没有sudo</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - &amp;&amp; \</span><br><span class="line">add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
-
-<p>当发布新版本的Docker时，Docker都会随着系统更新而升级，当然您可以手动运行<code>sudo apt update &amp;&amp; sudo apt upgrade</code>来更新&#x2F;升级docker。<br>使用systemctl来检查Docker服务的状态来以Docker是否正确的安装：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
       </tags>
   </entry>
   <entry>
@@ -439,6 +452,24 @@
       </tags>
   </entry>
   <entry>
+    <title>在Ubuntu 20.04安装Docker</title>
+    <url>/2022/07/01/ubuntu-install-docker/</url>
+    <content><![CDATA[<p>使用<code>apt update</code>更新软件包索引，接着使用<code>apt remove</code>移除旧版本的docker。<br>然后使用curl命令导入docker存储库的GPG密钥。使用<code>add-apt-repository</code>将Docker APT存储库添加到系统。</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">sudo apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add - &amp;&amp; \</span><br><span class="line">sudo add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">sudo apt update &amp;&amp; \</span><br><span class="line">sudo apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>没有sudo</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cat</span> &lt;&lt;<span class="string">&quot;EOF&quot;</span> | bash                              </span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y &amp;&amp; \</span><br><span class="line">apt-get remove docker  docker.io containerd runc -y &amp;&amp; \</span><br><span class="line">curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add - &amp;&amp; \</span><br><span class="line">add-apt-repository <span class="string">&quot;deb [arch=amd64] https://download.docker.com/linux/ubuntu <span class="subst">$(lsb_release -cs)</span> stable&quot;</span> &amp;&amp; \</span><br><span class="line">apt update &amp;&amp; \</span><br><span class="line">apt install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<p>当发布新版本的Docker时，Docker都会随着系统更新而升级，当然您可以手动运行<code>sudo apt update &amp;&amp; sudo apt upgrade</code>来更新&#x2F;升级docker。<br>使用systemctl来检查Docker服务的状态来以Docker是否正确的安装：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sudo systemctl status docker</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用U盘引导安装黑群晖</title>
     <url>/2022/07/26/usb-install-diskstation/</url>
     <content><![CDATA[<h3 id="软件准备"><a href="#软件准备" class="headerlink" title="软件准备"></a>软件准备</h3><ol>
@@ -454,8 +485,16 @@
 <li>使用分区工具diskgenius导出grub.cfg文件，用Notepad++编辑grub.cfg文件（修改VID、PID、SN和MAC地址），再替换回去</li>
 </ol>
 <h3 id="序列号SN生成"><a href="#序列号SN生成" class="headerlink" title="序列号SN生成"></a>序列号SN生成</h3><p><a href="https://xpenogen.github.io/serial_generator/index.html">https://xpenogen.github.io/serial_generator/index.html</a><br><a href="https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/">https://xpenology.com/forum/topic/30552-transcoding-and-face-recognitionpeople-and-subjects-issue-fix-in-once/</a></p>
-<h3 id="硬解"><a href="#硬解" class="headerlink" title="硬解"></a>硬解</h3><p><a href="https://wp.gxnas.com/7952.html">关于9代10代11代12代cpu安装DS918核显不显、不能硬解的说明（支持DSM6.X和DSM7.X）</a></p>
-]]></content>
+<h3 id="硬解转码步骤及注意事项"><a href="#硬解转码步骤及注意事项" class="headerlink" title="硬解转码步骤及注意事项"></a>硬解转码步骤及注意事项</h3><ol>
+<li>按上面的步骤制作启动U盘，下载制作img文件为<a href="https://dl.gxnas.com/%E9%BB%91%E7%BE%A4%E6%99%96/DS918%2B/J3455%E4%B8%93%E7%94%A81.04b%E5%BC%95%E5%AF%BC-%E4%BF%AE%E5%A4%8D%E4%BA%86%E4%B8%8D%E8%83%BD%E9%87%8D%E5%90%AF%E4%B8%8D%E8%83%BD%E5%85%B3%E6%9C%BA%E7%9A%84BUG%EF%BC%8C%E6%B7%BB%E5%8A%A0%E4%BA%86%E6%89%A9%E5%B1%95%E9%A9%B1%E5%8A%A8/DS918_1.04b-J3455.img">J3455专用的1.04b引导</a></li>
+<li>修改替换grub.cfg文件</li>
+<li>替换918+拓展驱动包文件，<a href="https://dl.gxnas.com:1443/%E9%BB%91%E7%BE%A4%E6%99%96/DS918/DS918-6.23%E6%89%A9%E5%B1%95%E9%A9%B1%E5%8A%A8%E5%8C%85v0.13.9.zip">点击下载</a></li>
+<li>U盘引导系统，上传“DS918-6.2-23739.pat”，<a href="https://archive.synology.cn/download/Os/DSM/6.2-23739">下载地址</a></li>
+<li>手动更新“DSM_DS918+_25426.pat”,<a href="https://archive.synology.cn/download/Os/DSM/6.2.3-25426">下载地址</a></li>
+</ol>
+<blockquote><footer><strong>关于9代10代11代12代cpu安装DS918核显不显、不能硬解的说明（支持DSM6.X和DSM7.X）</strong><cite><a href="https://wp.gxnas.com/7952.html">wp.gxnas.com/7952.html</a></cite></footer></blockquote>
+
+<blockquote><footer><strong>关于J3455物理机安装黑群晖DS918+没有硬解的破解方法（思路）</strong><cite><a href="https://wp.gxnas.com/5039.html">wp.gxnas.com/5039.html</a></cite></footer></blockquote>]]></content>
   </entry>
   <entry>
     <title>使用Gost搭建加密隧道转发V2ray流量</title>
@@ -578,16 +617,5 @@
         <tag>TLS</tag>
         <tag>隐匿隧道</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>群晖docker使用命令行搭建jellyfin流媒体播放平台</title>
-    <url>/2022/07/28/docker-install-jellyfinon-diskstation/</url>
-    <content><![CDATA[<h3 id="拉取"><a href="#拉取" class="headerlink" title="拉取"></a>拉取</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker pull jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
-
-<h3 id="新建文件夹"><a href="#新建文件夹" class="headerlink" title="新建文件夹"></a>新建文件夹</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p /volume1/docker/jellyfin/&#123;config,cache&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="设置本地媒体目录及网络、端口8096，-v-前面跟物理路径，后面映射路径"><a href="#设置本地媒体目录及网络、端口8096，-v-前面跟物理路径，后面映射路径" class="headerlink" title="设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径"></a>设置本地媒体目录及网络、端口8096，-v 前面跟物理路径，后面映射路径</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">docker run -d -p 8096:8096 -p 8920:8920 -v /volume1/docker/jellyfin/config:/config -v /volume1/docker/jellyfin/cache:/cache -v /volume1/video:/video -v /volume2/video2:/video2 -v /volume3/video3:/video3 -v /volume4/video4:/video4 --net=host jellyfin/jellyfin:latest</span><br></pre></td></tr></table></figure>
-
-]]></content>
   </entry>
 </search>

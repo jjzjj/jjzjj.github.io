@@ -112,7 +112,7 @@
       <h1 class="site-title">Hedwig</h1>
       <span class="logo-line-after"><i></i></span>
     </a>
-      <p class="site-subtitle" itemprop="description">简单是一种极致美</p>
+      <p class="site-subtitle" itemprop="description">个人学习笔记</p>
   </div>
 
   <div class="site-nav-right">
@@ -251,7 +251,7 @@
               目前共计 23 个标签
             </div>
             <div class="tag-cloud-tags">
-              <a href="/tags/CloudFlare/" style="font-size: 12px; color: #ccc">CloudFlare</a> <a href="/tags/Docker/" style="font-size: 21px; color: #6f6f6f">Docker</a> <a href="/tags/Github/" style="font-size: 12px; color: #ccc">Github</a> <a href="/tags/Gost/" style="font-size: 12px; color: #ccc">Gost</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/Linux/" style="font-size: 12px; color: #ccc">Linux</a> <a href="/tags/Next/" style="font-size: 12px; color: #ccc">Next</a> <a href="/tags/OpenVPN/" style="font-size: 12px; color: #ccc">OpenVPN</a> <a href="/tags/OpenWrt/" style="font-size: 30px; color: #111">OpenWrt</a> <a href="/tags/PassWall/" style="font-size: 12px; color: #ccc">PassWall</a> <a href="/tags/Python/" style="font-size: 21px; color: #6f6f6f">Python</a> <a href="/tags/SCP/" style="font-size: 12px; color: #ccc">SCP</a> <a href="/tags/Socks5/" style="font-size: 12px; color: #ccc">Socks5</a> <a href="/tags/TCP/" style="font-size: 12px; color: #ccc">TCP</a> <a href="/tags/TLS/" style="font-size: 12px; color: #ccc">TLS</a> <a href="/tags/Tor/" style="font-size: 12px; color: #ccc">Tor</a> <a href="/tags/UDP/" style="font-size: 12px; color: #ccc">UDP</a> <a href="/tags/V2ray/" style="font-size: 12px; color: #ccc">V2ray</a> <a href="/tags/Xray/" style="font-size: 12px; color: #ccc">Xray</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/" style="font-size: 12px; color: #ccc">加密隧道</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 12px; color: #ccc">建站</a> <a href="/tags/%E7%BE%A4%E6%99%96/" style="font-size: 12px; color: #ccc">群晖</a> <a href="/tags/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/" style="font-size: 12px; color: #ccc">隐匿隧道</a>
+              <a href="/tags/CloudFlare/" style="font-size: 12px; color: #ccc">CloudFlare</a> <a href="/tags/Docker/" style="font-size: 21px; color: #6f6f6f">Docker</a> <a href="/tags/Github/" style="font-size: 12px; color: #ccc">Github</a> <a href="/tags/Gost/" style="font-size: 12px; color: #ccc">Gost</a> <a href="/tags/Hexo/" style="font-size: 12px; color: #ccc">Hexo</a> <a href="/tags/Linux/" style="font-size: 12px; color: #ccc">Linux</a> <a href="/tags/Next/" style="font-size: 12px; color: #ccc">Next</a> <a href="/tags/OpenVPN/" style="font-size: 12px; color: #ccc">OpenVPN</a> <a href="/tags/OpenWrt/" style="font-size: 30px; color: #111">OpenWrt</a> <a href="/tags/PassWall/" style="font-size: 12px; color: #ccc">PassWall</a> <a href="/tags/Python/" style="font-size: 21px; color: #6f6f6f">Python</a> <a href="/tags/SCP/" style="font-size: 12px; color: #ccc">SCP</a> <a href="/tags/Socks5/" style="font-size: 12px; color: #ccc">Socks5</a> <a href="/tags/TCP/" style="font-size: 12px; color: #ccc">TCP</a> <a href="/tags/TLS/" style="font-size: 12px; color: #ccc">TLS</a> <a href="/tags/Tor/" style="font-size: 12px; color: #ccc">Tor</a> <a href="/tags/UDP/" style="font-size: 12px; color: #ccc">UDP</a> <a href="/tags/V2ray/" style="font-size: 12px; color: #ccc">V2ray</a> <a href="/tags/Xray/" style="font-size: 12px; color: #ccc">Xray</a> <a href="/tags/%E5%8A%A0%E5%AF%86%E9%9A%A7%E9%81%93/" style="font-size: 12px; color: #ccc">加密隧道</a> <a href="/tags/%E5%BB%BA%E7%AB%99/" style="font-size: 12px; color: #ccc">建站</a> <a href="/tags/%E7%BE%A4%E6%99%96/" style="font-size: 21px; color: #6f6f6f">群晖</a> <a href="/tags/%E9%9A%90%E5%8C%BF%E9%9A%A7%E9%81%93/" style="font-size: 12px; color: #ccc">隐匿隧道</a>
             </div>
           </div>
         
@@ -415,77 +415,6 @@
 
 
 
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/6.3.3/firebase-firestore.js"></script>
-  <script>
-    firebase.initializeApp({
-      apiKey   : 'AIzaSyBxjvI1Hqh1Ml5De2V87vw6zUoNNEjyKEc',
-      projectId: 'hexo-4bb81'
-    });
-
-    function getCount(doc, increaseCount) {
-      // IncreaseCount will be false when not in article page
-      return doc.get().then(d => {
-        var count = 0;
-        if (!d.exists) { // Has no data, initialize count
-          if (increaseCount) {
-            doc.set({
-              count: 1
-            });
-            count = 1;
-          }
-        } else { // Has data
-          count = d.data().count;
-          if (increaseCount) {
-            // If first view this article
-            doc.set({ // Increase count
-              count: count + 1
-            });
-            count++;
-          }
-        }
-
-        return count;
-      });
-    }
-
-    function appendCountTo(el) {
-      return count => {
-        el.innerText = count;
-      }
-    }
-  </script>
-  <script>
-    (function() {
-      var db = firebase.firestore();
-      var articles = db.collection('articles');
-
-      if (CONFIG.page.isPost) { // Is article page
-        var title = document.querySelector('.post-title').innerText.trim();
-        var doc = articles.doc(title);
-        var increaseCount = CONFIG.hostname === location.hostname;
-        if (localStorage.getItem(title)) {
-          increaseCount = false;
-        } else {
-          // Mark as visited
-          localStorage.setItem(title, true);
-        }
-        getCount(doc, increaseCount).then(appendCountTo(document.querySelector('.firestore-visitors-count')));
-      } else if (CONFIG.page.isHome) { // Is index page
-        var promises = [...document.querySelectorAll('.post-title')].map(element => {
-          var title = element.innerText.trim();
-          var doc = articles.doc(title);
-          return getCount(doc);
-        });
-        Promise.all(promises).then(counts => {
-          var metas = document.querySelectorAll('.firestore-visitors-count');
-          counts.forEach((val, idx) => {
-            appendCountTo(metas[idx])(val);
-          });
-        });
-      }
-    })();
-  </script>
 
 
 
