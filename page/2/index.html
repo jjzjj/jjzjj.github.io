@@ -224,6 +224,99 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/docker-make-openwrt/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="It's Me!">
+      <meta itemprop="description" content="Welcome To My Blog">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hedwig">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/2022/07/02/docker-make-openwrt/" class="post-title-link" itemprop="url">Docker容器编译原版OpenWrt固件</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2022-07-02 18:44:10" itemprop="dateCreated datePublished" datetime="2022-07-02T18:44:10+08:00">2022-07-02</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2022-07-03 01:33:56" itemprop="dateModified" datetime="2022-07-03T01:33:56+08:00">2022-07-03</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/" itemprop="url" rel="index"><span itemprop="name">NAS</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/NAS/OpenWrt/" itemprop="url" rel="index"><span itemprop="name">OpenWrt</span></a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <ul>
+<li><p>拉取</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/imagebuilder</span><br></pre></td></tr></table></figure></li>
+<li><p>或</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull openwrtorg/imagebuilder:x86_64-22.03-SNAPSHOT</span><br></pre></td></tr></table></figure>
+</li>
+<li><blockquote><p>给bin目录赋予权限，不然在Docker容器里面会提示没有权限，容器里面make的时候不能用sudo权限，不然也会编译错误。</p>
+<footer><strong>解决在Docker容器中make权限不足</strong><cite><a target="_blank" rel="noopener" href="https://github.com/openwrt/docker/issues/43">github.com/openwrt/docker/issues/43</a></cite></footer></blockquote>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> public</span><br><span class="line"><span class="built_in">chown</span> -R 1000:1000 public</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/2022/07/02/docker-make-openwrt/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
     <link itemprop="mainEntityOfPage" href="https://jjzjj.github.io/2022/07/02/scp/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -272,10 +365,10 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#x72;&#111;&#111;&#116;&#64;&#x34;&#52;&#46;&#53;&#53;&#46;&#x36;&#54;&#46;&#x37;&#55;">&#x72;&#111;&#111;&#116;&#64;&#x34;&#52;&#46;&#53;&#53;&#46;&#x36;&#54;&#46;&#x37;&#55;</a>:&#x2F;远程文件夹</p>
+          <h2 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h2><p>scp -r -P 端口 &#x2F;本地文件 <a href="mailto:&#114;&#111;&#111;&#x74;&#64;&#x34;&#52;&#46;&#x35;&#x35;&#x2e;&#54;&#x36;&#46;&#x37;&#x37;">&#114;&#111;&#111;&#x74;&#64;&#x34;&#52;&#46;&#x35;&#x35;&#x2e;&#54;&#x36;&#46;&#x37;&#x37;</a>:&#x2F;远程文件夹</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 /Users/abc/Downloads/filename.zip root@44.55.66.77:/opt</span><br></pre></td></tr></table></figure>
 
-<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#x72;&#111;&#x6f;&#x74;&#x40;&#x34;&#x34;&#46;&#53;&#53;&#x2e;&#54;&#x36;&#x2e;&#55;&#55;">&#x72;&#111;&#x6f;&#x74;&#x40;&#x34;&#x34;&#46;&#53;&#53;&#x2e;&#54;&#x36;&#x2e;&#55;&#55;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>scp -r -P 端口 <a href="mailto:&#114;&#111;&#111;&#116;&#64;&#52;&#x34;&#x2e;&#53;&#x35;&#x2e;&#54;&#x36;&#x2e;&#55;&#x37;">&#114;&#111;&#111;&#116;&#64;&#52;&#x34;&#x2e;&#53;&#x35;&#x2e;&#54;&#x36;&#x2e;&#55;&#x37;</a>:&#x2F;远程文件 &#x2F;本地文件</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-app-passwall_4.54_all.ipk /Users/abc/luci-app-passwall_4.54_all.ipk</span><br></pre></td></tr></table></figure>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp -r -P 22 root@44.55.66.77:/root/bin/packages/x86_64/PWluci/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk /Users/abc/luci-i18n-passwall-zh-cn_git-22.181.67929-152cc63_all.ipk</span><br></pre></td></tr></table></figure>
       
@@ -953,7 +1046,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">18</span>
+          <span class="site-state-item-count">19</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
